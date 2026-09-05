@@ -3,9 +3,11 @@ set -euo pipefail
 runtime="${PHYSICAL_DEMO_RUNTIME:-/data1/ybyang/physical-demo-lab-runtime}"
 repo_dir="$(cd -- "$(dirname -- "${BASH_SOURCE[0]}")/.." && pwd)"
 export XDG_CACHE_HOME="$runtime/cache/xdg"
+export CUDA_CACHE_PATH="$runtime/cache/cuda"
+export __GL_SHADER_DISK_CACHE_PATH="$runtime/cache/gl"
 export TMPDIR="$runtime/tmp"
+mkdir -p "$CUDA_CACHE_PATH" "$__GL_SHADER_DISK_CACHE_PATH"
 export OMNI_KIT_ACCEPT_EULA=YES
-export OMNI_KIT_ALLOW_ROOT=0
 export PYTHONUNBUFFERED=1
 run_args=("$@")
 output_dir=''
