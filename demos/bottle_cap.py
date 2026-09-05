@@ -15,6 +15,7 @@ try:
     from isaacsim.core.experimental.prims import Articulation, RigidPrim
     from isaacsim.core.experimental.utils.stage import add_reference_to_stage
     from isaacsim.storage.native import get_assets_root_path
+    from isaacsim.core.rendering_manager import RenderingManager
     from assembly_parts import ring, cylinder
 
     cx, cy, z0 = -.064, .068, 1.010
@@ -116,6 +117,7 @@ try:
             return hand.get_dof_positions().numpy(), p.numpy(), q.numpy()
 
     run.robots.append(Adapter())
+    RenderingManager.set_dt(run.dt)
     run.camera(eye=(-.65, .8, 1.5), target=(cx, cy, 1.10))
     run.start({'asset': asset, 'scope': 'contact-driven Allegro cap; equivalent passive spring helix, fixed bottle',
                'thread': {'pitch': pitch, 'release_angle': release_angle, 'spring': stiffness,

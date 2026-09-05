@@ -8,10 +8,12 @@ def verify_cap_trace(manifest, frames):
     last_yaw, angle, released_step = 0., 0., None
     max_error, max_force_residual, contact_rotation = 0., 0., 0.
     held_frames, best_held, contact_frames = 0, 0, 0
-    finite, release_valid, no_reengagement = True, False, True
+    finite, release_valid, no_reengagement, clock_valid = True, False, True, True
     links = manifest['contact_links']
     last = None
     for frame in frames:
+        clock_valid &= frame['physics_steps'] == frame['step']+1 and math.isclose(
+            frame['sim_time'], (frame['step']+1)*manifest['physics_dt'], abs_tol=1e-7)
         state, command = frame['objects_before_step'][0], frame['commands'][0]
         p, q = state['position'], state['orientation']
         values = p+q+state['linear_velocity']+state['angular_velocity']
@@ -51,7 +53,8 @@ def verify_cap_trace(manifest, frames):
             held_frames = 0
         best_held = max(best_held, held_frames)
         last = state
-    checks = {'finite_state': bool(finite and last is not None), 'actual_half_turn_disengagement': release_valid,
+    checks = {'finite_state': bool(finite and last is not None), 'trajectory_clock': clock_valid,
+              'actual_half_turn_disengagement': release_valid,
               'passive_coupling_replayed': max_force_residual < 1e-6,
               'helix_error_under_6mm': max_error <= .006, 'no_reengagement': no_reengagement,
               'contact_driven_rotation': contact_rotation >= 2.5 and contact_frames >= 120,
