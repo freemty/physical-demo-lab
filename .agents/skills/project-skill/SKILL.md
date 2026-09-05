@@ -31,9 +31,9 @@ description: Use when working on physical-demo-lab demos, Isaac Sim runtime inte
 - `demo004` two-arm bridge: three seeds pass both-arm participation and three
   seconds of released structure stability, with no control revision. Sequential
   workspace sharing, not joint grasping. See `reports/demo004-dual-blocks.md`.
-- `demo005` Allegro cap: implemented but not yet closed out. A seed passed;
-  other mass seeds exposed held-cap oscillation. Never turn a single pass into
-  three-seed completion. See `reports/demo005-bottle-cap-development.md`.
+- `demo005` Allegro cap: three final mass seeds pass contact-driven rotation,
+  explicit passive-helix disengagement and continuous free-cap holding. Earlier
+  stability failures are retained. See `reports/demo005-bottle-cap.md`.
 - The remaining restaurant, Lego and humanoid categories are planned.
   Read `docs/README.md` for source coverage and next-demo selection.
 

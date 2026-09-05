@@ -27,3 +27,8 @@ Added two-arm bridge evidence, sequential scope and sustained-support verificati
 
 Recorded Allegro mounting identity, contact reporting and app/physics clock
 integration. Cap development remains incomplete pending multi-seed stable hold.
+
+## 2026-09-06 — v6
+
+Closed the cap baseline with three fixed-controller mass seeds, negative controls,
+bounded solver findings and measured hold-based termination within the same budget.

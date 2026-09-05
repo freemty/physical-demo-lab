@@ -71,7 +71,22 @@
         "scripts/run_task.py": "f6c6e9d6be941529e18991a606257806499420a2e014d0511ab7eb81d4259762"
       }
     },
-    {"id": "demo005", "title": "灵巧手拧瓶盖", "status": "in_progress"},
+    {
+      "id": "demo005", "title": "灵巧手拧瓶盖", "status": "complete",
+      "scope": "Allegro 单手接触驱动、固定瓶身、等效螺纹耦合的旋盖提离基础版",
+      "verified_at": "2026-09-06",
+      "limitations": ["等效弹簧螺纹，不是微观螺旋齿面、双臂协作或原视频完整复刻", "仅三种质量初态；早期多次失败与求解器对照均保留，非首轮全通过", "张手负向使用同物理模型的前一终止逻辑版本，真实源码差异已记录"],
+      "report": "reports/demo005-bottle-cap.md",
+      "lessons": ["docs/knowhow/debug-solutions/allegro-mount-contact-clock.md"],
+      "evidence": ["reports/demo005-audit.json", "reports/demo005-negative-audit.json"],
+      "implementation": {
+        "demos/bottle_cap.py": "4e2eed10fd744089d733a43663deaee4aa7779cf1ad57d4732403289cbdaba69",
+        "demos/cap_verify.py": "d6478ec086e13901f2e7b8444def23201e22a8ad8383610c9dc5acf289d1137d",
+        "demos/assembly_parts.py": "da5b2788b36ff4fce4fa79e8aae085fe9aff3cc910fa43132f2d72d2ab019c73",
+        "demos/sim_runtime.py": "56301255c2075a735c62119fa92e279b5e306b49e3480634a2a2de983b210fd3",
+        "scripts/run_task.py": "f6c6e9d6be941529e18991a606257806499420a2e014d0511ab7eb81d4259762"
+      }
+    },
     {"id": "demo006", "title": "餐厅服务", "status": "planned"},
     {"id": "demo007", "title": "双臂拼乐高", "status": "planned"},
     {"id": "demo008", "title": "人形机器人室内行走", "status": "planned"}

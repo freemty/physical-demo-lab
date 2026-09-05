@@ -2,6 +2,9 @@
 
 ## Unreleased
 
+- Completed demo005 contact-driven cap opening on three fixed-controller mass
+  seeds, with passive-helix replay and sustained free-cap holding. Preserved all
+  development failures and solver comparisons; documented negative source scope.
 - Integrated an Allegro hand and explicit passive helical cap fixture; retained
   asset, clock and contact failures. Multi-seed stable holding is still in progress.
 - Completed demo004 two-arm bridge building on three independent seeds with

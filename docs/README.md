@@ -11,7 +11,7 @@
 | demo002 | 超市收银 | 基础版已验证并归档；三种初态、模拟扫描与装袋 |
 | demo003 | 齿轮拼装 | 基础版已验证并归档；三种初态插轴、落座、释放 |
 | demo004 | 双臂搭积木 | 基础版已验证并归档；双臂轮流搭桥、持续支撑 |
-| demo005 | 灵巧手拧瓶盖 | 资产与显式螺纹模型验证中 |
+| demo005 | 灵巧手拧瓶盖 | 基础版已验证并归档；单手、等效螺纹、三质量初态 |
 | demo006 | 餐厅服务 | 未开始 |
 | demo007 | 双臂拼乐高 | 未开始 |
 | demo008 | 人形机器人室内行走 | 未开始 |
@@ -39,7 +39,8 @@
   [几何干涉/完整姿态经验](knowhow/debug-solutions/gear-seating-and-pose.md)。
 - 第四项实测：[双臂积木报告](../reports/demo004-dual-blocks.md) 与
   [参与/持续支撑证据](knowhow/toolchain/dual-arm-support-evidence.md)。
-- 第五项开发：[包含失败的开发账本](../reports/demo005-bottle-cap-development.md) 与
+- 第五项实测：[开盖报告](../reports/demo005-bottle-cap.md)、
+  [包含失败的开发账本](../reports/demo005-bottle-cap-development.md) 与
   [Allegro 安装/接触/时钟经验](knowhow/debug-solutions/allegro-mount-contact-clock.md)。
 
 ## 写到哪里
