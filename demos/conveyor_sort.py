@@ -8,10 +8,11 @@ import hashlib
 import json
 import os
 import platform
+import shutil
 import subprocess
 import sys
 import time
-from importlib.metadata import version
+from importlib.metadata import distributions, version
 from pathlib import Path
 
 parser = argparse.ArgumentParser()
@@ -128,6 +129,14 @@ for i in range(args.objects):
     objects.append({'id': f'parcel_{i}', 'color': color, 'size': size, 'body': body,
                     'initial_position': position, 'max_lift': 0., 'belt_displacement': 0.})
 
+# Distinct landing slots prevent deliberately commanding two boxes to overlap.
+for color in COLORS:
+    same_color = [obj for obj in objects if obj['color'] == color]
+    for slot, obj in enumerate(same_color):
+        obj['placement'] = list(bins[color]['center'])
+        if len(same_color) > 1:
+            obj['placement'][0] += -0.06 if slot == 0 else 0.06
+
 light = UsdLux.DomeLight.Define(stage, '/World/Light')
 light.CreateIntensityAttr(1500)
 sun = UsdLux.DistantLight.Define(stage, '/World/Sun')
@@ -172,6 +181,19 @@ manifest = {
     'limitations': ['No visual perception or learned policy.', 'Conveyor pauses for picking.',
                     'No collision-aware global planning.', 'Procedural boxes, not a replica of the reference video.'],
 }
+source_root = Path(__file__).resolve().parents[1]
+manifest['source_files'] = {}
+for relative in ['README.md', 'demos/conveyor_sort.py', 'demos/verification.py',
+                 'scripts/run.sh', 'scripts/setup_server.sh', 'scripts/evaluate.py']:
+    source_path = source_root / relative
+    target_path = args.output / 'source' / relative
+    target_path.parent.mkdir(parents=True, exist_ok=True)
+    shutil.copy2(source_path, target_path)
+    manifest['source_files'][relative] = hashlib.sha256(source_path.read_bytes()).hexdigest()
+manifest['installed_packages'] = sorted(
+    [{'name': d.metadata['Name'], 'version': d.version} for d in distributions()],
+    key=lambda item: item['name'].lower(),
+)
 (args.output/'manifest.json').write_text(json.dumps(manifest, indent=2))
 stage.GetRootLayer().Export(str(args.output/'scene.usda'))
 trajectory = (args.output/'trajectory.jsonl').open('w')
@@ -214,7 +236,7 @@ try:
             obj['max_lift'] = max(obj['max_lift'], state['position'][2]-obj['initial_position'][2])
         if phase not in ('final_settle', 'done'):
             obj, state = objects[active], states[active]
-            dest = bins[obj['color']]['center']
+            dest = obj['placement']
         if phase == 'feed':
             closed = False
             command = np.array([0.36, -0.40, 1.10])

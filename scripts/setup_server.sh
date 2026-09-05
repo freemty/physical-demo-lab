@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 # Isolated Isaac Sim runtime. Never installs into an existing training environment.
 set -euo pipefail
-runtime="${PHYSICAL_DEMO_RUNTIME:-/data0/ybyang/physical-demo-lab-runtime}"
+runtime="${PHYSICAL_DEMO_RUNTIME:-/data1/ybyang/physical-demo-lab-runtime}"
 uv_bin="${UV_BIN:-/home/ybyang/.local/bin/uv}"
 mkdir -p "$runtime"/{cache/uv,cache/xdg,cache/pip,python,tmp,logs,outputs}
 export UV_CACHE_DIR="$runtime/cache/uv"

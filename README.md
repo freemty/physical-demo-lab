@@ -19,7 +19,7 @@ Isaac Sim 机器人仿真 demo；每次运行保留源码版本、场景、控�
 ```bash
 bash scripts/setup_server.sh
 bash scripts/run.sh --gpu 1 --seed 0 --objects 3 \
-  --output /data0/ybyang/physical-demo-lab-runtime/outputs/seed-0-first
+  --output /data1/ybyang/physical-demo-lab-runtime/outputs/seed-0-first
 ```
 
 `PHYSICAL_DEMO_RUNTIME` 可覆盖默认数据盘路径；`UV_BIN` 可覆盖 uv 的路径。输出目录必须不存在，失败尝试也保留，重跑需使用新目录。
