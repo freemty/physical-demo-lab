@@ -43,7 +43,7 @@ class RestaurantAppearance:
         'window': ('60949A', .22, .15),
     }
     SHOTS = {
-        'loading': {'eye': [1.65, -1.9, 1.65], 'target': [.33, -.09, .84], 'focal_mm': 27.},
+        'loading': {'eye': [1.9, -2.2, 1.8], 'target': [.35, -.05, .91], 'focal_mm': 27.},
         'travel': {'eye': [4.05, -3.45, 2.8], 'target': [1.28, .53, .65], 'focal_mm': 27.},
         'arrival': {'eye': [3.6, -.3, 1.55], 'target': [2.48, 1.02, .76], 'focal_mm': 32.},
     }
@@ -86,10 +86,32 @@ class RestaurantAppearance:
         return self._style(shape, p, material, size, rotation)
 
     def cylinder(self, path, p, radius, height, material, axis='Z'):
-        shape = self.UsdGeom.Cylinder.Define(self.stage, path)
-        shape.CreateRadiusAttr(radius)
-        shape.CreateHeightAttr(height)
-        shape.CreateAxisAttr(axis)
+        # Explicit smooth visual mesh avoids the renderer's coarse primitive tessellation.
+        points, normals, counts, indices = [], [], [], []
+        n = 48
+        def oriented(v):
+            return [v[0], -v[2], v[1]] if axis == 'Y' else [v[2], v[1], -v[0]] if axis == 'X' else v
+        for ring in range(4):
+            z = height/2 if ring%2 == 0 else -height/2
+            for i in range(n):
+                a = i*2*math.pi/n
+                points.append(self.Gf.Vec3f(*oriented([radius*math.cos(a), radius*math.sin(a), z])))
+                normal = [math.cos(a), math.sin(a), 0] if ring < 2 else [0, 0, 1 if ring%2 == 0 else -1]
+                normals.append(self.Gf.Vec3f(*oriented(normal)))
+        for z in [height/2, -height/2]:
+            points.append(self.Gf.Vec3f(*oriented([0, 0, z])))
+            normals.append(self.Gf.Vec3f(*oriented([0, 0, 1 if z > 0 else -1])))
+        for i in range(n):
+            j = (i+1)%n
+            counts.extend([4, 3, 3])
+            indices.extend([i, n+i, n+j, j, 4*n, 2*n+i, 2*n+j, 4*n+1, 3*n+j, 3*n+i])
+        shape = self.UsdGeom.Mesh.Define(self.stage, path)
+        shape.CreatePointsAttr(points)
+        shape.CreateFaceVertexCountsAttr(counts)
+        shape.CreateFaceVertexIndicesAttr(indices)
+        shape.CreateNormalsAttr(normals)
+        shape.SetNormalsInterpolation('vertex')
+        shape.CreateSubdivisionSchemeAttr('none')
         return self._style(shape, p, material)
 
     def ellipsoid(self, path, p, radii, material, rotation=None):
@@ -98,7 +120,7 @@ class RestaurantAppearance:
         return self._style(shape, p, material, radii, rotation)
 
     def torus(self, path, p, radius, tube, material, rotation=None):
-        points, counts, indices = [], [], []
+        points, normals, counts, indices = [], [], [], []
         n, m = 40, 10
         for i in range(n):
             a = i*2*math.pi/n
@@ -106,6 +128,7 @@ class RestaurantAppearance:
                 b = j*2*math.pi/m
                 r = radius+tube*math.cos(b)
                 points.append(self.Gf.Vec3f(r*math.cos(a), r*math.sin(a), tube*math.sin(b)))
+                normals.append(self.Gf.Vec3f(math.cos(a)*math.cos(b), math.sin(a)*math.cos(b), math.sin(b)))
         for i in range(n):
             for j in range(m):
                 counts.append(4)
@@ -114,6 +137,8 @@ class RestaurantAppearance:
         shape.CreatePointsAttr(points)
         shape.CreateFaceVertexCountsAttr(counts)
         shape.CreateFaceVertexIndicesAttr(indices)
+        shape.CreateNormalsAttr(normals)
+        shape.SetNormalsInterpolation('vertex')
         shape.CreateSubdivisionSchemeAttr('none')
         return self._style(shape, p, material, rotation=rotation)
 
@@ -131,7 +156,7 @@ class RestaurantAppearance:
             a = math.radians(angle)
             z = .40+i*.045
             self.ellipsoid(path+f'/Leaf{i}', [.12*math.cos(a), .12*math.sin(a), z],
-                           [.20, .055, .05], 'green' if i%2 else 'green_light', [0, -28, angle])
+                           [.20, .060, .012], 'green' if i%2 else 'green_light', [0, -28, angle])
 
     def setting(self, name, x, y, z):
         path = self.root+'/'+name
@@ -247,12 +272,14 @@ class RestaurantAppearance:
                 self.box(wheel+f'/Spoke{j}', [0, (-1 if i else 1)*.018, 0], [.10, .003, .008], 'metal', [0, j*60, 0])
         self.box('/World/ServiceCart/Accent', [.161, 0, 0], [.003, .14, .025], 'brass')
         dome = UsdLux.DomeLight.Get(self.stage, '/World/Light')
-        dome.GetIntensityAttr().Set(450.)
+        dome.GetIntensityAttr().Set(650.)
         dome.CreateColorAttr(self.Gf.Vec3f(.84, .91, 1.))
         sun = UsdLux.DistantLight.Get(self.stage, '/World/Sun')
-        sun.GetIntensityAttr().Set(900.)
+        sun.GetIntensityAttr().Set(1000.)
         sun.CreateColorAttr(self.Gf.Vec3f(1., .94, .84))
         sun.CreateAngleAttr(1.2)
+        # Illuminate from the open front, rather than through the opaque back wall.
+        sun.GetOrderedXformOps()[0].Set(self.Gf.Vec3f(35, 15, -15))
         after_hash, after = physics_signature(self.stage)
         collision_free = all(not self.stage.GetPrimAtPath(p).HasAPI(UsdPhysics.CollisionAPI)
                              and not self.stage.GetPrimAtPath(p).HasAPI(UsdPhysics.RigidBodyAPI)
@@ -262,6 +289,8 @@ class RestaurantAppearance:
                       'added_geometry_collision_free': collision_free,
                       'decorative_primitive_count': len(self.decor_paths), 'decorative_paths': self.decor_paths}
         self.run.write('visual-physics-guard.json', self.guard)
+        self.run.write('visual-physics-before.json', before)
+        self.run.write('visual-physics-after.json', after)
         if before != after or not collision_free:
             raise RuntimeError('Appearance layer changed physical properties or introduced collision geometry')
 

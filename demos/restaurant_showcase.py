@@ -18,7 +18,7 @@ class ShowcaseRun(sim_runtime.Run):
         metadata['presentation'] = {
             'entry': 'demos/restaurant_showcase.py', 'baseline_controller': 'demos/restaurant.py',
             'style': 'warm wood cafe with teal upholstery and coral food packaging',
-            'lights': {'dome_intensity': 450., 'sun_intensity': 900.},
+            'lights': {'dome_intensity': 650., 'sun_intensity': 1000., 'sun_rotation_xyz_deg': [35, 15, -15]},
             'shots': self.appearance.SHOTS,
             'physical_properties_unchanged': self.appearance.guard['identical_physical_properties'],
             'new_geometry_collision_free': self.appearance.guard['added_geometry_collision_free'],
