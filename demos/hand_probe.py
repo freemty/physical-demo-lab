@@ -16,7 +16,7 @@ try:
     hand = Articulation(path)
     hand.set_world_poses(positions=[0., 0., 1.15], orientations=[0., 1., 0., 0.])
     run.write('asset-structure.json', {'asset': asset, 'dof_names': hand.dof_names,
-        'link_paths': hand.link_paths, 'limits': hand.get_dof_limits().numpy().tolist(),
+        'link_paths': hand.link_paths, 'limits': [value.numpy().tolist() for value in hand.get_dof_limits()],
         'joints': [{'path': str(p.GetPath()), 'type': p.GetTypeName(),
                     'body0': [str(t) for t in UsdPhysics.Joint(p).GetBody0Rel().GetTargets()],
                     'body1': [str(t) for t in UsdPhysics.Joint(p).GetBody1Rel().GetTargets()]}
