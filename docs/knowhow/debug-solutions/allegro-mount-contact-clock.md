@@ -48,3 +48,12 @@ loop-runner manual step 和相关 Fabric 默认值，不修改物理场景 timeS
 
 不同平台的 `atan2`/累计浮点误差可能有约 1e-15 差异；结果数值复核使用小容差，
 离散成功检查和脱扣帧仍严格相等。不能把浮点完全相等当跨平台物理一致性的标准。
+
+## TGS 与 D6：更多速度迭代不等于更准确
+
+2026-09-06 查询 [NVIDIA Known Physics Limitations](https://docs.omniverse.nvidia.com/kit/docs/omni_physics/latest/dev_guide/guides/current_limitations.html)
+的 D6 Joint Drive、TGS Velocity Iterations、Articulation Joint Drive with TGS solver 条目。
+官方明确指出 TGS+D6 驱动与速度迭代的已知兼容性问题，推荐零速度迭代或尝试 PGS；
+驱动达到稳态却报告非零速度时，可测试每次内部求解迭代施加外力选项。
+该文档使后续候选改为全场 64/0 迭代及 `enableExternalForcesEveryIteration=True`。
+尚未把此前抖动唯一归因于该问题；需要保留对照及实际速度结果后再判断本夹具的效果。

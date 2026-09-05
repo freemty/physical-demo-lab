@@ -22,6 +22,14 @@ try:
     pitch, release_angle, mass = .012, math.pi, float(run.rng.uniform(.038, .042))
     stiffness, damping, rotary_drag = 1000., 2., .002
     negative = os.environ.get('BOTTLE_NO_CLOSE') == '1'
+    scene = UsdPhysics.Scene.Define(run.stage, '/World/CapPhysics')
+    scene_api = PhysxSchema.PhysxSceneAPI.Apply(scene.GetPrim())
+    scene_api.CreateSolverTypeAttr('TGS')
+    scene_api.CreateMinPositionIterationCountAttr(64)
+    scene_api.CreateMaxPositionIterationCountAttr(64)
+    scene_api.CreateMinVelocityIterationCountAttr(0)
+    scene_api.CreateMaxVelocityIterationCountAttr(0)
+    scene_api.CreateEnableExternalForcesEveryIterationAttr(True)
     run.box('/World/Floor', [0, 0, -.03], [3, 3, .06], [.3]*3)
     run.box('/World/Table', [0, 0, .76], [.8, .8, .08], [.4]*3)
     cylinder(run, '/World/Bottle', [cx, cy, .89], .04, .18, [.32, .48, .48])
@@ -36,7 +44,7 @@ try:
     UsdPhysics.MassAPI.Apply(root.GetPrim()).CreateMassAttr(mass)
     rb = PhysxSchema.PhysxRigidBodyAPI.Apply(root.GetPrim())
     rb.CreateSolverPositionIterationCountAttr(32)
-    rb.CreateSolverVelocityIterationCountAttr(8)
+    rb.CreateSolverVelocityIterationCountAttr(0)
     rb.CreateSleepThresholdAttr(0.)
     cap = RigidPrim('/World/Cap')
     obj = {'id': 'Cap', 'body': cap, 'initial_position': [cx, cy, z0], 'mass': mass, 'max_lift': 0.}
@@ -100,7 +108,7 @@ try:
     hand.set_default_state(dof_positions=q_open)
     hand.set_dof_gains(stiffnesses=3., dampings=.3)
     hand.set_dof_max_efforts(.5)
-    hand.set_solver_iteration_counts(position_counts=64, velocity_counts=16)
+    hand.set_solver_iteration_counts(position_counts=64, velocity_counts=0)
     palm = RigidPrim(mount_path)
     contact_links = [p for p in hand.link_paths[0] if any(f+'_' in p for f in ('index', 'middle', 'ring', 'thumb'))]
     for link in contact_links+['/World/Cap']:
@@ -124,7 +132,8 @@ try:
                'thread': {'pitch': pitch, 'release_angle': release_angle, 'spring': stiffness,
                           'damping': damping, 'rotary_drag': rotary_drag, 'z0': z0},
                'negative_no_close': negative, 'dof_names': hand.dof_names, 'contact_links': contact_links,
-               'video_fps': 120})
+               'video_fps': 120, 'solver': {'type': 'TGS', 'position_iterations': 64, 'velocity_iterations': 0,
+                                          'external_forces_every_iteration': True}})
     if run.writer:
         # No frame has yet been written. Keep real-time playback at 240 Hz
         # physics / one image per two steps, without changing the shared Run.

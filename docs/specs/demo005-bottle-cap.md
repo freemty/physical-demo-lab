@@ -45,3 +45,8 @@
 120 Hz 下 seed 1/2 的保持不稳定，手指阻尼 .3 的修订也未通过 seed 1。
 后续候选采用 240 Hz app/physics、手部 64 位置/16 速度求解迭代、相同阈值。
 视频每两步一帧，120 fps 实时播放。没有新增瓶盖附件、旋转电机或后处理平滑。
+
+依据 [NVIDIA 已知限制](https://docs.omniverse.nvidia.com/kit/docs/omni_physics/latest/dev_guide/guides/current_limitations.html)
+的 D6/TGS/velocity-iterations 与 steady-state velocity 条目，另开对照：TGS 全场
+64 位置/0 速度迭代，启用每次求解迭代施加外力。原 240 Hz/16 速度迭代运行继续保留。
+这项数值求解配置必须经过真实运行检查，不能仅凭官方建议记为修复。
