@@ -4,3 +4,8 @@ __pycache__/
 outputs/
 .runtime-path
 .DS_Store
+# labmate rules
+.pipeline-state.json
+.labmate-hook-state.json
+.labmate-hook-state.lock
+.labmate-state-*

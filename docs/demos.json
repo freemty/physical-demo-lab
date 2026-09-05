@@ -1,0 +1,35 @@
+{
+  "schema_version": 1,
+  "demos": [
+    {
+      "id": "demo001",
+      "title": "流水线颜色分拣",
+      "status": "complete",
+      "scope": "已知物体位姿和颜色、停带抓取的脚本控制基础版",
+      "verified_at": "2026-09-06",
+      "limitations": [
+        "未获得原视频完整轨迹，不是逐动作复刻；没有视觉识别、学习策略或不停带抓取",
+        "最终十个 seed 包含一次退出故障后的重跑和两个源码版本，不是固定版本首轮 10/10"
+      ],
+      "report": "reports/bootstrap-validation.md",
+      "lessons": [
+        "docs/knowhow/infrastructure/server23-isaac-sim.md",
+        "docs/knowhow/debug-solutions/conveyor-and-teardown.md",
+        "docs/knowhow/toolchain/evidence-and-verification.md"
+      ],
+      "evidence": ["reports/audit-final.json"],
+      "implementation": {
+        "demos/conveyor_sort.py": "ee7de9c25affd53634a8c0ac9b590fa1841b9aafaa8ec27a914caed7f4455e7d",
+        "demos/verification.py": "30997a0e7323a91143f0c04f7b418077b3973841bc14a2b191dfc38bb137d369",
+        "scripts/run.sh": "37d74974a9c3d94fe147bef6a8db557da0b9e7b6209d84ac35bd50db144ea01a"
+      }
+    },
+    {"id": "demo002", "title": "超市收银", "status": "planned"},
+    {"id": "demo003", "title": "齿轮拼装", "status": "planned"},
+    {"id": "demo004", "title": "双臂搭积木", "status": "planned"},
+    {"id": "demo005", "title": "灵巧手拧瓶盖", "status": "planned"},
+    {"id": "demo006", "title": "餐厅服务", "status": "planned"},
+    {"id": "demo007", "title": "双臂拼乐高", "status": "planned"},
+    {"id": "demo008", "title": "人形机器人室内行走", "status": "planned"}
+  ]
+}
