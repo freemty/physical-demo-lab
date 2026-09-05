@@ -40,7 +40,22 @@
         "scripts/run_task.py": "f6c6e9d6be941529e18991a606257806499420a2e014d0511ab7eb81d4259762"
       }
     },
-    {"id": "demo003", "title": "齿轮拼装", "status": "in_progress"},
+    {
+      "id": "demo003", "title": "齿轮拼装", "status": "complete",
+      "scope": "已知零件位姿的近似齿轮摩擦夹持、插轴与释放基础版",
+      "verified_at": "2026-09-06",
+      "limitations": ["矩形近似齿与毫米级间隙，不验证渐开线精密装配或受载传动", "无视觉、学习策略或完整原视频复刻；最终三次通过前有物理失败和运行时异常"],
+      "report": "reports/demo003-gears.md",
+      "lessons": ["docs/knowhow/debug-solutions/gear-seating-and-pose.md"],
+      "evidence": ["reports/demo003-audit.json"],
+      "implementation": {
+        "demos/gear_assembly.py": "dac330ca8adfc79c45a4f491b820db1cab58e7ea8f4748dd2d91a936153581cb",
+        "demos/assembly_parts.py": "da5b2788b36ff4fce4fa79e8aae085fe9aff3cc910fa43132f2d72d2ab019c73",
+        "demos/gear_verify.py": "924fe4bfce9942c152540c5d3d3ab7adf617a1aa384fc829da1ed1ab19b06187",
+        "demos/sim_runtime.py": "56301255c2075a735c62119fa92e279b5e306b49e3480634a2a2de983b210fd3",
+        "scripts/run_task.py": "f6c6e9d6be941529e18991a606257806499420a2e014d0511ab7eb81d4259762"
+      }
+    },
     {"id": "demo004", "title": "双臂搭积木", "status": "planned"},
     {"id": "demo005", "title": "灵巧手拧瓶盖", "status": "planned"},
     {"id": "demo006", "title": "餐厅服务", "status": "planned"},

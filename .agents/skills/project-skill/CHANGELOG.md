@@ -14,3 +14,7 @@ Recorded verified fast-forward Git bundle fallback after server HTTPS sync faile
 ## 2026-09-06 — v2
 
 Added checkout's three-seed physical/scan evidence and the reusable process recorder.
+
+## 2026-09-06 — v3
+
+Added verified gear insertion and bounded collision-clearance/part-pose lessons.

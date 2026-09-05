@@ -2,6 +2,9 @@
 
 ## Unreleased
 
+- Completed demo003 gear insertion across three fixed-version independent seeds;
+  preserved a seating failure and a serialization exception, plus negative evidence.
+  Filed compound-geometry interference and carried-part pose-feedback lessons.
 - Completed demo002 checkout baseline across three independent seeds, with
   trajectory-derived simulated scans, correct receipt totals and frictional bagging.
 - Added process-exit capture, shared recording and task-specific independent audit;

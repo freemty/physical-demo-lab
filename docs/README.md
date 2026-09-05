@@ -9,7 +9,7 @@
 | --- | --- | --- |
 | demo001 | 流水线颜色分拣 | 基础版已验证并归档；已知位姿、停带抓取 |
 | demo002 | 超市收银 | 基础版已验证并归档；三种初态、模拟扫描与装袋 |
-| demo003 | 齿轮拼装 | 实现与验证中 |
+| demo003 | 齿轮拼装 | 基础版已验证并归档；三种初态插轴、落座、释放 |
 | demo004 | 双臂搭积木 | 未开始 |
 | demo005 | 灵巧手拧瓶盖 | 未开始 |
 | demo006 | 餐厅服务 | 未开始 |
@@ -35,6 +35,8 @@
   [独立审计结果](../reports/audit-final.json)。
 - 第二项实测：[收银报告](../reports/demo002-checkout.md) 与
   [扫描/进程证据经验](knowhow/toolchain/checkout-and-process-evidence.md)。
+- 第三项实测：[齿轮报告](../reports/demo003-gears.md) 与
+  [几何干涉/完整姿态经验](knowhow/debug-solutions/gear-seating-and-pose.md)。
 
 ## 写到哪里
 

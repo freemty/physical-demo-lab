@@ -25,11 +25,18 @@ description: Use when working on physical-demo-lab demos, Isaac Sim runtime inte
 - `demo002` checkout: seeds 0, 1, 2 pass physical bagging and trajectory-replayed
   simulated scan/receipt checks; forced one-step failure returns 2. Known SKU IDs,
   not barcode perception. See `reports/demo002-checkout.md` and its audit.
-- The other six reference task categories are planned, not implemented.
+- `demo003` gear insertion: three fixed-version seeds pass strict seating,
+  alignment, release and process/trajectory checks after two retained failures.
+  Approximate compound teeth, not precision transmission. See `reports/demo003-gears.md`.
+- The other five reference task categories are planned, not implemented.
   Read `docs/README.md` for source coverage and next-demo selection.
 
 ## Durable pitfalls
 
+- For carried-part insertion, a downward gripper does not guarantee a level part;
+  inspect part pose and collision clearance. Joint geometry/control revisions
+  solved this gear fixture, without establishing separate causal effects. See
+  `docs/knowhow/debug-solutions/gear-seating-and-pose.md`.
 - Moving a kinematic belt surface may leave sleeping parcels stationary;
   the observed fix disables parcel sleep. It is not proof that changing sleep
   settings solves every contact problem. See
