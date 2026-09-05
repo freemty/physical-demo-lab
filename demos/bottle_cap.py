@@ -140,7 +140,7 @@ try:
         import imageio.v2 as imageio
         run.writer.close()
         run.writer = imageio.get_writer(str(run.output/'video.mp4'), fps=120, codec='libx264', quality=8, macro_block_size=2)
-    angle, last_yaw, released_step, max_error = 0., 0., None, 0.
+    angle, last_yaw, released_step, max_error, held_steps = 0., 0., None, 0., 0
     for step in range(run.args.max_steps):
         tick = step*run.dt*60
         states = run.observe()
@@ -183,13 +183,22 @@ try:
         spin.GetTargetVelocityAttr().Set(target_velocity)
         height.GetTargetPositionAttr().Set(target_height)
         contact_forces = contact.get_contact_force_matrix(dt=run.dt).numpy().tolist()
+        contact_fingers = {link.rsplit('/', 1)[-1].split('_')[0]
+                           for link, force in zip(contact_links, contact_forces)
+                           if sum(v*v for v in force[0]) > .05**2}
+        held = (released_step is not None and s['position'][2]-z0 >= .1
+                and 'thumb' in contact_fingers and len(contact_fingers) >= 2
+                and sum(v*v for v in s['linear_velocity']) < .03**2
+                and sum(v*v for v in s['angular_velocity']) < .5**2)
+        held_steps = held_steps+1 if held else 0
         run.step(phase, [{'joints': fingers.tolist(), 'wrist_angle_deg': target_angle, 'wrist_height': target_height,
                          'wrist_velocity_deg_s': target_velocity, 'finger_contact_forces': contact_forces,
                          'thread_force_z': force, 'thread_torque_z': torque, 'cap_angle': angle,
                          'helix_error': error, 'thread_engaged': released_step is None}], states)
         if step % 480 == 0:
             run.event('progress', cap_angle=angle, cap_position=s['position'], helix_error=error, phase=phase)
-        if released_step is not None and (step-released_step)*run.dt > 10.:
+        if (released_step is not None and (step-released_step)*run.dt > 10.
+                and held_steps*run.dt >= 2.):
             break
     final = run.observe()[0]
     from cap_verify import verify_cap_trace
