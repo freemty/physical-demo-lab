@@ -8,7 +8,7 @@ try:
     import numpy as np
     from isaacsim.core.experimental.prims import RigidPrim
     from assembly_parts import gear, cylinder
-    from gear_verify import verify_gear, yaw_of, wrap
+    from gear_verify import verify_gear, multiply_quaternions
 
     run.box('/World/Floor', [0, 0, -.03], [5, 5, .06], [.40]*3)
     run.box('/World/RobotPedestal', [0, 0, .35], [.22, .22, .70], [.24]*3)
@@ -58,8 +58,10 @@ try:
         if phase in ('align', 'insert'):
             desired_part = np.array([.43, .25, .82]) if phase == 'align' else np.array(target['position'])
             targets[phase] = ee[0]+desired_part-np.array(state['position'])
-            hand_yaw = yaw_of(ee_quat[0]) + wrap(target['yaw']-yaw_of(state['orientation']))
-            orientation = [0., math.cos(hand_yaw/2), math.sin(hand_yaw/2), 0.]
+            # Correct the carried part in all three rotational axes. Merely
+            # keeping the palm downward leaves grasp-induced gear tilt intact.
+            w, x, y, z = state['orientation']
+            orientation = multiply_quaternions([w, -x, -y, -z], ee_quat[0])
         t = min(1., age/(duration*.8))
         t = t*t*(3-2*t)
         command = phase_start*(1-t)+np.array(targets[phase])*t

@@ -11,6 +11,13 @@ def wrap(angle):
     return (angle+math.pi) % (2*math.pi)-math.pi
 
 
+def multiply_quaternions(a, b):
+    w, x, y, z = a
+    v, i, j, k = b
+    return [w*v-x*i-y*j-z*k, w*i+x*v+y*k-z*j,
+            w*j-x*k+y*v+z*i, w*k+x*j-y*i+z*v]
+
+
 def verify_gear(state, target):
     p, q = state['position'], state['orientation']
     numbers = p+q+state['linear_velocity']+state['angular_velocity']

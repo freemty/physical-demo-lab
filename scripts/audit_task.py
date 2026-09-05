@@ -8,6 +8,7 @@ from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[1]/'demos'))
 from checkout_verify import verify_checkout
+from gear_verify import verify_gear
 
 
 def audit(folder):
@@ -62,6 +63,14 @@ def audit(folder):
         verification = verify_checkout(states, manifest['bag'], manifest['objects'], observed_scans)
         semantic = verification['success'] and observed_scans == result['receipt']['lines']
         semantic &= result['receipt']['total_cents'] == sum(o['price_cents'] for o in manifest['objects'])
+    elif manifest['task'] == 'gear_assembly' and final_frame:
+        state = dict(final_frame['objects_after_step'][0])
+        robot = final_frame['robots'][0]
+        distance = sum((a-b)**2 for a, b in zip(state['position'], robot['hand_position'][0]))**.5
+        state.update(max_lift=max_lift[state['id']],
+                     released_and_retracted=min(robot['joints'][0][-2:]) > .03 and distance > .15)
+        verification = verify_gear(state, manifest['target'])
+        semantic = verification['success'] and verification['checks'] == result['verification']['checks']
     else:
         verification = {'success': False, 'reason': 'No independent semantic auditor for this task yet'}
     success = (source_valid and continuous and semantic and result['success']
