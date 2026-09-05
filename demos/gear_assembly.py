@@ -61,7 +61,7 @@ try:
             # Correct the carried part in all three rotational axes. Merely
             # keeping the palm downward leaves grasp-induced gear tilt intact.
             w, x, y, z = state['orientation']
-            orientation = multiply_quaternions([w, -x, -y, -z], ee_quat[0])
+            orientation = [float(value) for value in multiply_quaternions([w, -x, -y, -z], ee_quat[0])]
         t = min(1., age/(duration*.8))
         t = t*t*(3-2*t)
         command = phase_start*(1-t)+np.array(targets[phase])*t
