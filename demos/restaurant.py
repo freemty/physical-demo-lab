@@ -14,7 +14,16 @@ try:
     from service_cart import ServiceCart
     from restaurant_verify import DeliveryAudit
     from gear_verify import yaw_of, wrap
+    from pxr import PhysxSchema, UsdPhysics
 
+    scene = UsdPhysics.Scene.Define(run.stage, '/World/RestaurantPhysics')
+    scene_api = PhysxSchema.PhysxSceneAPI.Apply(scene.GetPrim())
+    scene_api.CreateSolverTypeAttr('TGS')
+    scene_api.CreateMinPositionIterationCountAttr(64)
+    scene_api.CreateMaxPositionIterationCountAttr(64)
+    scene_api.CreateMinVelocityIterationCountAttr(0)
+    scene_api.CreateMaxVelocityIterationCountAttr(0)
+    scene_api.CreateEnableExternalForcesEveryIterationAttr(True)
     run.box('/World/Floor', [1.3, .5, -.03], [5., 4., .06], [.38]*3)
     run.box('/World/Counter', [.45, -.40, .66], [.85, .50, .08], [.56, .49, .38])
     run.box('/World/ArmPedestal', [0, -.32, .35], [.22, .22, .7], [.25]*3)
@@ -37,6 +46,8 @@ try:
     run.camera(eye=(4.15, -4.25, 3.50), target=(1.2, .35, .5))
     waypoints = [[1.2, .17], [1.9, .78], [2.65, .83]]
     run.start({'delivery_goal': waypoints[-1], 'waypoints': waypoints,
+               'solver': {'type': 'TGS', 'position_iterations': 64, 'velocity_iterations': 0,
+                          'external_forces_every_iteration': True},
                'negative_zero_wheels': zero_wheels,
                'cart_model': {'wheel_radius': cart.RADIUS, 'track': cart.TRACK,
                               'mass_kg': 8., 'center_of_mass_local': [0, 0, .015],
