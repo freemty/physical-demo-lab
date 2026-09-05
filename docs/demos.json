@@ -56,7 +56,7 @@
         "scripts/run_task.py": "f6c6e9d6be941529e18991a606257806499420a2e014d0511ab7eb81d4259762"
       }
     },
-    {"id": "demo004", "title": "双臂搭积木", "status": "planned"},
+    {"id": "demo004", "title": "双臂搭积木", "status": "in_progress"},
     {"id": "demo005", "title": "灵巧手拧瓶盖", "status": "planned"},
     {"id": "demo006", "title": "餐厅服务", "status": "planned"},
     {"id": "demo007", "title": "双臂拼乐高", "status": "planned"},
