@@ -11,6 +11,7 @@ from checkout_verify import verify_checkout
 from gear_verify import verify_gear
 from blocks_verify import verify_bridge
 from cap_verify import verify_cap_trace
+from restaurant_verify import verify_delivery_trace
 
 
 def audit(folder):
@@ -112,6 +113,14 @@ def audit(folder):
         semantic = (verification['success'] and verification['checks'] == reported['checks'] and metrics_match
                     and verification['released_step'] == reported['released_step']
                     and len(release_events) == 1 and release_events[0]['step'] == verification['released_step'])
+    elif manifest['task'] == 'restaurant' and final_frame:
+        with (folder/'trajectory.jsonl').open() as trace:
+            verification = verify_delivery_trace(manifest, map(json.loads, trace))
+        reported = result['verification']
+        metrics_match = all(math.isclose(verification[key], reported[key], abs_tol=1e-8, rel_tol=1e-7)
+                            for key in ('travel', 'path', 'wheel_rotation', 'stable_seconds', 'transit_frames'))
+        semantic = (verification['success'] and verification['checks'] == reported['checks'] and metrics_match
+                    and verification['lifted'] == reported['lifted'])
     else:
         verification = {'success': False, 'reason': 'No independent semantic auditor for this task yet'}
     success = (source_valid and continuous and semantic and result['success']
