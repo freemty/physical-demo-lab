@@ -9,6 +9,7 @@ from pathlib import Path
 sys.path.insert(0, str(Path(__file__).resolve().parents[1]/'demos'))
 from checkout_verify import verify_checkout
 from gear_verify import verify_gear
+from blocks_verify import verify_bridge
 
 
 def audit(folder):
@@ -24,6 +25,18 @@ def audit(folder):
     transported = {o['id']: 0. for o in manifest['objects']}
     events = [json.loads(line) for line in (folder/'events.jsonl').read_text().splitlines()]
     active, event_idx = 0, 0
+    participants, settle_frames, stable_bridge = set(), 0, True
+
+    def bridge_states(frame):
+        states = []
+        for obj in frame['objects_after_step']:
+            state = dict(obj)
+            state.update(max_lift=max_lift[obj['id']], released_and_retracted=all(
+                min(robot['joints'][0][-2:]) > .03 and
+                sum((a-b)**2 for a, b in zip(state['position'], robot['hand_position'][0]))**.5 > .15
+                for robot in frame['robots']))
+            states.append(state)
+        return states
     with (folder/'trajectory.jsonl').open() as stream:
         for line in stream:
             frame = json.loads(line)
@@ -45,6 +58,16 @@ def audit(folder):
                             'step': count, 'position': obj['position'], 'dwell_frames': dwell[obj['id']], 'inside_volume': True})
                     if idx == active and frame['phase'] in ('feed', 'settle'):
                         transported[obj['id']] = max(transported[obj['id']], obj['position'][0]-inventory[obj['id']]['initial_position'][0])
+            elif manifest['task'] == 'dual_blocks':
+                for idx, robot in enumerate(frame['robots']):
+                    for obj in frame['objects_after_step']:
+                        distance = sum((a-b)**2 for a, b in zip(obj['position'], robot['hand_position'][0]))**.5
+                        if min(robot['joints'][0][-2:]) < .038 and distance < .16 and obj['position'][2]-inventory[obj['id']]['initial_position'][2] > .08:
+                            participants.add(idx)
+                if frame['phase'] == 'final_settle':
+                    settle_frames += 1
+                    if settle_frames > 60:
+                        stable_bridge &= verify_bridge(bridge_states(frame), manifest['targets'], participants)['success']
             count += 1
             final_frame = frame
     continuous &= count == result['physics_steps']
@@ -71,6 +94,12 @@ def audit(folder):
                      released_and_retracted=min(robot['joints'][0][-2:]) > .03 and distance > .15)
         verification = verify_gear(state, manifest['target'])
         semantic = verification['success'] and verification['checks'] == result['verification']['checks']
+    elif manifest['task'] == 'dual_blocks' and final_frame:
+        verification = verify_bridge(bridge_states(final_frame), manifest['targets'], participants)
+        verification['stable_three_seconds'] = bool(stable_bridge and (settle_frames-60)*manifest['physics_dt'] >= 3.)
+        semantic = (verification['success'] and verification['stable_three_seconds']
+                    and verification['checks'] == result['verification']['checks']
+                    and sorted(participants) == result['participating_robots'])
     else:
         verification = {'success': False, 'reason': 'No independent semantic auditor for this task yet'}
     success = (source_valid and continuous and semantic and result['success']
