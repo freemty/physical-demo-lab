@@ -9,11 +9,17 @@ export UV_PYTHON_INSTALL_DIR="$runtime/python"
 export XDG_CACHE_HOME="$runtime/cache/xdg"
 export PIP_CACHE_DIR="$runtime/cache/pip"
 export TMPDIR="$runtime/tmp"
-export UV_HTTP_TIMEOUT=600
+export UV_HTTP_TIMEOUT=90
 export UV_LINK_MODE=copy
-"$uv_bin" venv --python 3.12 "$runtime/venv"
-"$uv_bin" pip install --python "$runtime/venv/bin/python" \
-  'torch==2.11.0' --index-url https://download.pytorch.org/whl/cu128
+if [[ ! -x "$runtime/venv/bin/python" ]]; then
+  "$uv_bin" venv --python 3.12 "$runtime/venv"
+fi
+# Pin the official torch wheel directly; resolve CUDA dependencies from PyPI.
+# The PyTorch index redirects CUDA wheel metadata to a server without HTTP Range
+# support, forcing a full cuDNN download just to resolve dependencies.
+torch_wheel='https://download.pytorch.org/whl/cu128/torch-2.11.0%2Bcu128-cp312-cp312-manylinux_2_28_x86_64.whl#sha256=d252cf975fb18c94a85336323ad425f473df56dab35a44b00399bd70c7a3b997'
+"$uv_bin" pip install -v --python "$runtime/venv/bin/python" \
+  "$torch_wheel" --index-url https://pypi.org/simple
 "$uv_bin" pip install --python "$runtime/venv/bin/python" \
   'isaacsim[all,extscache]==6.0.1.0' \
   --extra-index-url https://pypi.nvidia.com --index-strategy unsafe-best-match

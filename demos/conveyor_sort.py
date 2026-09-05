@@ -154,8 +154,9 @@ app_utils.update_app(steps=30)
 
 def state_of(obj):
     pos, quat = obj['body'].get_world_poses()
-    linear = obj['body'].get_linear_velocities().numpy()[0].tolist()
-    angular = obj['body'].get_angular_velocities().numpy()[0].tolist()
+    linear_values, angular_values = obj['body'].get_velocities()
+    linear = linear_values.numpy()[0].tolist()
+    angular = angular_values.numpy()[0].tolist()
     return {'position': pos.numpy()[0].tolist(), 'orientation': quat.numpy()[0].tolist(),
             'linear_velocity': linear, 'angular_velocity': angular}
 
@@ -188,6 +189,8 @@ closed = False
 abort_reason = None
 video_frames = 0
 start = time.monotonic()
+simulation_start = SimulationManager.get_simulation_time()
+physics_step_start = SimulationManager.get_num_physics_steps()
 DURATIONS = {'settle_belt': 45, 'hover': 120, 'descend': 100, 'close': 75,
              'lift': 100, 'transit': 120, 'above_bin': 120, 'lower': 100,
              'release': 60, 'retract': 90, 'final_settle': 180}
@@ -261,7 +264,8 @@ try:
         robot.close_gripper() if closed else robot.open_gripper()
         app.update()
         q, ee, orientation = robot.get_current_state()
-        trajectory.write(json.dumps({'step': step, 'sim_time': (step+1)*DT, 'phase': phase,
+        trajectory.write(json.dumps({'step': step, 'sim_time': SimulationManager.get_simulation_time()-simulation_start,
+            'physics_steps': SimulationManager.get_num_physics_steps()-physics_step_start, 'phase': phase,
             'active_object': active, 'command': {'hand_target': command.tolist(), 'gripper_closed': closed},
             'joint_positions': q.tolist(), 'hand_position': ee.tolist(), 'hand_orientation': orientation.tolist(),
             'objects_before_step': states})+'\n')
@@ -287,7 +291,8 @@ try:
         results.append({'state': state, **verify_object(state, bins[obj['color']])})
     result = {'success': abort_reason is None and phase == 'done' and all(r['success'] for r in results),
               'seed': args.seed, 'phase': phase, 'abort_reason': abort_reason, 'steps': step+1,
-              'wall_seconds': time.monotonic()-start, 'sim_seconds': (step+1)*DT,
+              'wall_seconds': time.monotonic()-start, 'sim_seconds': SimulationManager.get_simulation_time()-simulation_start,
+              'physics_steps': SimulationManager.get_num_physics_steps()-physics_step_start,
               'video_frames': video_frames, 'objects': results}
     (args.output/'result.json').write_text(json.dumps(result, indent=2))
     print('RESULT '+json.dumps(result), flush=True)
