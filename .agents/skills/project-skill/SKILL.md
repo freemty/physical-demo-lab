@@ -31,11 +31,18 @@ description: Use when working on physical-demo-lab demos, Isaac Sim runtime inte
 - `demo004` two-arm bridge: three seeds pass both-arm participation and three
   seconds of released structure stability, with no control revision. Sequential
   workspace sharing, not joint grasping. See `reports/demo004-dual-blocks.md`.
-- The other four reference task categories are planned, not implemented.
+- `demo005` Allegro cap: implemented but not yet closed out. A seed passed;
+  other mass seeds exposed held-cap oscillation. Never turn a single pass into
+  three-seed completion. See `reports/demo005-bottle-cap-development.md`.
+- The remaining restaurant, Lego and humanoid categories are planned.
   Read `docs/README.md` for source coverage and next-demo selection.
 
 ## Durable pitfalls
 
+- Allegro fixed/floating roots can reorder link indices; bind the mounting link
+  by verified name. Contact filters also need contact-report APIs. At non-60-Hz
+  physics, explicitly align the app timeline and audit actual step counts.
+  See `docs/knowhow/debug-solutions/allegro-mount-contact-clock.md`.
 - For carried-part insertion, a downward gripper does not guarantee a level part;
   inspect part pose and collision clearance. Joint geometry/control revisions
   solved this gear fixture, without establishing separate causal effects. See

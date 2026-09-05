@@ -2,6 +2,8 @@
 
 ## Unreleased
 
+- Integrated an Allegro hand and explicit passive helical cap fixture; retained
+  asset, clock and contact failures. Multi-seed stable holding is still in progress.
 - Completed demo004 two-arm bridge building on three independent seeds with
   replayed participation and three-second stability; no controller revision needed.
   Preserved the forced failure and documented the sequential-coordination scope.

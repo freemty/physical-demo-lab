@@ -39,6 +39,8 @@
   [几何干涉/完整姿态经验](knowhow/debug-solutions/gear-seating-and-pose.md)。
 - 第四项实测：[双臂积木报告](../reports/demo004-dual-blocks.md) 与
   [参与/持续支撑证据](knowhow/toolchain/dual-arm-support-evidence.md)。
+- 第五项开发：[包含失败的开发账本](../reports/demo005-bottle-cap-development.md) 与
+  [Allegro 安装/接触/时钟经验](knowhow/debug-solutions/allegro-mount-contact-clock.md)。
 
 ## 写到哪里
 

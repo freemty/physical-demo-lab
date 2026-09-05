@@ -22,3 +22,8 @@ Added verified gear insertion and bounded collision-clearance/part-pose lessons.
 ## 2026-09-06 — v4
 
 Added two-arm bridge evidence, sequential scope and sustained-support verification.
+
+## 2026-09-06 — v5
+
+Recorded Allegro mounting identity, contact reporting and app/physics clock
+integration. Cap development remains incomplete pending multi-seed stable hold.
