@@ -104,7 +104,7 @@
         "scripts/run_task.py": "f6c6e9d6be941529e18991a606257806499420a2e014d0511ab7eb81d4259762"
       }
     },
-    {"id": "demo007", "title": "双臂拼乐高", "status": "planned"},
+    {"id": "demo007", "title": "双臂拼乐高", "status": "in_progress"},
     {"id": "demo008", "title": "人形机器人室内行走", "status": "planned"}
   ]
 }
