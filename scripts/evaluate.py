@@ -6,7 +6,7 @@ from pathlib import Path
 
 parser = argparse.ArgumentParser()
 parser.add_argument('--seeds', type=int, nargs='+', default=list(range(10)))
-parser.add_argument('--gpu', type=int, default=1)
+parser.add_argument('--gpu', type=int, default=2)
 parser.add_argument('--root', type=Path, required=True)
 parser.add_argument('--objects', type=int, default=3, choices=(1, 2, 3))
 parser.add_argument('--video-seed', type=int, default=0)

@@ -18,7 +18,7 @@ Isaac Sim 机器人仿真 demo；每次运行保留源码版本、场景、控�
 
 ```bash
 bash scripts/setup_server.sh
-bash scripts/run.sh --gpu 1 --seed 0 --objects 3 \
+bash scripts/run.sh --gpu 2 --seed 0 --objects 3 \
   --output /data1/ybyang/physical-demo-lab-runtime/outputs/seed-0-first
 ```
 
