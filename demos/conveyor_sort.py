@@ -24,9 +24,20 @@ parser.add_argument('--no-video', action='store_true')
 parser.add_argument('--width', type=int, default=960)
 parser.add_argument('--height', type=int, default=720)
 parser.add_argument('--max-steps', type=int, default=7000)
+invocation = sys.argv[:]
 args, kit_args = parser.parse_known_args()
 sys.argv = [sys.argv[0]] + kit_args
 args.output.mkdir(parents=True, exist_ok=False)
+source_root = Path(__file__).resolve().parents[1]
+source_files = {}
+for relative in ['README.md', 'demos/conveyor_sort.py', 'demos/verification.py',
+                 'scripts/run.sh', 'scripts/setup_server.sh', 'scripts/evaluate.py', 'scripts/reuse_extscache.py']:
+    source_path = source_root / relative
+    target_path = args.output / 'source' / relative
+    target_path.parent.mkdir(parents=True, exist_ok=True)
+    shutil.copy2(source_path, target_path)
+    source_files[relative] = hashlib.sha256(source_path.read_bytes()).hexdigest()
+(args.output/'invocation.json').write_text(json.dumps({'argv': invocation, 'source_files': source_files}, indent=2))
 os.environ.setdefault('OMNI_KIT_ACCEPT_EULA', 'YES')
 
 from isaacsim import SimulationApp
@@ -181,15 +192,7 @@ manifest = {
     'limitations': ['No visual perception or learned policy.', 'Conveyor pauses for picking.',
                     'No collision-aware global planning.', 'Procedural boxes, not a replica of the reference video.'],
 }
-source_root = Path(__file__).resolve().parents[1]
-manifest['source_files'] = {}
-for relative in ['README.md', 'demos/conveyor_sort.py', 'demos/verification.py',
-                 'scripts/run.sh', 'scripts/setup_server.sh', 'scripts/evaluate.py']:
-    source_path = source_root / relative
-    target_path = args.output / 'source' / relative
-    target_path.parent.mkdir(parents=True, exist_ok=True)
-    shutil.copy2(source_path, target_path)
-    manifest['source_files'][relative] = hashlib.sha256(source_path.read_bytes()).hexdigest()
+manifest['source_files'] = source_files
 manifest['installed_packages'] = sorted(
     [{'name': d.metadata['Name'], 'version': d.version} for d in distributions()],
     key=lambda item: item['name'].lower(),
