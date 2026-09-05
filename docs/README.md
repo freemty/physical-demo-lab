@@ -42,6 +42,8 @@
 - 第五项实测：[开盖报告](../reports/demo005-bottle-cap.md)、
   [包含失败的开发账本](../reports/demo005-bottle-cap-development.md) 与
   [Allegro 安装/接触/时钟经验](knowhow/debug-solutions/allegro-mount-contact-clock.md)。
+- 第六项开发：[送餐开发账本](../reports/demo006-restaurant-development.md) 与
+  [移动载具证据](knowhow/toolchain/mobile-carrier-evidence.md)。
 
 ## 写到哪里
 
