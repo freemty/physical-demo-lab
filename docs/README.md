@@ -8,7 +8,7 @@
 | ID | 任务类别 | 当前状态 |
 | --- | --- | --- |
 | demo001 | 流水线颜色分拣 | 基础版已验证并归档；已知位姿、停带抓取 |
-| demo002 | 超市收银 | 未开始，下一项 |
+| demo002 | 超市收银 | 基础版已验证并归档；三种初态、模拟扫描与装袋 |
 | demo003 | 齿轮拼装 | 未开始 |
 | demo004 | 双臂搭积木 | 未开始 |
 | demo005 | 灵巧手拧瓶盖 | 未开始 |
@@ -33,6 +33,8 @@
 - 每次完成时：[demo 收尾流程](knowhow/runbooks/demo-closeout.md)。
 - 第一项实测：[完整验证报告](../reports/bootstrap-validation.md) 和
   [独立审计结果](../reports/audit-final.json)。
+- 第二项实测：[收银报告](../reports/demo002-checkout.md) 与
+  [扫描/进程证据经验](knowhow/toolchain/checkout-and-process-evidence.md)。
 
 ## 写到哪里
 

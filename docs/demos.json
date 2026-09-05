@@ -24,7 +24,22 @@
         "scripts/run.sh": "37d74974a9c3d94fe147bef6a8db557da0b9e7b6209d84ac35bd50db144ea01a"
       }
     },
-    {"id": "demo002", "title": "超市收银", "status": "planned"},
+    {
+      "id": "demo002", "title": "超市收银", "status": "complete",
+      "scope": "已知 SKU 和位姿的接触抓取、模拟扫描、装袋脚本基础版",
+      "verified_at": "2026-09-06",
+      "limitations": ["没有视觉条码识别或真实支付，没有完整原视频轨迹", "三种随机初态通过不代表学习策略或广泛泛化"],
+      "report": "reports/demo002-checkout.md",
+      "lessons": ["docs/knowhow/toolchain/checkout-and-process-evidence.md"],
+      "evidence": ["reports/demo002-audit.json"],
+      "implementation": {
+        "demos/checkout.py": "bbeccc5c5fba5d6ebe780dd00beeed63caddb954c79893816ec9c2ca587c126e",
+        "demos/checkout_verify.py": "c2e7104c97d354ec1447fa592588b8bdc66d15c4b8c87124c2f4e51df295c07c",
+        "demos/verification.py": "30997a0e7323a91143f0c04f7b418077b3973841bc14a2b191dfc38bb137d369",
+        "demos/sim_runtime.py": "56301255c2075a735c62119fa92e279b5e306b49e3480634a2a2de983b210fd3",
+        "scripts/run_task.py": "f6c6e9d6be941529e18991a606257806499420a2e014d0511ab7eb81d4259762"
+      }
+    },
     {"id": "demo003", "title": "齿轮拼装", "status": "planned"},
     {"id": "demo004", "title": "双臂搭积木", "status": "planned"},
     {"id": "demo005", "title": "灵巧手拧瓶盖", "status": "planned"},

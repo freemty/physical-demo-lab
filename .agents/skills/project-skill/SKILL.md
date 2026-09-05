@@ -22,7 +22,10 @@ description: Use when working on physical-demo-lab demos, Isaac Sim runtime inte
   final seeds 0–9 pass for 30 boxes, including one teardown-failure retry and
   two source revisions. Not a fixed-version first-pass 10/10 benchmark.
   Evidence: `reports/bootstrap-validation.md`, `reports/audit-final.json`.
-- The other seven reference task categories are planned, not implemented.
+- `demo002` checkout: seeds 0, 1, 2 pass physical bagging and trajectory-replayed
+  simulated scan/receipt checks; forced one-step failure returns 2. Known SKU IDs,
+  not barcode perception. See `reports/demo002-checkout.md` and its audit.
+- The other six reference task categories are planned, not implemented.
   Read `docs/README.md` for source coverage and next-demo selection.
 
 ## Durable pitfalls
@@ -44,6 +47,9 @@ description: Use when working on physical-demo-lab demos, Isaac Sim runtime inte
 ## Active interfaces
 
 - Verified runtime: Python 3.12.13 / Isaac Sim 6.0.1.0 / Torch 2.11.0+cu128.
+- `scripts/run_task.py` isolates new demo processes and captures their exit status;
+  `sim_runtime.py` records their physics, but task-specific auditors must be added.
+  See `docs/knowhow/toolchain/checkout-and-process-evidence.md`.
 - `scripts/run.sh`: new output directory required; snapshots source and captures
   console evidence. `scripts/evaluate.py` and `scripts/audit_runs.py` currently
   target the conveyor task, not arbitrary future demos.
