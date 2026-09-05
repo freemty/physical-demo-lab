@@ -1,0 +1,1583 @@
+{
+  "task": "conveyor_color_sort",
+  "expected_seeds": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9
+  ],
+  "complete_seed_set": true,
+  "runs": [
+    {
+      "seed": 0,
+      "success": true,
+      "output": "/data1/ybyang/physical-demo-lab-runtime/outputs/three-001",
+      "source_sha256": "ea06000123231d740c70c6987be3cd78c4b8d64fdf8dbd27598055ee48b4fd30",
+      "git_commit": "8c6c6be35a835e69a51b44c93d7edef69260d3c7",
+      "source_snapshot_verified": true,
+      "trajectory_continuous": true,
+      "verifier_recomputed_and_matched": true,
+      "trajectory_frames": 3439,
+      "sim_seconds": 57.31666666666667,
+      "loop_wall_seconds": 129.9208945762366,
+      "renderer_gpu": 2,
+      "result": {
+        "success": true,
+        "seed": 0,
+        "phase": "done",
+        "abort_reason": null,
+        "steps": 3440,
+        "wall_seconds": 129.9208945762366,
+        "sim_seconds": 57.31666666666667,
+        "physics_steps": 3439,
+        "video_frames": 1720,
+        "objects": [
+          {
+            "state": {
+              "position": [
+                0.13051433861255646,
+                0.384715735912323,
+                0.7239108681678772
+              ],
+              "orientation": [
+                0.9988505244255066,
+                3.2047369131760206e-06,
+                -1.806153164807256e-07,
+                -0.047933872789144516
+              ],
+              "linear_velocity": [
+                3.796780220000073e-05,
+                0.00028205226408317685,
+                -9.465295443078503e-05
+              ],
+              "angular_velocity": [
+                -0.0011654025875031948,
+                0.000595990801230073,
+                0.00029358771280385554
+              ],
+              "id": "parcel_0",
+              "color": "red",
+              "size": 0.04782177012392873,
+              "max_lift": 0.31124624804045264,
+              "belt_displacement": 0.3599993003112158,
+              "released_and_retracted": true
+            },
+            "success": true,
+            "checks": {
+              "correct_bin": true,
+              "inside_bin_xy": true,
+              "above_bin_floor": true,
+              "below_bin_rim": true,
+              "settled_linear": true,
+              "settled_angular": true,
+              "physically_lifted": true,
+              "belt_transport_observed": true,
+              "released_and_retracted": true
+            }
+          },
+          {
+            "state": {
+              "position": [
+                0.5397902727127075,
+                0.3846321105957031,
+                0.7244399785995483
+              ],
+              "orientation": [
+                0.9999088048934937,
+                2.946585027530091e-06,
+                -1.3028717376073473e-06,
+                -0.013506471179425716
+              ],
+              "linear_velocity": [
+                0.00011790162534452975,
+                0.000265103968558833,
+                -9.810065967030823e-05
+              ],
+              "angular_velocity": [
+                -0.0009425068274140358,
+                0.0016938465414568782,
+                0.00019137737399432808
+              ],
+              "id": "parcel_1",
+              "color": "blue",
+              "size": 0.04887962143520164,
+              "max_lift": 0.3105513830537615,
+              "belt_displacement": 0.6340138745899366,
+              "released_and_retracted": true
+            },
+            "success": true,
+            "checks": {
+              "correct_bin": true,
+              "inside_bin_xy": true,
+              "above_bin_floor": true,
+              "below_bin_rim": true,
+              "settled_linear": true,
+              "settled_angular": true,
+              "physically_lifted": true,
+              "belt_transport_observed": true,
+              "released_and_retracted": true
+            }
+          },
+          {
+            "state": {
+              "position": [
+                0.24932287633419037,
+                0.38660651445388794,
+                0.7236308455467224
+              ],
+              "orientation": [
+                0.998633086681366,
+                3.248859911764157e-06,
+                -1.449720912205521e-07,
+                -0.05226883664727211
+              ],
+              "linear_velocity": [
+                3.168535840814002e-05,
+                0.0002848165750037879,
+                -9.553817653795704e-05
+              ],
+              "angular_velocity": [
+                -0.0011923637939617038,
+                0.0005247165681794286,
+                0.0003031678788829595
+              ],
+              "id": "parcel_2",
+              "color": "red",
+              "size": 0.047261749948792536,
+              "max_lift": 0.3113785578182673,
+              "belt_displacement": 0.9340387248288847,
+              "released_and_retracted": true
+            },
+            "success": true,
+            "checks": {
+              "correct_bin": true,
+              "inside_bin_xy": true,
+              "above_bin_floor": true,
+              "below_bin_rim": true,
+              "settled_linear": true,
+              "settled_angular": true,
+              "physically_lifted": true,
+              "belt_transport_observed": true,
+              "released_and_retracted": true
+            }
+          }
+        ]
+      }
+    },
+    {
+      "seed": 1,
+      "success": true,
+      "output": "/data1/ybyang/physical-demo-lab-runtime/outputs/eval-seeds-1-4/seed-1",
+      "source_sha256": "ea06000123231d740c70c6987be3cd78c4b8d64fdf8dbd27598055ee48b4fd30",
+      "git_commit": "8c6c6be35a835e69a51b44c93d7edef69260d3c7",
+      "source_snapshot_verified": true,
+      "trajectory_continuous": true,
+      "verifier_recomputed_and_matched": true,
+      "trajectory_frames": 3457,
+      "sim_seconds": 57.61666666666667,
+      "loop_wall_seconds": 86.44298382848501,
+      "renderer_gpu": 7,
+      "result": {
+        "success": true,
+        "seed": 1,
+        "phase": "done",
+        "abort_reason": null,
+        "steps": 3458,
+        "wall_seconds": 86.44298382848501,
+        "sim_seconds": 57.61666666666667,
+        "physics_steps": 3457,
+        "video_frames": 0,
+        "objects": [
+          {
+            "state": {
+              "position": [
+                0.1314530372619629,
+                0.38221192359924316,
+                0.7235355377197266
+              ],
+              "orientation": [
+                0.9999999403953552,
+                9.792343007575255e-07,
+                -2.727733317442471e-06,
+                0.0005478065577335656
+              ],
+              "linear_velocity": [
+                0.00018610531697049737,
+                8.946941306930967e-06,
+                -6.272262544371188e-05
+              ],
+              "angular_velocity": [
+                0.0030816877260804176,
+                -0.000508029421325773,
+                -7.639472642040346e-06
+              ],
+              "id": "parcel_0",
+              "color": "red",
+              "size": 0.04707092974820154,
+              "max_lift": 0.31235313642899987,
+              "belt_displacement": 0.3339987355865988,
+              "released_and_retracted": true
+            },
+            "success": true,
+            "checks": {
+              "correct_bin": true,
+              "inside_bin_xy": true,
+              "above_bin_floor": true,
+              "below_bin_rim": true,
+              "settled_linear": true,
+              "settled_angular": true,
+              "physically_lifted": true,
+              "belt_transport_observed": true,
+              "released_and_retracted": true
+            }
+          },
+          {
+            "state": {
+              "position": [
+                0.5785034894943237,
+                0.34197744727134705,
+                0.7229353785514832
+              ],
+              "orientation": [
+                0.9529436230659485,
+                1.278240802093933e-07,
+                -5.148454533809854e-07,
+                -0.30314767360687256
+              ],
+              "linear_velocity": [
+                1.7583088265382685e-05,
+                -4.984425686416216e-06,
+                -4.241111128067132e-06
+              ],
+              "angular_velocity": [
+                0.00043750967597588897,
+                0.0003175601887051016,
+                2.074301846732851e-05
+              ],
+              "id": "parcel_1",
+              "color": "blue",
+              "size": 0.04587098871206291,
+              "max_lift": 0.31364237505925174,
+              "belt_displacement": 0.65400103027123,
+              "released_and_retracted": true
+            },
+            "success": true,
+            "checks": {
+              "correct_bin": true,
+              "inside_bin_xy": true,
+              "above_bin_floor": true,
+              "below_bin_rim": true,
+              "settled_linear": true,
+              "settled_angular": true,
+              "physically_lifted": true,
+              "belt_transport_observed": true,
+              "released_and_retracted": true
+            }
+          },
+          {
+            "state": {
+              "position": [
+                0.2568342089653015,
+                0.3850766122341156,
+                0.7236489057540894
+              ],
+              "orientation": [
+                0.9997907876968384,
+                2.818984512487077e-06,
+                -1.452482024433266e-06,
+                0.02045641653239727
+              ],
+              "linear_velocity": [
+                0.0001663358707446605,
+                0.0002175459812860936,
+                -8.046616858337075e-05
+              ],
+              "angular_velocity": [
+                -0.0006701709935441613,
+                0.0021363208070397377,
+                4.3783202272607014e-05
+              ],
+              "id": "parcel_2",
+              "color": "red",
+              "size": 0.047297562126038355,
+              "max_lift": 0.3087646310310971,
+              "belt_displacement": 0.9700337834461988,
+              "released_and_retracted": true
+            },
+            "success": true,
+            "checks": {
+              "correct_bin": true,
+              "inside_bin_xy": true,
+              "above_bin_floor": true,
+              "below_bin_rim": true,
+              "settled_linear": true,
+              "settled_angular": true,
+              "physically_lifted": true,
+              "belt_transport_observed": true,
+              "released_and_retracted": true
+            }
+          }
+        ]
+      }
+    },
+    {
+      "seed": 2,
+      "success": true,
+      "output": "/data1/ybyang/physical-demo-lab-runtime/outputs/eval-seeds-1-4/seed-2",
+      "source_sha256": "ea06000123231d740c70c6987be3cd78c4b8d64fdf8dbd27598055ee48b4fd30",
+      "git_commit": "8c6c6be35a835e69a51b44c93d7edef69260d3c7",
+      "source_snapshot_verified": true,
+      "trajectory_continuous": true,
+      "verifier_recomputed_and_matched": true,
+      "trajectory_frames": 3444,
+      "sim_seconds": 57.4,
+      "loop_wall_seconds": 109.41470135748386,
+      "renderer_gpu": 7,
+      "result": {
+        "success": true,
+        "seed": 2,
+        "phase": "done",
+        "abort_reason": null,
+        "steps": 3445,
+        "wall_seconds": 109.41470135748386,
+        "sim_seconds": 57.4,
+        "physics_steps": 3444,
+        "video_frames": 0,
+        "objects": [
+          {
+            "state": {
+              "position": [
+                0.13060417771339417,
+                0.38591617345809937,
+                0.7227849960327148
+              ],
+              "orientation": [
+                0.9997188448905945,
+                3.2693465072952677e-06,
+                -1.392054628013284e-06,
+                -0.023714587092399597
+              ],
+              "linear_velocity": [
+                0.00010681634012144059,
+                0.00027891542413271964,
+                -0.00010452407877892256
+              ],
+              "angular_velocity": [
+                -0.0010211827466264367,
+                0.0016965045360848308,
+                0.00024231665884144604
+              ],
+              "id": "parcel_0",
+              "color": "red",
+              "size": 0.0455696728054959,
+              "max_lift": 0.31221219862380234,
+              "belt_displacement": 0.36000036028112,
+              "released_and_retracted": true
+            },
+            "success": true,
+            "checks": {
+              "correct_bin": true,
+              "inside_bin_xy": true,
+              "above_bin_floor": true,
+              "below_bin_rim": true,
+              "settled_linear": true,
+              "settled_angular": true,
+              "physically_lifted": true,
+              "belt_transport_observed": true,
+              "released_and_retracted": true
+            }
+          },
+          {
+            "state": {
+              "position": [
+                0.5393744111061096,
+                0.3857566714286804,
+                0.7238003015518188
+              ],
+              "orientation": [
+                0.9989194869995117,
+                3.2156183351617074e-06,
+                -1.9626918401627336e-07,
+                -0.046475864946842194
+              ],
+              "linear_velocity": [
+                4.1057101043406874e-05,
+                0.0002803115639835596,
+                -9.433294326299801e-05
+              ],
+              "angular_velocity": [
+                -0.0011553338263183832,
+                0.0006379778496921062,
+                0.00029768599779345095
+              ],
+              "id": "parcel_1",
+              "color": "blue",
+              "size": 0.047600603155793925,
+              "max_lift": 0.3124622592665245,
+              "belt_displacement": 0.6420124725642318,
+              "released_and_retracted": true
+            },
+            "success": true,
+            "checks": {
+              "correct_bin": true,
+              "inside_bin_xy": true,
+              "above_bin_floor": true,
+              "below_bin_rim": true,
+              "settled_linear": true,
+              "settled_angular": true,
+              "physically_lifted": true,
+              "belt_transport_observed": true,
+              "released_and_retracted": true
+            }
+          },
+          {
+            "state": {
+              "position": [
+                0.24360594153404236,
+                0.37977805733680725,
+                0.7228248715400696
+              ],
+              "orientation": [
+                0.9999563097953796,
+                3.1905890409689164e-06,
+                -8.126959301080205e-07,
+                0.00934622436761856
+              ],
+              "linear_velocity": [
+                0.00014024105621501803,
+                0.00023018164210952818,
+                -8.036706276470795e-05
+              ],
+              "angular_velocity": [
+                -0.0007844172650948167,
+                0.001794078154489398,
+                9.067442442756146e-05
+              ],
+              "id": "parcel_2",
+              "color": "red",
+              "size": 0.04564981620743623,
+              "max_lift": 0.31284410968803,
+              "belt_displacement": 0.9440393204782032,
+              "released_and_retracted": true
+            },
+            "success": true,
+            "checks": {
+              "correct_bin": true,
+              "inside_bin_xy": true,
+              "above_bin_floor": true,
+              "below_bin_rim": true,
+              "settled_linear": true,
+              "settled_angular": true,
+              "physically_lifted": true,
+              "belt_transport_observed": true,
+              "released_and_retracted": true
+            }
+          }
+        ]
+      }
+    },
+    {
+      "seed": 3,
+      "success": true,
+      "output": "/data1/ybyang/physical-demo-lab-runtime/outputs/eval-seeds-1-4/seed-3",
+      "source_sha256": "ea06000123231d740c70c6987be3cd78c4b8d64fdf8dbd27598055ee48b4fd30",
+      "git_commit": "8c6c6be35a835e69a51b44c93d7edef69260d3c7",
+      "source_snapshot_verified": true,
+      "trajectory_continuous": true,
+      "verifier_recomputed_and_matched": true,
+      "trajectory_frames": 3455,
+      "sim_seconds": 57.583333333333336,
+      "loop_wall_seconds": 121.67958021257073,
+      "renderer_gpu": 7,
+      "result": {
+        "success": true,
+        "seed": 3,
+        "phase": "done",
+        "abort_reason": null,
+        "steps": 3456,
+        "wall_seconds": 121.67958021257073,
+        "sim_seconds": 57.583333333333336,
+        "physics_steps": 3455,
+        "video_frames": 0,
+        "objects": [
+          {
+            "state": {
+              "position": [
+                0.13031332194805145,
+                0.38505908846855164,
+                0.722257137298584
+              ],
+              "orientation": [
+                0.9998995661735535,
+                3.3040621474356158e-06,
+                -1.4010141740072868e-06,
+                -0.01417399663478136
+              ],
+              "linear_velocity": [
+                0.00011266221554251388,
+                0.0002670213580131531,
+                -0.00010067012044601142
+              ],
+              "angular_velocity": [
+                -0.0010268097976222634,
+                0.0018202195642516017,
+                0.0002091730129905045
+              ],
+              "id": "parcel_0",
+              "color": "red",
+              "size": 0.04451389500286174,
+              "max_lift": 0.31271350385354957,
+              "belt_displacement": 0.36199876542036014,
+              "released_and_retracted": true
+            },
+            "success": true,
+            "checks": {
+              "correct_bin": true,
+              "inside_bin_xy": true,
+              "above_bin_floor": true,
+              "below_bin_rim": true,
+              "settled_linear": true,
+              "settled_angular": true,
+              "physically_lifted": true,
+              "belt_transport_observed": true,
+              "released_and_retracted": true
+            }
+          },
+          {
+            "state": {
+              "position": [
+                0.5400449633598328,
+                0.3859063386917114,
+                0.722282350063324
+              ],
+              "orientation": [
+                0.9990339279174805,
+                3.428323907428421e-06,
+                -2.310068083488659e-07,
+                -0.043946195393800735
+              ],
+              "linear_velocity": [
+                4.3453524995129555e-05,
+                0.00027833168860524893,
+                -9.339820826426148e-05
+              ],
+              "angular_velocity": [
+                -0.0012451636139303446,
+                0.000722708529792726,
+                0.00030901984428055584
+              ],
+              "id": "parcel_1",
+              "color": "blue",
+              "size": 0.044564771853442396,
+              "max_lift": 0.31390924539041754,
+              "belt_displacement": 0.6540002853113022,
+              "released_and_retracted": true
+            },
+            "success": true,
+            "checks": {
+              "correct_bin": true,
+              "inside_bin_xy": true,
+              "above_bin_floor": true,
+              "below_bin_rim": true,
+              "settled_linear": true,
+              "settled_angular": true,
+              "physically_lifted": true,
+              "belt_transport_observed": true,
+              "released_and_retracted": true
+            }
+          },
+          {
+            "state": {
+              "position": [
+                0.24393612146377563,
+                0.38290202617645264,
+                0.7242037057876587
+              ],
+              "orientation": [
+                0.9999876618385315,
+                2.4156965992006008e-06,
+                -3.5929002706325264e-07,
+                -0.004987584892660379
+              ],
+              "linear_velocity": [
+                0.00014296540757641196,
+                0.0002596444101072848,
+                -7.517294579884037e-05
+              ],
+              "angular_velocity": [
+                -0.001398569904267788,
+                0.0018894231179729104,
+                4.993265974917449e-05
+              ],
+              "id": "parcel_2",
+              "color": "red",
+              "size": 0.04840746290845529,
+              "max_lift": 0.3110289803377646,
+              "belt_displacement": 0.9660232912746007,
+              "released_and_retracted": true
+            },
+            "success": true,
+            "checks": {
+              "correct_bin": true,
+              "inside_bin_xy": true,
+              "above_bin_floor": true,
+              "below_bin_rim": true,
+              "settled_linear": true,
+              "settled_angular": true,
+              "physically_lifted": true,
+              "belt_transport_observed": true,
+              "released_and_retracted": true
+            }
+          }
+        ]
+      }
+    },
+    {
+      "seed": 4,
+      "success": true,
+      "output": "/data1/ybyang/physical-demo-lab-runtime/outputs/eval-seeds-1-4/seed-4",
+      "source_sha256": "ea06000123231d740c70c6987be3cd78c4b8d64fdf8dbd27598055ee48b4fd30",
+      "git_commit": "8c6c6be35a835e69a51b44c93d7edef69260d3c7",
+      "source_snapshot_verified": true,
+      "trajectory_continuous": true,
+      "verifier_recomputed_and_matched": true,
+      "trajectory_frames": 3447,
+      "sim_seconds": 57.45,
+      "loop_wall_seconds": 108.33516832441092,
+      "renderer_gpu": 7,
+      "result": {
+        "success": true,
+        "seed": 4,
+        "phase": "done",
+        "abort_reason": null,
+        "steps": 3448,
+        "wall_seconds": 108.33516832441092,
+        "sim_seconds": 57.45,
+        "physics_steps": 3447,
+        "video_frames": 0,
+        "objects": [
+          {
+            "state": {
+              "position": [
+                0.1298626810312271,
+                0.3843408226966858,
+                0.7248291373252869
+              ],
+              "orientation": [
+                0.9999998211860657,
+                2.992877398355631e-06,
+                -1.1287462484688149e-06,
+                0.0006766466540284455
+              ],
+              "linear_velocity": [
+                0.00019978790078312159,
+                0.00022863240155857056,
+                -9.44683633861132e-05
+              ],
+              "angular_velocity": [
+                4.9260394007433206e-05,
+                0.002045345725491643,
+                2.8463520720833912e-05
+              ],
+              "id": "parcel_0",
+              "color": "red",
+              "size": 0.049658336633434205,
+              "max_lift": 0.3101138649016667,
+              "belt_displacement": 0.3500003938667346,
+              "released_and_retracted": true
+            },
+            "success": true,
+            "checks": {
+              "correct_bin": true,
+              "inside_bin_xy": true,
+              "above_bin_floor": true,
+              "below_bin_rim": true,
+              "settled_linear": true,
+              "settled_angular": true,
+              "physically_lifted": true,
+              "belt_transport_observed": true,
+              "released_and_retracted": true
+            }
+          },
+          {
+            "state": {
+              "position": [
+                0.541137158870697,
+                0.3842495083808899,
+                0.7238221168518066
+              ],
+              "orientation": [
+                0.9994646906852722,
+                -1.1781992270698538e-06,
+                1.1188403732376173e-06,
+                -0.03271762281656265
+              ],
+              "linear_velocity": [
+                0.0001812413102015853,
+                0.00014518515672534704,
+                -3.9829679735703394e-05
+              ],
+              "angular_velocity": [
+                -0.0019506978569552302,
+                0.0035760493483394384,
+                7.806372013874352e-05
+              ],
+              "id": "parcel_1",
+              "color": "blue",
+              "size": 0.04764413499197018,
+              "max_lift": 0.31225774550755503,
+              "belt_displacement": 0.6559965163536079,
+              "released_and_retracted": true
+            },
+            "success": true,
+            "checks": {
+              "correct_bin": true,
+              "inside_bin_xy": true,
+              "above_bin_floor": true,
+              "below_bin_rim": true,
+              "settled_linear": true,
+              "settled_angular": true,
+              "physically_lifted": true,
+              "belt_transport_observed": true,
+              "released_and_retracted": true
+            }
+          },
+          {
+            "state": {
+              "position": [
+                0.24132712185382843,
+                0.3791446387767792,
+                0.7246148586273193
+              ],
+              "orientation": [
+                0.9999884963035583,
+                3.070323373322026e-06,
+                -6.722600005559798e-07,
+                -0.004809619393199682
+              ],
+              "linear_velocity": [
+                0.00012028356286464259,
+                0.00024548068176954985,
+                -8.731819252716377e-05
+              ],
+              "angular_velocity": [
+                -0.0007512840093113482,
+                0.0014515673974528909,
+                0.0001408498064847663
+              ],
+              "id": "parcel_2",
+              "color": "red",
+              "size": 0.04922981164512594,
+              "max_lift": 0.3104947819826128,
+              "belt_displacement": 0.9500240400506216,
+              "released_and_retracted": true
+            },
+            "success": true,
+            "checks": {
+              "correct_bin": true,
+              "inside_bin_xy": true,
+              "above_bin_floor": true,
+              "below_bin_rim": true,
+              "settled_linear": true,
+              "settled_angular": true,
+              "physically_lifted": true,
+              "belt_transport_observed": true,
+              "released_and_retracted": true
+            }
+          }
+        ]
+      }
+    },
+    {
+      "seed": 5,
+      "success": true,
+      "output": "/data1/ybyang/physical-demo-lab-runtime/outputs/eval-seeds-5-9/seed-5",
+      "source_sha256": "ea06000123231d740c70c6987be3cd78c4b8d64fdf8dbd27598055ee48b4fd30",
+      "git_commit": "8c6c6be35a835e69a51b44c93d7edef69260d3c7",
+      "source_snapshot_verified": true,
+      "trajectory_continuous": true,
+      "verifier_recomputed_and_matched": true,
+      "trajectory_frames": 3438,
+      "sim_seconds": 57.300000000000004,
+      "loop_wall_seconds": 113.54641200602055,
+      "renderer_gpu": 2,
+      "result": {
+        "success": true,
+        "seed": 5,
+        "phase": "done",
+        "abort_reason": null,
+        "steps": 3439,
+        "wall_seconds": 113.54641200602055,
+        "sim_seconds": 57.300000000000004,
+        "physics_steps": 3438,
+        "video_frames": 0,
+        "objects": [
+          {
+            "state": {
+              "position": [
+                0.1308419108390808,
+                0.38520321249961853,
+                0.7244152426719666
+              ],
+              "orientation": [
+                0.9998527765274048,
+                3.0024698389752302e-06,
+                -1.295806896450813e-06,
+                -0.017157794907689095
+              ],
+              "linear_velocity": [
+                0.00011428726429585367,
+                0.00026900754892267287,
+                -0.00010033750731963664
+              ],
+              "angular_velocity": [
+                -0.0009428790071979165,
+                0.001668897457420826,
+                0.00019976194016635418
+              ],
+              "id": "parcel_0",
+              "color": "red",
+              "size": 0.048830017542472286,
+              "max_lift": 0.3106056296946452,
+              "belt_displacement": 0.3379992803463465,
+              "released_and_retracted": true
+            },
+            "success": true,
+            "checks": {
+              "correct_bin": true,
+              "inside_bin_xy": true,
+              "above_bin_floor": true,
+              "below_bin_rim": true,
+              "settled_linear": true,
+              "settled_angular": true,
+              "physically_lifted": true,
+              "belt_transport_observed": true,
+              "released_and_retracted": true
+            }
+          },
+          {
+            "state": {
+              "position": [
+                0.5408909916877747,
+                0.38712775707244873,
+                0.7221617698669434
+              ],
+              "orientation": [
+                0.9980899095535278,
+                3.4496486023272155e-06,
+                -6.496646420828256e-08,
+                -0.06177905574440956
+              ],
+              "linear_velocity": [
+                2.3842418158892542e-05,
+                0.00028885205392725766,
+                -9.89754989859648e-05
+              ],
+              "angular_velocity": [
+                -0.0012380765983834863,
+                0.00046639854554086924,
+                0.0002648659283295274
+              ],
+              "id": "parcel_1",
+              "color": "blue",
+              "size": 0.04432358421428994,
+              "max_lift": 0.31399848716684187,
+              "belt_displacement": 0.6559983264908388,
+              "released_and_retracted": true
+            },
+            "success": true,
+            "checks": {
+              "correct_bin": true,
+              "inside_bin_xy": true,
+              "above_bin_floor": true,
+              "below_bin_rim": true,
+              "settled_linear": true,
+              "settled_angular": true,
+              "physically_lifted": true,
+              "belt_transport_observed": true,
+              "released_and_retracted": true
+            }
+          },
+          {
+            "state": {
+              "position": [
+                0.2470485419034958,
+                0.3851512372493744,
+                0.7221460938453674
+              ],
+              "orientation": [
+                0.9999948143959045,
+                -1.1118909242213704e-06,
+                -2.372249127802206e-06,
+                0.0032181725837290287
+              ],
+              "linear_velocity": [
+                7.247554458444938e-05,
+                -0.0001538521028123796,
+                -8.01715868874453e-05
+              ],
+              "angular_velocity": [
+                0.004189488478004932,
+                -0.002215357730165124,
+                5.937794776400551e-05
+              ],
+              "id": "parcel_2",
+              "color": "red",
+              "size": 0.044292546264363006,
+              "max_lift": 0.3134271388093468,
+              "belt_displacement": 0.9320620107543764,
+              "released_and_retracted": true
+            },
+            "success": true,
+            "checks": {
+              "correct_bin": true,
+              "inside_bin_xy": true,
+              "above_bin_floor": true,
+              "below_bin_rim": true,
+              "settled_linear": true,
+              "settled_angular": true,
+              "physically_lifted": true,
+              "belt_transport_observed": true,
+              "released_and_retracted": true
+            }
+          }
+        ]
+      }
+    },
+    {
+      "seed": 6,
+      "success": true,
+      "output": "/data1/ybyang/physical-demo-lab-runtime/outputs/eval-seeds-5-9/seed-6",
+      "source_sha256": "ea06000123231d740c70c6987be3cd78c4b8d64fdf8dbd27598055ee48b4fd30",
+      "git_commit": "8c6c6be35a835e69a51b44c93d7edef69260d3c7",
+      "source_snapshot_verified": true,
+      "trajectory_continuous": true,
+      "verifier_recomputed_and_matched": true,
+      "trajectory_frames": 3455,
+      "sim_seconds": 57.583333333333336,
+      "loop_wall_seconds": 100.2423491384834,
+      "renderer_gpu": 2,
+      "result": {
+        "success": true,
+        "seed": 6,
+        "phase": "done",
+        "abort_reason": null,
+        "steps": 3456,
+        "wall_seconds": 100.2423491384834,
+        "sim_seconds": 57.583333333333336,
+        "physics_steps": 3455,
+        "video_frames": 0,
+        "objects": [
+          {
+            "state": {
+              "position": [
+                0.13036613166332245,
+                0.3859456777572632,
+                0.7236144542694092
+              ],
+              "orientation": [
+                0.9991686344146729,
+                3.2414536690339446e-06,
+                -2.6513879447520594e-07,
+                -0.04076911136507988
+              ],
+              "linear_velocity": [
+                5.031764158047736e-05,
+                0.0002760560601018369,
+                -9.373188368044794e-05
+              ],
+              "angular_velocity": [
+                -0.0011241777101531625,
+                0.0007568112341687083,
+                0.0002756384201347828
+              ],
+              "id": "parcel_0",
+              "color": "red",
+              "size": 0.04722898610883166,
+              "max_lift": 0.3114279607114533,
+              "belt_displacement": 0.35799906485231814,
+              "released_and_retracted": true
+            },
+            "success": true,
+            "checks": {
+              "correct_bin": true,
+              "inside_bin_xy": true,
+              "above_bin_floor": true,
+              "below_bin_rim": true,
+              "settled_linear": true,
+              "settled_angular": true,
+              "physically_lifted": true,
+              "belt_transport_observed": true,
+              "released_and_retracted": true
+            }
+          },
+          {
+            "state": {
+              "position": [
+                0.540719211101532,
+                0.3831479251384735,
+                0.7249624729156494
+              ],
+              "orientation": [
+                0.9998264908790588,
+                2.9563341286120703e-06,
+                -1.2577693269122392e-06,
+                -0.01862809807062149
+              ],
+              "linear_velocity": [
+                0.00011332397116348147,
+                0.0002708311949390918,
+                -0.00010151870083063841
+              ],
+              "angular_velocity": [
+                -0.0009126749355345964,
+                0.0016233822098001838,
+                0.00020085035066585988
+              ],
+              "id": "parcel_1",
+              "color": "blue",
+              "size": 0.0499246699411188,
+              "max_lift": 0.31106895985213345,
+              "belt_displacement": 0.6459917767980456,
+              "released_and_retracted": true
+            },
+            "success": true,
+            "checks": {
+              "correct_bin": true,
+              "inside_bin_xy": true,
+              "above_bin_floor": true,
+              "below_bin_rim": true,
+              "settled_linear": true,
+              "settled_angular": true,
+              "physically_lifted": true,
+              "belt_transport_observed": true,
+              "released_and_retracted": true
+            }
+          },
+          {
+            "state": {
+              "position": [
+                0.24674350023269653,
+                0.3855361044406891,
+                0.7240399122238159
+              ],
+              "orientation": [
+                0.999994695186615,
+                2.9958580398670165e-06,
+                -1.3423679092738894e-06,
+                -0.00327414833009243
+              ],
+              "linear_velocity": [
+                0.0001275231916224584,
+                0.0002525287272874266,
+                -9.518838487565517e-05
+              ],
+              "angular_velocity": [
+                -0.0008815187029540539,
+                0.0018194738076999784,
+                0.00015165057266131043
+              ],
+              "id": "parcel_2",
+              "color": "red",
+              "size": 0.04807950596698413,
+              "max_lift": 0.31130441949423016,
+              "belt_displacement": 0.9660296771633259,
+              "released_and_retracted": true
+            },
+            "success": true,
+            "checks": {
+              "correct_bin": true,
+              "inside_bin_xy": true,
+              "above_bin_floor": true,
+              "below_bin_rim": true,
+              "settled_linear": true,
+              "settled_angular": true,
+              "physically_lifted": true,
+              "belt_transport_observed": true,
+              "released_and_retracted": true
+            }
+          }
+        ]
+      }
+    },
+    {
+      "seed": 7,
+      "success": true,
+      "output": "/data1/ybyang/physical-demo-lab-runtime/outputs/eval-seed7-retry/seed-7",
+      "source_sha256": "ee7de9c25affd53634a8c0ac9b590fa1841b9aafaa8ec27a914caed7f4455e7d",
+      "git_commit": "3cbf2ed26c56f9a0261a6ece71625c00b03a4346",
+      "source_snapshot_verified": true,
+      "trajectory_continuous": true,
+      "verifier_recomputed_and_matched": true,
+      "trajectory_frames": 3448,
+      "sim_seconds": 57.46666666666667,
+      "loop_wall_seconds": 107.77431068196893,
+      "renderer_gpu": 7,
+      "result": {
+        "success": true,
+        "seed": 7,
+        "phase": "done",
+        "abort_reason": null,
+        "steps": 3449,
+        "wall_seconds": 107.77431068196893,
+        "sim_seconds": 57.46666666666667,
+        "physics_steps": 3448,
+        "video_frames": 0,
+        "objects": [
+          {
+            "state": {
+              "position": [
+                0.13001589477062225,
+                0.3847137987613678,
+                0.7238752841949463
+              ],
+              "orientation": [
+                0.9986284375190735,
+                3.1908841719996417e-06,
+                -1.4315058649572165e-07,
+                -0.052358247339725494
+              ],
+              "linear_velocity": [
+                3.016123446286656e-05,
+                0.00028512137942016125,
+                -9.481246524956077e-05
+              ],
+              "angular_velocity": [
+                -0.0012089645024389029,
+                0.0005055241053923965,
+                0.0003067181969527155
+              ],
+              "id": "parcel_0",
+              "color": "red",
+              "size": 0.047750572799628,
+              "max_lift": 0.311099814117459,
+              "belt_displacement": 0.335999419124013,
+              "released_and_retracted": true
+            },
+            "success": true,
+            "checks": {
+              "correct_bin": true,
+              "inside_bin_xy": true,
+              "above_bin_floor": true,
+              "below_bin_rim": true,
+              "settled_linear": true,
+              "settled_angular": true,
+              "physically_lifted": true,
+              "belt_transport_observed": true,
+              "released_and_retracted": true
+            }
+          },
+          {
+            "state": {
+              "position": [
+                0.5418792963027954,
+                0.3833014667034149,
+                0.7229004502296448
+              ],
+              "orientation": [
+                0.9999439716339111,
+                3.278224994573975e-06,
+                -5.731898795602319e-07,
+                -0.010587155818939209
+              ],
+              "linear_velocity": [
+                9.918078285409138e-05,
+                0.00025153951719403267,
+                -8.64639223436825e-05
+              ],
+              "angular_velocity": [
+                -0.0009905471233651042,
+                0.0013559040380641818,
+                0.00018401275156065822
+              ],
+              "id": "parcel_1",
+              "color": "blue",
+              "size": 0.04580099770946735,
+              "max_lift": 0.3131497502449978,
+              "belt_displacement": 0.6360024110294407,
+              "released_and_retracted": true
+            },
+            "success": true,
+            "checks": {
+              "correct_bin": true,
+              "inside_bin_xy": true,
+              "above_bin_floor": true,
+              "below_bin_rim": true,
+              "settled_linear": true,
+              "settled_angular": true,
+              "physically_lifted": true,
+              "belt_transport_observed": true,
+              "released_and_retracted": true
+            }
+          },
+          {
+            "state": {
+              "position": [
+                0.28757545351982117,
+                0.3251841068267822,
+                0.7243912816047668
+              ],
+              "orientation": [
+                0.963011622428894,
+                -9.694828406736633e-08,
+                -4.174260652689554e-07,
+                0.26945990324020386
+              ],
+              "linear_velocity": [
+                0.00016706848691683263,
+                -2.4965238480945118e-05,
+                -1.7108806787291542e-05
+              ],
+              "angular_velocity": [
+                0.0006787005695514381,
+                0.0005943946889601648,
+                -0.00013701769057661295
+              ],
+              "id": "parcel_2",
+              "color": "red",
+              "size": 0.04878241657251228,
+              "max_lift": 0.31094271219256464,
+              "belt_displacement": 0.9520210080675866,
+              "released_and_retracted": true
+            },
+            "success": true,
+            "checks": {
+              "correct_bin": true,
+              "inside_bin_xy": true,
+              "above_bin_floor": true,
+              "below_bin_rim": true,
+              "settled_linear": true,
+              "settled_angular": true,
+              "physically_lifted": true,
+              "belt_transport_observed": true,
+              "released_and_retracted": true
+            }
+          }
+        ]
+      }
+    },
+    {
+      "seed": 8,
+      "success": true,
+      "output": "/data1/ybyang/physical-demo-lab-runtime/outputs/eval-seeds-5-9/seed-8",
+      "source_sha256": "ee7de9c25affd53634a8c0ac9b590fa1841b9aafaa8ec27a914caed7f4455e7d",
+      "git_commit": "3cbf2ed26c56f9a0261a6ece71625c00b03a4346",
+      "source_snapshot_verified": true,
+      "trajectory_continuous": true,
+      "verifier_recomputed_and_matched": true,
+      "trajectory_frames": 3448,
+      "sim_seconds": 57.46666666666667,
+      "loop_wall_seconds": 82.15366080868989,
+      "renderer_gpu": 2,
+      "result": {
+        "success": true,
+        "seed": 8,
+        "phase": "done",
+        "abort_reason": null,
+        "steps": 3449,
+        "wall_seconds": 82.15366080868989,
+        "sim_seconds": 57.46666666666667,
+        "physics_steps": 3448,
+        "video_frames": 0,
+        "objects": [
+          {
+            "state": {
+              "position": [
+                0.13053348660469055,
+                0.3848559856414795,
+                0.7229810953140259
+              ],
+              "orientation": [
+                0.9999127388000488,
+                3.1680838219472207e-06,
+                -1.4096873428570689e-06,
+                -0.013216416351497173
+              ],
+              "linear_velocity": [
+                0.00012028692435706034,
+                0.0002653106930665672,
+                -9.954111010301858e-05
+              ],
+              "angular_velocity": [
+                -0.0009473275858908892,
+                0.0018140326719731092,
+                0.00019406620413064957
+              ],
+              "id": "parcel_0",
+              "color": "red",
+              "size": 0.04596183365963336,
+              "max_lift": 0.31208669009614765,
+              "belt_displacement": 0.33199942385559433,
+              "released_and_retracted": true
+            },
+            "success": true,
+            "checks": {
+              "correct_bin": true,
+              "inside_bin_xy": true,
+              "above_bin_floor": true,
+              "below_bin_rim": true,
+              "settled_linear": true,
+              "settled_angular": true,
+              "physically_lifted": true,
+              "belt_transport_observed": true,
+              "released_and_retracted": true
+            }
+          },
+          {
+            "state": {
+              "position": [
+                0.5404407978057861,
+                0.38199493288993835,
+                0.724609911441803
+              ],
+              "orientation": [
+                0.9998489022254944,
+                2.964870645882911e-06,
+                -1.268867549697461e-06,
+                -0.017388593405485153
+              ],
+              "linear_velocity": [
+                0.00011389414430595934,
+                0.0002691186382435262,
+                -0.00010013496648753062
+              ],
+              "angular_velocity": [
+                -0.0009404359734617174,
+                0.001651432947255671,
+                0.0002026586589636281
+              ],
+              "id": "parcel_1",
+              "color": "blue",
+              "size": 0.0492193790701773,
+              "max_lift": 0.3115187608585881,
+              "belt_displacement": 0.6560010939273208,
+              "released_and_retracted": true
+            },
+            "success": true,
+            "checks": {
+              "correct_bin": true,
+              "inside_bin_xy": true,
+              "above_bin_floor": true,
+              "below_bin_rim": true,
+              "settled_linear": true,
+              "settled_angular": true,
+              "physically_lifted": true,
+              "belt_transport_observed": true,
+              "released_and_retracted": true
+            }
+          },
+          {
+            "state": {
+              "position": [
+                0.2926371693611145,
+                0.3165271580219269,
+                0.7293490171432495
+              ],
+              "orientation": [
+                0.9791573882102966,
+                -0.002393777249380946,
+                -0.20276837050914764,
+                -0.011411997489631176
+              ],
+              "linear_velocity": [
+                0.0018638441106304526,
+                -0.0014708822127431631,
+                -0.0008247192017734051
+              ],
+              "angular_velocity": [
+                0.0048206886276602745,
+                0.03379916027188301,
+                0.04258870705962181
+              ],
+              "id": "parcel_2",
+              "color": "red",
+              "size": 0.04464172157883665,
+              "max_lift": 0.3138813801544904,
+              "belt_displacement": 0.9520130839800215,
+              "released_and_retracted": true
+            },
+            "success": true,
+            "checks": {
+              "correct_bin": true,
+              "inside_bin_xy": true,
+              "above_bin_floor": true,
+              "below_bin_rim": true,
+              "settled_linear": true,
+              "settled_angular": true,
+              "physically_lifted": true,
+              "belt_transport_observed": true,
+              "released_and_retracted": true
+            }
+          }
+        ]
+      }
+    },
+    {
+      "seed": 9,
+      "success": true,
+      "output": "/data1/ybyang/physical-demo-lab-runtime/outputs/eval-seeds-5-9/seed-9",
+      "source_sha256": "ee7de9c25affd53634a8c0ac9b590fa1841b9aafaa8ec27a914caed7f4455e7d",
+      "git_commit": "3cbf2ed26c56f9a0261a6ece71625c00b03a4346",
+      "source_snapshot_verified": true,
+      "trajectory_continuous": true,
+      "verifier_recomputed_and_matched": true,
+      "trajectory_frames": 3449,
+      "sim_seconds": 57.483333333333334,
+      "loop_wall_seconds": 96.85709962248802,
+      "renderer_gpu": 2,
+      "result": {
+        "success": true,
+        "seed": 9,
+        "phase": "done",
+        "abort_reason": null,
+        "steps": 3450,
+        "wall_seconds": 96.85709962248802,
+        "sim_seconds": 57.483333333333334,
+        "physics_steps": 3449,
+        "video_frames": 0,
+        "objects": [
+          {
+            "state": {
+              "position": [
+                0.13052700459957123,
+                0.38458967208862305,
+                0.7246109247207642
+              ],
+              "orientation": [
+                0.9999058842658997,
+                2.9707184694416355e-06,
+                -1.3019722473472939e-06,
+                -0.01371780689805746
+              ],
+              "linear_velocity": [
+                0.00011933980567846447,
+                0.00026596375391818583,
+                -9.92993955151178e-05
+              ],
+              "angular_velocity": [
+                -0.0008965348242782056,
+                0.0016816608840599656,
+                0.00018678347987588495
+              ],
+              "id": "parcel_0",
+              "color": "red",
+              "size": 0.04922149522382051,
+              "max_lift": 0.31039427443703993,
+              "belt_displacement": 0.35999927218108396,
+              "released_and_retracted": true
+            },
+            "success": true,
+            "checks": {
+              "correct_bin": true,
+              "inside_bin_xy": true,
+              "above_bin_floor": true,
+              "below_bin_rim": true,
+              "settled_linear": true,
+              "settled_angular": true,
+              "physically_lifted": true,
+              "belt_transport_observed": true,
+              "released_and_retracted": true
+            }
+          },
+          {
+            "state": {
+              "position": [
+                0.5404821634292603,
+                0.38228490948677063,
+                0.7241483926773071
+              ],
+              "orientation": [
+                0.9999327659606934,
+                3.004102154591237e-06,
+                -1.3496991186912055e-06,
+                -0.011599510908126831
+              ],
+              "linear_velocity": [
+                0.0001217070675920695,
+                0.0002632403338793665,
+                -9.808905451791361e-05
+              ],
+              "angular_velocity": [
+                -0.0009087467915378511,
+                0.001736088888719678,
+                0.0001817009469959885
+              ],
+              "id": "parcel_1",
+              "color": "blue",
+              "size": 0.04829644777762139,
+              "max_lift": 0.311819174754683,
+              "belt_displacement": 0.6340138566408746,
+              "released_and_retracted": true
+            },
+            "success": true,
+            "checks": {
+              "correct_bin": true,
+              "inside_bin_xy": true,
+              "above_bin_floor": true,
+              "below_bin_rim": true,
+              "settled_linear": true,
+              "settled_angular": true,
+              "physically_lifted": true,
+              "belt_transport_observed": true,
+              "released_and_retracted": true
+            }
+          },
+          {
+            "state": {
+              "position": [
+                0.243169903755188,
+                0.37997859716415405,
+                0.722079873085022
+              ],
+              "orientation": [
+                0.9999880194664001,
+                3.3652447655185824e-06,
+                -2.9242989967315225e-06,
+                0.004897656384855509
+              ],
+              "linear_velocity": [
+                0.0002272245183121413,
+                0.00014071862096898258,
+                -8.128189074341208e-05
+              ],
+              "angular_velocity": [
+                0.002324728760868311,
+                0.001920604263432324,
+                -4.289400385459885e-05
+              ],
+              "id": "parcel_2",
+              "color": "red",
+              "size": 0.04415952640680558,
+              "max_lift": 0.3136188184921539,
+              "belt_displacement": 0.9540504368692856,
+              "released_and_retracted": true
+            },
+            "success": true,
+            "checks": {
+              "correct_bin": true,
+              "inside_bin_xy": true,
+              "above_bin_floor": true,
+              "below_bin_rim": true,
+              "settled_linear": true,
+              "settled_angular": true,
+              "physically_lifted": true,
+              "belt_transport_observed": true,
+              "released_and_retracted": true
+            }
+          }
+        ]
+      }
+    }
+  ],
+  "passed": 10,
+  "total": 10,
+  "single_controller_hash": false,
+  "success": true,
+  "scope": "Three boxes, privileged poses and labels, scripted differential IK, frictional grasp, stopped belt."
+}
