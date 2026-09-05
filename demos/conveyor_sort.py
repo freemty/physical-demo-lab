@@ -12,6 +12,7 @@ import shutil
 import subprocess
 import sys
 import time
+import traceback
 from importlib.metadata import distributions, version
 from pathlib import Path
 
@@ -46,6 +47,7 @@ app = SimulationApp({
     'headless': True, 'active_gpu': args.gpu, 'physics_gpu': args.gpu,
     'multi_gpu': False, 'renderer': 'RaytracedLighting',
     'width': args.width, 'height': args.height, 'sync_loads': True,
+    'shutdown_watchdog_timeout': 15.0,
     'extra_args': ['--/app/settings/persistent=false', '--/app/asyncRendering=false',
                    '--/rtx-transient/resourcemanager/texturestreaming/enabled=false'],
 })
@@ -239,6 +241,7 @@ def transition(new_phase, step, states):
     print(f'PHASE step={step} object={active} phase={phase}', flush=True)
 
 
+exit_code = 1
 try:
     for step in range(args.max_steps):
         states = [state_of(obj) for obj in objects]
@@ -332,12 +335,18 @@ try:
     if frame.ndim == 3:
         import imageio.v2 as imageio
         imageio.imwrite(args.output/'final.png', frame[..., :3])
+    exit_code = 0 if result['success'] else 2
+except BaseException:
+    traceback.print_exc()
+    raise
 finally:
     trajectory.close()
     events.close()
     if writer:
         writer.close()
-    app_utils.stop()
-    app.close()
+    # Each run owns a standalone Kit process. All evidence is flushed above;
+    # no Replicator writers are pending. Avoid stop callbacks re-entering a live
+    # render product, and explicitly preserve failures through Kit fast shutdown.
+    app.close(wait_for_replicator=False, skip_cleanup=True, exit_code=exit_code)
 
-sys.exit(0 if result['success'] else 2)
+sys.exit(exit_code)
