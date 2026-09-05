@@ -12,6 +12,7 @@ class ShowcaseRun(sim_runtime.Run):
         self.appearance.decorate()
         self.appearance.set_shot('loading', emit=False)
         self.saved_shots = set()
+        self.capture_shot, self.shot_age = None, 0
 
     def start(self, metadata):
         metadata = dict(metadata)
@@ -30,9 +31,12 @@ class ShowcaseRun(sim_runtime.Run):
 
     def step(self, phase, commands, states_before):
         shot = 'travel' if phase == 'navigate' else 'arrival' if phase == 'final_settle' else 'loading'
+        if shot != self.capture_shot:
+            self.capture_shot, self.shot_age = shot, 0
+        self.shot_age += 1
         self.appearance.set_shot(shot)
         super().step(phase, commands, states_before)
-        if shot not in self.saved_shots and (shot != 'loading' or self.step_count >= 400):
+        if self.shot_age >= 12 and shot not in self.saved_shots and (shot != 'loading' or self.step_count >= 400):
             import imageio.v2 as imageio
             frame = self.np.asarray(self.rgb.get_data())
             if frame.ndim == 3:

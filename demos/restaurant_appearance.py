@@ -183,12 +183,13 @@ class RestaurantAppearance:
             'R': ['11110','10001','11110','10100','10010'],
         }
         pixel = .85/(len(text)*6-1)
+        face_y = -.516 if text == 'BENTO' else -.506
         for k, char in enumerate(text):
             for row, cells in enumerate(glyphs[char]):
                 for col, value in enumerate(cells):
                     if value == '1':
                         self.box(path+f'/Ink{k}_{row}_{col}',
-                                 [-.425+(k*6+col)*pixel, -.506, .14-row*pixel],
+                                 [-.425+(k*6+col)*pixel, face_y, .14-row*pixel],
                                  [pixel*.82, .006, pixel*.82], material)
 
     def decorate(self):
@@ -201,7 +202,10 @@ class RestaurantAppearance:
             path = str(prim.GetPath())
             if path in existing:
                 self.bind(prim, existing[path])
-            elif any(path.startswith('/World/'+prefix) for prefix in ('CounterLeg', 'TableLeg', 'ChairBase')):
+            elif path in ('/World/ChairBase0', '/World/ChairBase1'):
+                # Retain the original collider, replace only its bulky visible pedestal.
+                self.UsdGeom.Imageable(prim).MakeInvisible()
+            elif any(path.startswith('/World/'+prefix) for prefix in ('CounterLeg', 'TableLeg')):
                 if self.UsdGeom.Gprim(prim): self.bind(prim, 'black')
             elif any(path.startswith('/World/'+prefix) for prefix in ('ChairSeat', 'ChairBack')):
                 if self.UsdGeom.Gprim(prim): self.bind(prim, 'teal')
@@ -224,13 +228,19 @@ class RestaurantAppearance:
                      'wood_light' if i%3 else 'wood')
         self.setting('PlaceA', 2.42, 1.40, .753)
         self.setting('PlaceB', 2.76, 1.43, .753)
+        for i, x in enumerate([2.2, 2.9]):
+            for j, xx in enumerate([x-.12, x+.12]):
+                for k, yy in enumerate([1.87, 2.11]):
+                    self.cylinder(self.root+f'/DiningChairLeg{i}_{j}_{k}', [xx, yy, .20], .015, .40, 'black')
         self.box(self.root+'/BackTableTop', [.65, 1.62, .735], [.82, .55, .05], 'wood_light')
         for i, x in enumerate([.30, 1.0]):
-            self.box(self.root+f'/BackTableLeg{i}', [x, 1.62, .355], [.055, .35, .71], 'black')
+            for j, yy in enumerate([1.40, 1.84]):
+                self.cylinder(self.root+f'/BackTableLeg{i}_{j}', [x, yy, .355], .024, .71, 'black')
             self.box(self.root+f'/BackChairSeat{i}', [x, 2.1, .43], [.31, .30, .05], 'teal')
             self.box(self.root+f'/BackChairBack{i}', [x, 2.23, .66], [.31, .045, .45], 'teal')
             for j, yy in enumerate([1.99, 2.21]):
-                self.box(self.root+f'/BackChairLeg{i}_{j}', [x, yy, .21], [.23, .028, .42], 'black')
+                for k, xx in enumerate([x-.12, x+.12]):
+                    self.cylinder(self.root+f'/BackChairLeg{i}_{j}_{k}', [xx, yy, .21], .015, .42, 'black')
         self.setting('BackSettingA', .46, 1.56, .761)
         self.setting('BackSettingB', .89, 1.59, .761)
         self.plant('PlantLeft', -.72, 2.0)
@@ -271,6 +281,9 @@ class RestaurantAppearance:
             for j in range(3):
                 self.box(wheel+f'/Spoke{j}', [0, (-1 if i else 1)*.018, 0], [.10, .003, .008], 'metal', [0, j*60, 0])
         self.box('/World/ServiceCart/Accent', [.161, 0, 0], [.003, .14, .025], 'brass')
+        self.ellipsoid('/World/ServiceCart/BodyShell', [0, 0, .28], [.10, .085, .23], 'white')
+        self.box('/World/ServiceCart/StatusPanel', [.096, 0, .30], [.008, .108, .082], 'deep_teal')
+        self.box('/World/ServiceCart/StatusBar', [.101, 0, .30], [.004, .072, .009], 'teal')
         dome = UsdLux.DomeLight.Get(self.stage, '/World/Light')
         dome.GetIntensityAttr().Set(650.)
         dome.CreateColorAttr(self.Gf.Vec3f(.84, .91, 1.))
