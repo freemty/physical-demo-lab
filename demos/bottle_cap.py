@@ -45,35 +45,43 @@ try:
         joint.CreateBody1Rel().SetTargets([body])
         joint.CreateLocalPos0Attr().Set(Gf.Vec3f(*world_position))
         joint.CreateLocalPos1Attr().Set(Gf.Vec3f(*local_position))
+        joint.CreateLocalRot0Attr().Set(Gf.Quatf(math.sqrt(.5), 0, -math.sqrt(.5), 0))
         joint.CreateLocalRot1Attr().Set(Gf.Quatf(*local_rotation))
         joint.CreateExcludeFromArticulationAttr().Set(True)
-        for axis in ('transX', 'transY', 'rotX', 'rotY'):
+        # D6's twist X is aligned with world Z; swing axes cannot represent
+        # an unrestricted full turn. Local frame X is also the lift axis.
+        for axis in ('transY', 'transZ', 'rotY', 'rotZ'):
             limit = UsdPhysics.LimitAPI.Apply(joint.GetPrim(), axis)
             limit.CreateLowAttr(1.)
             limit.CreateHighAttr(-1.)
         return joint
 
-    thread = axial_joint('/World/ThreadGuide', '/World/Cap', [cx, cy, z0], [0, 0, 0], [1, 0, 0, 0])
+    thread = axial_joint('/World/ThreadGuide', '/World/Cap', [cx, cy, z0], [0, 0, 0], [math.sqrt(.5), 0, -math.sqrt(.5), 0])
     # Limits only prevent tightening beyond the initial seat; the free Z and
     # yaw coordinates are passively coupled by equal/opposite spring work.
-    lim = UsdPhysics.LimitAPI.Apply(thread.GetPrim(), 'rotZ')
+    lim = UsdPhysics.LimitAPI.Apply(thread.GetPrim(), 'rotX')
     lim.CreateLowAttr(-2.)
     lim.CreateHighAttr(360.)
 
     path = '/World/Allegro'
     asset = get_assets_root_path()+'/Isaac/Robots/WonikRobotics/AllegroHand/allegro_hand.usd'
     add_reference_to_stage(usd_path=asset, path=path)
+    placement = UsdGeom.Xformable(run.stage.GetPrimAtPath(path))
+    placement.ClearXformOpOrder()
+    placement.AddTranslateOp(opSuffix='fixture').Set(Gf.Vec3d(0, 0, 1.15))
+    placement.AddOrientOp(opSuffix='fixture').Set(Gf.Quatf(0, 1, 0, 0))
     run.stage.GetPrimAtPath(path+'/root_joint').SetActive(False)
     hand = Articulation(path)
-    hand.set_world_poses(positions=[0., 0., 1.15], orientations=[0., 1., 0., 0.])
-    mount_path = hand.link_paths[0][0]
-    mount = axial_joint('/World/WristFixture', mount_path, [cx, cy, 1.15], [cx, -cy, 0], [0, 1, 0, 0])
-    spin = UsdPhysics.DriveAPI.Apply(mount.GetPrim(), 'rotZ')
+    # Removing the fixed root makes palm_link the articulation root. The named
+    # mounting link remains valid, but link_paths[0][0] no longer names it.
+    mount_path = path+'/allegro_mount'
+    mount = axial_joint('/World/WristFixture', mount_path, [cx, cy, 1.15], [cx, -cy, 0], [0, -math.sqrt(.5), 0, math.sqrt(.5)])
+    spin = UsdPhysics.DriveAPI.Apply(mount.GetPrim(), 'rotX')
     spin.CreateTypeAttr('force')
-    spin.CreateStiffnessAttr(6.)
+    spin.CreateStiffnessAttr(0.)
     spin.CreateDampingAttr(1.)
     spin.CreateMaxForceAttr(2.)
-    height = UsdPhysics.DriveAPI.Apply(mount.GetPrim(), 'transZ')
+    height = UsdPhysics.DriveAPI.Apply(mount.GetPrim(), 'transX')
     height.CreateTypeAttr('force')
     height.CreateStiffnessAttr(800.)
     height.CreateDampingAttr(60.)
@@ -91,6 +99,10 @@ try:
     hand.set_dof_gains(stiffnesses=3., dampings=.1)
     hand.set_dof_max_efforts(.5)
     palm = RigidPrim(mount_path)
+    contact_links = [p for p in hand.link_paths[0] if any(f+'_' in p for f in ('index', 'middle', 'ring', 'thumb'))]
+    contact = RigidPrim(contact_links, contact_filter_paths=['/World/Cap'])
+    run.write('hand-mount.json', {'link_paths': hand.link_paths, 'mount_path': mount_path,
+                                'initial_mount': [v.numpy().tolist() for v in palm.get_world_poses()]})
 
     class Adapter:
         def reset_to_default_pose(self):
@@ -105,7 +117,7 @@ try:
     run.start({'asset': asset, 'scope': 'contact-driven Allegro cap; equivalent passive spring helix, fixed bottle',
                'thread': {'pitch': pitch, 'release_angle': release_angle, 'spring': stiffness,
                           'damping': damping, 'rotary_drag': rotary_drag, 'z0': z0},
-               'negative_no_close': negative, 'dof_names': hand.dof_names})
+               'negative_no_close': negative, 'dof_names': hand.dof_names, 'contact_links': contact_links})
     angle, last_yaw, released_step, max_error = 0., 0., None, 0.
     for step in range(run.args.max_steps):
         states = run.observe()
@@ -136,6 +148,7 @@ try:
         else:
             phase, fraction = 'lift', 1.
         target_angle = min(240., max(0., (step-360)/60*35.))
+        target_velocity = 35. if 360 <= step < 772 and released_step is None else 0.
         target_height = max(0., angle)*coefficient
         if released_step is not None:
             target_height = release_angle*coefficient+min(.16, (step-released_step)/60*.04)
@@ -143,9 +156,11 @@ try:
             fraction = 0.
         fingers = q_open+(q_closed-q_open)*fraction
         hand.set_dof_position_targets(fingers)
-        spin.GetTargetPositionAttr().Set(target_angle)
+        spin.GetTargetVelocityAttr().Set(target_velocity)
         height.GetTargetPositionAttr().Set(target_height)
+        contact_forces = contact.get_contact_force_matrix(dt=run.dt).numpy().tolist()
         run.step(phase, [{'joints': fingers.tolist(), 'wrist_angle_deg': target_angle, 'wrist_height': target_height,
+                         'wrist_velocity_deg_s': target_velocity, 'finger_contact_forces': contact_forces,
                          'thread_force_z': force, 'thread_torque_z': torque, 'cap_angle': angle,
                          'helix_error': error, 'thread_engaged': released_step is None}], states)
         if step % 120 == 0:
