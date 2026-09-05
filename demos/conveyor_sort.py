@@ -51,6 +51,7 @@ app = SimulationApp({
 })
 
 import numpy as np
+import warp as wp
 import carb
 import omni.replicator.core as rep
 import isaacsim.core.experimental.utils.app as app_utils
@@ -62,6 +63,9 @@ from verification import verify_object
 
 app_utils.enable_extension('isaacsim.robot.experimental.manipulators.examples')
 from isaacsim.robot.experimental.manipulators.examples.franka import Franka
+
+# Keep small control/tensor operations on CPU instead of implicitly using GPU 0.
+wp.set_device('cpu')
 
 DT = 1/60
 COLORS = {'red': [0.72, 0.12, 0.09], 'blue': [0.10, 0.30, 0.68]}
@@ -94,6 +98,9 @@ def box(path, position, scale, color, *, dynamic=False, mass=0.05, friction=0.8)
         api.CreateSolverPositionIterationCountAttr(16)
         api.CreateSolverVelocityIterationCountAttr(4)
         api.CreateEnableCCDAttr(True)
+        # A stationary kinematic belt cannot wake a box when only surface velocity
+        # changes. Keep the demo parcels awake so the contact solver sees starts.
+        api.CreateSleepThresholdAttr(0.0)
     return prim
 
 
