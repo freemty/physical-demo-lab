@@ -24,6 +24,8 @@ bash scripts/run.sh --gpu 1 --seed 0 --objects 3 \
 
 `PHYSICAL_DEMO_RUNTIME` 可覆盖默认数据盘路径；`UV_BIN` 可覆盖 uv 的路径。输出目录必须不存在，失败尝试也保留，重跑需使用新目录。
 
+中间数据统一位于 `/data1/ybyang/physical-demo-lab-runtime`：`venv/` 环境、`cache/` 下载与渲染缓存、`tmp/` 临时文件、`logs/` 安装记录、`outputs/` 仿真结果。普通依赖默认使用清华 PyPI 镜像（可用 `PYTHON_PACKAGE_INDEX` 覆盖），PyTorch 主包仍使用固定哈希的官方 wheel，Isaac Sim 使用 NVIDIA 源。
+
 `--gpu` 是物理渲染 GPU 的序号，运行前请用 `nvidia-smi` 检查是否空闲。场景的刚体动力学在 CPU 上计算，GPU 用于 RTX 渲染。首次加载 NVIDIA 资产可能需要网络。
 
 运行会按 NVIDIA 文档设置 `OMNI_KIT_ACCEPT_EULA=YES`；使用者应阅读 [NVIDIA Omniverse EULA](https://docs.omniverse.nvidia.com/platform/latest/common/NVIDIA_Omniverse_License_Agreement.html)。安装的软件及 NVIDIA 模型资产遵循各自许可证，不随本仓库再分发。
@@ -33,11 +35,16 @@ bash scripts/run.sh --gpu 1 --seed 0 --objects 3 \
 每次运行生成：
 
 - `manifest.json`：参数、版本、源码哈希、Git 版本、物体初始条件和限制。
+- `source/`：该次执行的完整 demo、验证器和运行脚本快照；不能只靠可能有未提交修改的 Git 版本号追溯。
 - `scene.usda`：程序构建的 USD 场景，机器人引用仍依赖 NVIDIA 资产源。
 - `trajectory.jsonl`：每个控制步的目标、关节和末端状态、物体状态。
 - `events.jsonl`：状态转换与物体位置，便于定位失败阶段。
 - `result.json`：各物体的验证项及总结果；失败返回非零退出码。
 - `video.mp4`、`preview.png`、`final.png`：真实仿真渲染，不是生成视频。
+
+完整命令、显卡快照和 stdout/stderr 保存在同级的 `<输出目录>.console.log`。使用 `python3 scripts/evaluate.py --root <新目录> --gpu 2` 可启动 10 个独立进程的 seed 测试；无论成功或失败，都保留各次输出。
+
+服务器存在相同版本的 SDK 时，可选择 `scripts/reuse_extscache.py` 校验并复制三个扩展缓存发行包。它只读原环境，逐文件检查 RECORD 哈希，不复制原环境的解释器或训练依赖；常规安装不需要此步骤。
 
 成功必须同时满足：正确颜色箱、完整物体在箱内、低线速度和角速度、实际提起超过 8 cm、传送带搬运超过 5 cm、夹爪已打开并远离物体。
 
