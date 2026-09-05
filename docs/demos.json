@@ -87,7 +87,23 @@
         "scripts/run_task.py": "f6c6e9d6be941529e18991a606257806499420a2e014d0511ab7eb81d4259762"
       }
     },
-    {"id": "demo006", "title": "餐厅服务", "status": "in_progress"},
+    {
+      "id": "demo006", "title": "餐厅服务", "status": "complete",
+      "scope": "固定 Franka 摩擦装餐、独立差速车接触搬运并在餐桌旁持续稳定的基础版",
+      "verified_at": "2026-09-06",
+      "limitations": ["硬件不同于封面的移动双臂，不含桌面卸餐、视觉、液体或动态避人", "仅三个同版本随机初态；此前停车稳定失败保留，求解器组合修改未做单参数消融"],
+      "report": "reports/demo006-restaurant.md",
+      "lessons": ["docs/knowhow/toolchain/mobile-carrier-evidence.md"],
+      "evidence": ["reports/demo006-audit.json", "reports/demo006-negative-audit.json"],
+      "implementation": {
+        "demos/restaurant.py": "9937365dcefab46176c3fb5624514c204fe91f39060b2e2e585876f5a0aacea8",
+        "demos/service_cart.py": "6da3206080deeaebfe95304209b7802df86ce3b182338a69fde0e6378e4fb479",
+        "demos/restaurant_verify.py": "54627b16f066c52435d04343d42d1af4344a54dc4c52ef5e0c4085f798587437",
+        "demos/gear_verify.py": "924fe4bfce9942c152540c5d3d3ab7adf617a1aa384fc829da1ed1ab19b06187",
+        "demos/sim_runtime.py": "56301255c2075a735c62119fa92e279b5e306b49e3480634a2a2de983b210fd3",
+        "scripts/run_task.py": "f6c6e9d6be941529e18991a606257806499420a2e014d0511ab7eb81d4259762"
+      }
+    },
     {"id": "demo007", "title": "双臂拼乐高", "status": "planned"},
     {"id": "demo008", "title": "人形机器人室内行走", "status": "planned"}
   ]

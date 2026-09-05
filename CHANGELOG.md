@@ -2,6 +2,9 @@
 
 ## Unreleased
 
+- Completed demo006 fixed-arm loading and wheel-driven delivery on three identical
+  implementation seeds. Retained the parked-cart stability failure and two negative
+  controls; filed carrier-local containment and residual-motion lessons.
 - Completed demo005 contact-driven cap opening on three fixed-controller mass
   seeds, with passive-helix replay and sustained free-cap holding. Preserved all
   development failures and solver comparisons; documented negative source scope.

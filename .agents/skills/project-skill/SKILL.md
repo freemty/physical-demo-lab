@@ -34,11 +34,18 @@ description: Use when working on physical-demo-lab demos, Isaac Sim runtime inte
 - `demo005` Allegro cap: three final mass seeds pass contact-driven rotation,
   explicit passive-helix disengagement and continuous free-cap holding. Earlier
   stability failures are retained. See `reports/demo005-bottle-cap.md`.
-- The remaining restaurant, Lego and humanoid categories are planned.
+- `demo006` service cart: three identical-version seeds pass fixed-arm loading,
+  in-tray wheel-driven transport and three-second parked delivery. One earlier
+  settling failure and zero-drive/one-step negatives are retained. See
+  `reports/demo006-restaurant.md`; this is not a mobile dual-arm reproduction.
+- The remaining Lego and humanoid categories are planned.
   Read `docs/README.md` for source coverage and next-demo selection.
 
 ## Durable pitfalls
 
+- Moving-carrier containment belongs in the carrier's local coordinates; verify
+  the whole transport interval and net displacement, not only a final image or
+  cumulative jitter path. See `docs/knowhow/toolchain/mobile-carrier-evidence.md`.
 - Allegro fixed/floating roots can reorder link indices; bind the mounting link
   by verified name. Contact filters also need contact-report APIs. At non-60-Hz
   physics, explicitly align the app timeline and audit actual step counts.

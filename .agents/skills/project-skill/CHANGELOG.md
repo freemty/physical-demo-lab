@@ -32,3 +32,8 @@ integration. Cap development remains incomplete pending multi-seed stable hold.
 
 Closed the cap baseline with three fixed-controller mass seeds, negative controls,
 bounded solver findings and measured hold-based termination within the same budget.
+
+## 2026-09-06 — v7
+
+Closed fixed-arm loading plus physical wheel-driven delivery with three seeds and
+negative controls; retained the first settling failure and carrier-local/net-travel lessons.

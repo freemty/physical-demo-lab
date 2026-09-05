@@ -12,7 +12,7 @@
 | demo003 | 齿轮拼装 | 基础版已验证并归档；三种初态插轴、落座、释放 |
 | demo004 | 双臂搭积木 | 基础版已验证并归档；双臂轮流搭桥、持续支撑 |
 | demo005 | 灵巧手拧瓶盖 | 基础版已验证并归档；单手、等效螺纹、三质量初态 |
-| demo006 | 餐厅服务 | 开发中；固定臂装餐、独立轮式车送达桌边 |
+| demo006 | 餐厅服务 | 基础版已验证并归档；固定臂装餐、独立轮式车送达 |
 | demo007 | 双臂拼乐高 | 未开始 |
 | demo008 | 人形机器人室内行走 | 未开始 |
 
@@ -42,7 +42,7 @@
 - 第五项实测：[开盖报告](../reports/demo005-bottle-cap.md)、
   [包含失败的开发账本](../reports/demo005-bottle-cap-development.md) 与
   [Allegro 安装/接触/时钟经验](knowhow/debug-solutions/allegro-mount-contact-clock.md)。
-- 第六项开发：[送餐开发账本](../reports/demo006-restaurant-development.md) 与
+- 第六项实测：[送餐报告](../reports/demo006-restaurant.md)、[开发账本](../reports/demo006-restaurant-development.md) 与
   [移动载具证据](knowhow/toolchain/mobile-carrier-evidence.md)。
 
 ## 写到哪里

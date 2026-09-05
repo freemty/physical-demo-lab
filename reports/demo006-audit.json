@@ -1,0 +1,193 @@
+{
+  "success": true,
+  "passed": 3,
+  "total": 3,
+  "runs": [
+    {
+      "success": true,
+      "task": "restaurant",
+      "seed": 0,
+      "output": "/data1/ybyang/physical-demo-lab-runtime/outputs/demo006/development-2",
+      "source_snapshot_verified": true,
+      "trajectory_continuous": true,
+      "semantic_replay_verified": true,
+      "process_returncode": 0,
+      "frames": 2974,
+      "sim_seconds": 49.56666666666667,
+      "verification": {
+        "success": true,
+        "checks": {
+          "finite": true,
+          "both_physically_lifted": true,
+          "loaded_before_departure": true,
+          "contained_through_transport": true,
+          "cart_upright": true,
+          "net_travel_two_meters": true,
+          "path_two_meters": true,
+          "wheels_really_rotated": true,
+          "stable_delivery_three_seconds": true
+        },
+        "lifted": [
+          "drink_carton",
+          "meal_box"
+        ],
+        "travel": 2.2276120323137185,
+        "path": 2.3804968581885673,
+        "wheel_rotation": 34.48117248368188,
+        "stable_seconds": 3.0,
+        "transit_frames": 1034,
+        "final": {
+          "at_goal": true,
+          "inside": true,
+          "quiet": true,
+          "released": true
+        }
+      },
+      "source_files": {
+        "demos/assembly_parts.py": "da5b2788b36ff4fce4fa79e8aae085fe9aff3cc910fa43132f2d72d2ab019c73",
+        "demos/blocks_verify.py": "cfc333b93324a6a3512cf46c100b46889f2fffc81ca00d0069154d3f570de1bc",
+        "demos/bottle_cap.py": "4e2eed10fd744089d733a43663deaee4aa7779cf1ad57d4732403289cbdaba69",
+        "demos/cap_verify.py": "d6478ec086e13901f2e7b8444def23201e22a8ad8383610c9dc5acf289d1137d",
+        "demos/checkout.py": "bbeccc5c5fba5d6ebe780dd00beeed63caddb954c79893816ec9c2ca587c126e",
+        "demos/checkout_verify.py": "c2e7104c97d354ec1447fa592588b8bdc66d15c4b8c87124c2f4e51df295c07c",
+        "demos/conveyor_sort.py": "ee7de9c25affd53634a8c0ac9b590fa1841b9aafaa8ec27a914caed7f4455e7d",
+        "demos/dual_blocks.py": "65ead9a1a33f10b612e78c02ee6b1fd4638e48426e18373ed73850bd471b665c",
+        "demos/gear_assembly.py": "dac330ca8adfc79c45a4f491b820db1cab58e7ea8f4748dd2d91a936153581cb",
+        "demos/gear_verify.py": "924fe4bfce9942c152540c5d3d3ab7adf617a1aa384fc829da1ed1ab19b06187",
+        "demos/hand_probe.py": "819ce9611ae9f941c104695ee5b3a869c4faefebf24a6faa82419929fdc9927a",
+        "demos/restaurant.py": "9937365dcefab46176c3fb5624514c204fe91f39060b2e2e585876f5a0aacea8",
+        "demos/restaurant_verify.py": "54627b16f066c52435d04343d42d1af4344a54dc4c52ef5e0c4085f798587437",
+        "demos/service_cart.py": "6da3206080deeaebfe95304209b7802df86ce3b182338a69fde0e6378e4fb479",
+        "demos/sim_runtime.py": "56301255c2075a735c62119fa92e279b5e306b49e3480634a2a2de983b210fd3",
+        "demos/verification.py": "30997a0e7323a91143f0c04f7b418077b3973841bc14a2b191dfc38bb137d369",
+        "scripts/audit_task.py": "00c864837852c212a1096e14af2cb0ebf7ced03313d357631f7186733ec76176",
+        "scripts/evaluate_task.py": "ba99d3a70fdf0edb5a7ae5997a2e34218ab00e36dd8a35501ed9ab07c83001c8",
+        "scripts/run_task.py": "f6c6e9d6be941529e18991a606257806499420a2e014d0511ab7eb81d4259762"
+      }
+    },
+    {
+      "success": true,
+      "task": "restaurant",
+      "seed": 1,
+      "output": "/data1/ybyang/physical-demo-lab-runtime/outputs/demo006/seed-1",
+      "source_snapshot_verified": true,
+      "trajectory_continuous": true,
+      "semantic_replay_verified": true,
+      "process_returncode": 0,
+      "frames": 2974,
+      "sim_seconds": 49.56666666666667,
+      "verification": {
+        "success": true,
+        "checks": {
+          "finite": true,
+          "both_physically_lifted": true,
+          "loaded_before_departure": true,
+          "contained_through_transport": true,
+          "cart_upright": true,
+          "net_travel_two_meters": true,
+          "path_two_meters": true,
+          "wheels_really_rotated": true,
+          "stable_delivery_three_seconds": true
+        },
+        "lifted": [
+          "drink_carton",
+          "meal_box"
+        ],
+        "travel": 2.2279249492026234,
+        "path": 2.3819991610132356,
+        "wheel_rotation": 34.47386918130663,
+        "stable_seconds": 3.0,
+        "transit_frames": 1034,
+        "final": {
+          "at_goal": true,
+          "inside": true,
+          "quiet": true,
+          "released": true
+        }
+      },
+      "source_files": {
+        "demos/assembly_parts.py": "da5b2788b36ff4fce4fa79e8aae085fe9aff3cc910fa43132f2d72d2ab019c73",
+        "demos/blocks_verify.py": "cfc333b93324a6a3512cf46c100b46889f2fffc81ca00d0069154d3f570de1bc",
+        "demos/bottle_cap.py": "4e2eed10fd744089d733a43663deaee4aa7779cf1ad57d4732403289cbdaba69",
+        "demos/cap_verify.py": "d6478ec086e13901f2e7b8444def23201e22a8ad8383610c9dc5acf289d1137d",
+        "demos/checkout.py": "bbeccc5c5fba5d6ebe780dd00beeed63caddb954c79893816ec9c2ca587c126e",
+        "demos/checkout_verify.py": "c2e7104c97d354ec1447fa592588b8bdc66d15c4b8c87124c2f4e51df295c07c",
+        "demos/conveyor_sort.py": "ee7de9c25affd53634a8c0ac9b590fa1841b9aafaa8ec27a914caed7f4455e7d",
+        "demos/dual_blocks.py": "65ead9a1a33f10b612e78c02ee6b1fd4638e48426e18373ed73850bd471b665c",
+        "demos/gear_assembly.py": "dac330ca8adfc79c45a4f491b820db1cab58e7ea8f4748dd2d91a936153581cb",
+        "demos/gear_verify.py": "924fe4bfce9942c152540c5d3d3ab7adf617a1aa384fc829da1ed1ab19b06187",
+        "demos/hand_probe.py": "819ce9611ae9f941c104695ee5b3a869c4faefebf24a6faa82419929fdc9927a",
+        "demos/restaurant.py": "9937365dcefab46176c3fb5624514c204fe91f39060b2e2e585876f5a0aacea8",
+        "demos/restaurant_verify.py": "54627b16f066c52435d04343d42d1af4344a54dc4c52ef5e0c4085f798587437",
+        "demos/service_cart.py": "6da3206080deeaebfe95304209b7802df86ce3b182338a69fde0e6378e4fb479",
+        "demos/sim_runtime.py": "56301255c2075a735c62119fa92e279b5e306b49e3480634a2a2de983b210fd3",
+        "demos/verification.py": "30997a0e7323a91143f0c04f7b418077b3973841bc14a2b191dfc38bb137d369",
+        "scripts/audit_task.py": "00c864837852c212a1096e14af2cb0ebf7ced03313d357631f7186733ec76176",
+        "scripts/evaluate_task.py": "ba99d3a70fdf0edb5a7ae5997a2e34218ab00e36dd8a35501ed9ab07c83001c8",
+        "scripts/run_task.py": "f6c6e9d6be941529e18991a606257806499420a2e014d0511ab7eb81d4259762"
+      }
+    },
+    {
+      "success": true,
+      "task": "restaurant",
+      "seed": 2,
+      "output": "/data1/ybyang/physical-demo-lab-runtime/outputs/demo006/seed-2",
+      "source_snapshot_verified": true,
+      "trajectory_continuous": true,
+      "semantic_replay_verified": true,
+      "process_returncode": 0,
+      "frames": 2975,
+      "sim_seconds": 49.583333333333336,
+      "verification": {
+        "success": true,
+        "checks": {
+          "finite": true,
+          "both_physically_lifted": true,
+          "loaded_before_departure": true,
+          "contained_through_transport": true,
+          "cart_upright": true,
+          "net_travel_two_meters": true,
+          "path_two_meters": true,
+          "wheels_really_rotated": true,
+          "stable_delivery_three_seconds": true
+        },
+        "lifted": [
+          "drink_carton",
+          "meal_box"
+        ],
+        "travel": 2.2280725922109816,
+        "path": 2.381557889319729,
+        "wheel_rotation": 34.49283066668328,
+        "stable_seconds": 3.0,
+        "transit_frames": 1035,
+        "final": {
+          "at_goal": true,
+          "inside": true,
+          "quiet": true,
+          "released": true
+        }
+      },
+      "source_files": {
+        "demos/assembly_parts.py": "da5b2788b36ff4fce4fa79e8aae085fe9aff3cc910fa43132f2d72d2ab019c73",
+        "demos/blocks_verify.py": "cfc333b93324a6a3512cf46c100b46889f2fffc81ca00d0069154d3f570de1bc",
+        "demos/bottle_cap.py": "4e2eed10fd744089d733a43663deaee4aa7779cf1ad57d4732403289cbdaba69",
+        "demos/cap_verify.py": "d6478ec086e13901f2e7b8444def23201e22a8ad8383610c9dc5acf289d1137d",
+        "demos/checkout.py": "bbeccc5c5fba5d6ebe780dd00beeed63caddb954c79893816ec9c2ca587c126e",
+        "demos/checkout_verify.py": "c2e7104c97d354ec1447fa592588b8bdc66d15c4b8c87124c2f4e51df295c07c",
+        "demos/conveyor_sort.py": "ee7de9c25affd53634a8c0ac9b590fa1841b9aafaa8ec27a914caed7f4455e7d",
+        "demos/dual_blocks.py": "65ead9a1a33f10b612e78c02ee6b1fd4638e48426e18373ed73850bd471b665c",
+        "demos/gear_assembly.py": "dac330ca8adfc79c45a4f491b820db1cab58e7ea8f4748dd2d91a936153581cb",
+        "demos/gear_verify.py": "924fe4bfce9942c152540c5d3d3ab7adf617a1aa384fc829da1ed1ab19b06187",
+        "demos/hand_probe.py": "819ce9611ae9f941c104695ee5b3a869c4faefebf24a6faa82419929fdc9927a",
+        "demos/restaurant.py": "9937365dcefab46176c3fb5624514c204fe91f39060b2e2e585876f5a0aacea8",
+        "demos/restaurant_verify.py": "54627b16f066c52435d04343d42d1af4344a54dc4c52ef5e0c4085f798587437",
+        "demos/service_cart.py": "6da3206080deeaebfe95304209b7802df86ce3b182338a69fde0e6378e4fb479",
+        "demos/sim_runtime.py": "56301255c2075a735c62119fa92e279b5e306b49e3480634a2a2de983b210fd3",
+        "demos/verification.py": "30997a0e7323a91143f0c04f7b418077b3973841bc14a2b191dfc38bb137d369",
+        "scripts/audit_task.py": "00c864837852c212a1096e14af2cb0ebf7ced03313d357631f7186733ec76176",
+        "scripts/evaluate_task.py": "ba99d3a70fdf0edb5a7ae5997a2e34218ab00e36dd8a35501ed9ab07c83001c8",
+        "scripts/run_task.py": "f6c6e9d6be941529e18991a606257806499420a2e014d0511ab7eb81d4259762"
+      }
+    }
+  ]
+}
