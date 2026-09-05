@@ -18,7 +18,7 @@ try:
 
     cx, cy, z0 = -.064, .068, 1.010
     pitch, release_angle, mass = .012, math.pi, float(run.rng.uniform(.038, .042))
-    stiffness, damping, rotary_drag = 160., 1.3, .002
+    stiffness, damping, rotary_drag = 400., .8, .002
     negative = os.environ.get('BOTTLE_NO_CLOSE') == '1'
     run.box('/World/Floor', [0, 0, -.03], [3, 3, .06], [.3]*3)
     run.box('/World/Table', [0, 0, .76], [.8, .8, .08], [.4]*3)
@@ -79,7 +79,7 @@ try:
     spin = UsdPhysics.DriveAPI.Apply(mount.GetPrim(), 'rotX')
     spin.CreateTypeAttr('force')
     spin.CreateStiffnessAttr(0.)
-    spin.CreateDampingAttr(1.)
+    spin.CreateDampingAttr(6.)
     spin.CreateMaxForceAttr(2.)
     height = UsdPhysics.DriveAPI.Apply(mount.GetPrim(), 'transX')
     height.CreateTypeAttr('force')
