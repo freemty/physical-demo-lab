@@ -37,6 +37,9 @@ description: Use when working on physical-demo-lab demos, Isaac Sim runtime inte
 - Do not copy another environment wholesale. SDK cache reuse was content-hash
   verified; setup/storage boundaries are in
   `docs/knowhow/infrastructure/server23-isaac-sim.md`.
+- If server GitHub transport fails, a verified incremental Git bundle supports
+  fast-forward-only sync without replacing `.git`. The same infrastructure
+  note records the successful procedure and its conflict boundary.
 
 ## Active interfaces
 

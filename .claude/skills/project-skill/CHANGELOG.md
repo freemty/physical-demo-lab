@@ -8,3 +8,5 @@ Initial skeleton created by LabMate.
 
 Added evidence-backed conveyor results, Data1/runtime boundaries, known failure
 modes, scoped demo ledger and mandatory documentation closeout route.
+
+Recorded verified fast-forward Git bundle fallback after server HTTPS sync failed.

@@ -10,3 +10,5 @@
   project docs without replacing the original validation report or failed runs.
 - Added a mandatory documentation closeout contract and read-only checks for
   missing lessons, evidence, limits and stale implementation fingerprints.
+- Recorded the verified incremental Git bundle fallback for server GitHub TLS
+  failures; synchronized by fast-forward without replacing repository metadata.
