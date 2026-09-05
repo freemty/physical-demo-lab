@@ -12,6 +12,7 @@
 | `hand-probe1` | `be3b6bf` | 读取关节上下限时错误地把返回 tuple 当数组，退出 1；没有完成资产结构记录 |
 | `hand-probe2` | `dd5000d` | 改为分别转换上下限后，16 DOF 开合 360 步，退出 0；但重复添加世界固定关节，出现 disjoint transform 警告。它不是瓶盖任务通过 |
 | `development-1` | `93e5363` | 1800 步，30 s；实际盖角度最终 -1.4195 rad，没有脱扣，退出 2。D6 swing limit 报错，且手朝向错误，没有抓到盖子 |
+| `development-2` | `894b83f` | 首次接触力查询前失败，退出 1；日志明确提示各手指链缺少 contact report API。固定安装链的初始世界位姿正确，但完整抓取效果尚未验证 |
 
 第一轮封闭手指关节确有运动，但不能用该运动证明物体已被抓住。检查 `scene.usda`
 发现 `WristFixture.physics:body1` 实际为 `palm_link`，而代码假定列表首项是
@@ -21,6 +22,8 @@
 `894b83f` 的下一轮候选修订：按名字绑定安装链，先在 USD 场景中放置完整手资产；
 用 D6 的 twist X 对齐世界 Z，避免用受限 swing 表示整圈转动；腕部用速度驱动；
 加入各手指链对盖子的接触力记录。该修订的物理效果尚待下一轮结果，不预先记为修复成功。
+接触记录还需要在 physics ready 之前给被监测刚体显式应用 `PhysxContactReportAPI`；
+仅传 `contact_filter_paths` 不会为当前 SDK 的手指资产自动补全它。
 
 ## 模型边界
 

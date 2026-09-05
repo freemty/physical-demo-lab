@@ -100,6 +100,8 @@ try:
     hand.set_dof_max_efforts(.5)
     palm = RigidPrim(mount_path)
     contact_links = [p for p in hand.link_paths[0] if any(f+'_' in p for f in ('index', 'middle', 'ring', 'thumb'))]
+    for link in contact_links+['/World/Cap']:
+        PhysxSchema.PhysxContactReportAPI.Apply(run.stage.GetPrimAtPath(link)).CreateThresholdAttr(0.)
     contact = RigidPrim(contact_links, contact_filter_paths=['/World/Cap'])
     run.write('hand-mount.json', {'link_paths': hand.link_paths, 'mount_path': mount_path,
                                 'initial_mount': [v.numpy().tolist() for v in palm.get_world_poses()]})
