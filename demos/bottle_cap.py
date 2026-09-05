@@ -98,7 +98,7 @@ try:
         if name == 'thumb_joint_0':
             q_open[i], q_closed[i] = .28, 1.1
     hand.set_default_state(dof_positions=q_open)
-    hand.set_dof_gains(stiffnesses=3., dampings=.1)
+    hand.set_dof_gains(stiffnesses=3., dampings=.3)
     hand.set_dof_max_efforts(.5)
     palm = RigidPrim(mount_path)
     contact_links = [p for p in hand.link_paths[0] if any(f+'_' in p for f in ('index', 'middle', 'ring', 'thumb'))]
