@@ -2,6 +2,9 @@
 
 ## Unreleased
 
+- Completed demo004 two-arm bridge building on three independent seeds with
+  replayed participation and three-second stability; no controller revision needed.
+  Preserved the forced failure and documented the sequential-coordination scope.
 - Completed demo003 gear insertion across three fixed-version independent seeds;
   preserved a seating failure and a serialization exception, plus negative evidence.
   Filed compound-geometry interference and carried-part pose-feedback lessons.

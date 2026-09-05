@@ -18,3 +18,7 @@ Added checkout's three-seed physical/scan evidence and the reusable process reco
 ## 2026-09-06 — v3
 
 Added verified gear insertion and bounded collision-clearance/part-pose lessons.
+
+## 2026-09-06 — v4
+
+Added two-arm bridge evidence, sequential scope and sustained-support verification.

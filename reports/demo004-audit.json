@@ -1,0 +1,256 @@
+{
+  "success": true,
+  "passed": 3,
+  "total": 3,
+  "runs": [
+    {
+      "success": true,
+      "task": "dual_blocks",
+      "seed": 0,
+      "output": "/data1/ybyang/physical-demo-lab-runtime/outputs/demo004/seed0-attempt1",
+      "source_snapshot_verified": true,
+      "trajectory_continuous": true,
+      "semantic_replay_verified": true,
+      "process_returncode": 0,
+      "frames": 3360,
+      "sim_seconds": 56.0,
+      "verification": {
+        "success": true,
+        "checks": {
+          "all_three_parts": true,
+          "both_supports_covered": true,
+          "both_arms_participated": true
+        },
+        "objects": [
+          {
+            "id": "pillar_left",
+            "success": true,
+            "checks": {
+              "finite_state": true,
+              "target_xy": true,
+              "supported_height": true,
+              "level": true,
+              "beam_heading": true,
+              "lifted": true,
+              "settled_linear": true,
+              "settled_angular": true,
+              "released": true
+            }
+          },
+          {
+            "id": "pillar_right",
+            "success": true,
+            "checks": {
+              "finite_state": true,
+              "target_xy": true,
+              "supported_height": true,
+              "level": true,
+              "beam_heading": true,
+              "lifted": true,
+              "settled_linear": true,
+              "settled_angular": true,
+              "released": true
+            }
+          },
+          {
+            "id": "beam",
+            "success": true,
+            "checks": {
+              "finite_state": true,
+              "target_xy": true,
+              "supported_height": true,
+              "level": true,
+              "beam_heading": true,
+              "lifted": true,
+              "settled_linear": true,
+              "settled_angular": true,
+              "released": true
+            }
+          }
+        ],
+        "stable_three_seconds": true
+      },
+      "source_files": {
+        "demos/assembly_parts.py": "da5b2788b36ff4fce4fa79e8aae085fe9aff3cc910fa43132f2d72d2ab019c73",
+        "demos/blocks_verify.py": "cfc333b93324a6a3512cf46c100b46889f2fffc81ca00d0069154d3f570de1bc",
+        "demos/checkout.py": "bbeccc5c5fba5d6ebe780dd00beeed63caddb954c79893816ec9c2ca587c126e",
+        "demos/checkout_verify.py": "c2e7104c97d354ec1447fa592588b8bdc66d15c4b8c87124c2f4e51df295c07c",
+        "demos/conveyor_sort.py": "ee7de9c25affd53634a8c0ac9b590fa1841b9aafaa8ec27a914caed7f4455e7d",
+        "demos/dual_blocks.py": "65ead9a1a33f10b612e78c02ee6b1fd4638e48426e18373ed73850bd471b665c",
+        "demos/gear_assembly.py": "dac330ca8adfc79c45a4f491b820db1cab58e7ea8f4748dd2d91a936153581cb",
+        "demos/gear_verify.py": "924fe4bfce9942c152540c5d3d3ab7adf617a1aa384fc829da1ed1ab19b06187",
+        "demos/sim_runtime.py": "56301255c2075a735c62119fa92e279b5e306b49e3480634a2a2de983b210fd3",
+        "demos/verification.py": "30997a0e7323a91143f0c04f7b418077b3973841bc14a2b191dfc38bb137d369",
+        "scripts/audit_task.py": "fe2580ec47f1755e003240335bccd4e3cfef28f017d32860ef19d7da4d17d430",
+        "scripts/evaluate_task.py": "ba99d3a70fdf0edb5a7ae5997a2e34218ab00e36dd8a35501ed9ab07c83001c8",
+        "scripts/run_task.py": "f6c6e9d6be941529e18991a606257806499420a2e014d0511ab7eb81d4259762"
+      }
+    },
+    {
+      "success": true,
+      "task": "dual_blocks",
+      "seed": 1,
+      "output": "/data1/ybyang/physical-demo-lab-runtime/outputs/demo004/eval-1-2/seed-1",
+      "source_snapshot_verified": true,
+      "trajectory_continuous": true,
+      "semantic_replay_verified": true,
+      "process_returncode": 0,
+      "frames": 3360,
+      "sim_seconds": 56.0,
+      "verification": {
+        "success": true,
+        "checks": {
+          "all_three_parts": true,
+          "both_supports_covered": true,
+          "both_arms_participated": true
+        },
+        "objects": [
+          {
+            "id": "pillar_left",
+            "success": true,
+            "checks": {
+              "finite_state": true,
+              "target_xy": true,
+              "supported_height": true,
+              "level": true,
+              "beam_heading": true,
+              "lifted": true,
+              "settled_linear": true,
+              "settled_angular": true,
+              "released": true
+            }
+          },
+          {
+            "id": "pillar_right",
+            "success": true,
+            "checks": {
+              "finite_state": true,
+              "target_xy": true,
+              "supported_height": true,
+              "level": true,
+              "beam_heading": true,
+              "lifted": true,
+              "settled_linear": true,
+              "settled_angular": true,
+              "released": true
+            }
+          },
+          {
+            "id": "beam",
+            "success": true,
+            "checks": {
+              "finite_state": true,
+              "target_xy": true,
+              "supported_height": true,
+              "level": true,
+              "beam_heading": true,
+              "lifted": true,
+              "settled_linear": true,
+              "settled_angular": true,
+              "released": true
+            }
+          }
+        ],
+        "stable_three_seconds": true
+      },
+      "source_files": {
+        "demos/assembly_parts.py": "da5b2788b36ff4fce4fa79e8aae085fe9aff3cc910fa43132f2d72d2ab019c73",
+        "demos/blocks_verify.py": "cfc333b93324a6a3512cf46c100b46889f2fffc81ca00d0069154d3f570de1bc",
+        "demos/checkout.py": "bbeccc5c5fba5d6ebe780dd00beeed63caddb954c79893816ec9c2ca587c126e",
+        "demos/checkout_verify.py": "c2e7104c97d354ec1447fa592588b8bdc66d15c4b8c87124c2f4e51df295c07c",
+        "demos/conveyor_sort.py": "ee7de9c25affd53634a8c0ac9b590fa1841b9aafaa8ec27a914caed7f4455e7d",
+        "demos/dual_blocks.py": "65ead9a1a33f10b612e78c02ee6b1fd4638e48426e18373ed73850bd471b665c",
+        "demos/gear_assembly.py": "dac330ca8adfc79c45a4f491b820db1cab58e7ea8f4748dd2d91a936153581cb",
+        "demos/gear_verify.py": "924fe4bfce9942c152540c5d3d3ab7adf617a1aa384fc829da1ed1ab19b06187",
+        "demos/sim_runtime.py": "56301255c2075a735c62119fa92e279b5e306b49e3480634a2a2de983b210fd3",
+        "demos/verification.py": "30997a0e7323a91143f0c04f7b418077b3973841bc14a2b191dfc38bb137d369",
+        "scripts/audit_task.py": "aaacf19928fc35101ab09719d8e9aa24926a8f18d5e348014a48ee8e76fa0d86",
+        "scripts/evaluate_task.py": "ba99d3a70fdf0edb5a7ae5997a2e34218ab00e36dd8a35501ed9ab07c83001c8",
+        "scripts/run_task.py": "f6c6e9d6be941529e18991a606257806499420a2e014d0511ab7eb81d4259762"
+      }
+    },
+    {
+      "success": true,
+      "task": "dual_blocks",
+      "seed": 2,
+      "output": "/data1/ybyang/physical-demo-lab-runtime/outputs/demo004/eval-1-2/seed-2",
+      "source_snapshot_verified": true,
+      "trajectory_continuous": true,
+      "semantic_replay_verified": true,
+      "process_returncode": 0,
+      "frames": 3360,
+      "sim_seconds": 56.0,
+      "verification": {
+        "success": true,
+        "checks": {
+          "all_three_parts": true,
+          "both_supports_covered": true,
+          "both_arms_participated": true
+        },
+        "objects": [
+          {
+            "id": "pillar_left",
+            "success": true,
+            "checks": {
+              "finite_state": true,
+              "target_xy": true,
+              "supported_height": true,
+              "level": true,
+              "beam_heading": true,
+              "lifted": true,
+              "settled_linear": true,
+              "settled_angular": true,
+              "released": true
+            }
+          },
+          {
+            "id": "pillar_right",
+            "success": true,
+            "checks": {
+              "finite_state": true,
+              "target_xy": true,
+              "supported_height": true,
+              "level": true,
+              "beam_heading": true,
+              "lifted": true,
+              "settled_linear": true,
+              "settled_angular": true,
+              "released": true
+            }
+          },
+          {
+            "id": "beam",
+            "success": true,
+            "checks": {
+              "finite_state": true,
+              "target_xy": true,
+              "supported_height": true,
+              "level": true,
+              "beam_heading": true,
+              "lifted": true,
+              "settled_linear": true,
+              "settled_angular": true,
+              "released": true
+            }
+          }
+        ],
+        "stable_three_seconds": true
+      },
+      "source_files": {
+        "demos/assembly_parts.py": "da5b2788b36ff4fce4fa79e8aae085fe9aff3cc910fa43132f2d72d2ab019c73",
+        "demos/blocks_verify.py": "cfc333b93324a6a3512cf46c100b46889f2fffc81ca00d0069154d3f570de1bc",
+        "demos/checkout.py": "bbeccc5c5fba5d6ebe780dd00beeed63caddb954c79893816ec9c2ca587c126e",
+        "demos/checkout_verify.py": "c2e7104c97d354ec1447fa592588b8bdc66d15c4b8c87124c2f4e51df295c07c",
+        "demos/conveyor_sort.py": "ee7de9c25affd53634a8c0ac9b590fa1841b9aafaa8ec27a914caed7f4455e7d",
+        "demos/dual_blocks.py": "65ead9a1a33f10b612e78c02ee6b1fd4638e48426e18373ed73850bd471b665c",
+        "demos/gear_assembly.py": "dac330ca8adfc79c45a4f491b820db1cab58e7ea8f4748dd2d91a936153581cb",
+        "demos/gear_verify.py": "924fe4bfce9942c152540c5d3d3ab7adf617a1aa384fc829da1ed1ab19b06187",
+        "demos/sim_runtime.py": "56301255c2075a735c62119fa92e279b5e306b49e3480634a2a2de983b210fd3",
+        "demos/verification.py": "30997a0e7323a91143f0c04f7b418077b3973841bc14a2b191dfc38bb137d369",
+        "scripts/audit_task.py": "aaacf19928fc35101ab09719d8e9aa24926a8f18d5e348014a48ee8e76fa0d86",
+        "scripts/evaluate_task.py": "ba99d3a70fdf0edb5a7ae5997a2e34218ab00e36dd8a35501ed9ab07c83001c8",
+        "scripts/run_task.py": "f6c6e9d6be941529e18991a606257806499420a2e014d0511ab7eb81d4259762"
+      }
+    }
+  ]
+}

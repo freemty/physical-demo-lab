@@ -28,7 +28,10 @@ description: Use when working on physical-demo-lab demos, Isaac Sim runtime inte
 - `demo003` gear insertion: three fixed-version seeds pass strict seating,
   alignment, release and process/trajectory checks after two retained failures.
   Approximate compound teeth, not precision transmission. See `reports/demo003-gears.md`.
-- The other five reference task categories are planned, not implemented.
+- `demo004` two-arm bridge: three seeds pass both-arm participation and three
+  seconds of released structure stability, with no control revision. Sequential
+  workspace sharing, not joint grasping. See `reports/demo004-dual-blocks.md`.
+- The other four reference task categories are planned, not implemented.
   Read `docs/README.md` for source coverage and next-demo selection.
 
 ## Durable pitfalls

@@ -56,7 +56,21 @@
         "scripts/run_task.py": "f6c6e9d6be941529e18991a606257806499420a2e014d0511ab7eb81d4259762"
       }
     },
-    {"id": "demo004", "title": "双臂搭积木", "status": "in_progress"},
+    {
+      "id": "demo004", "title": "双臂搭积木", "status": "complete",
+      "scope": "两只 Franka 轮流摩擦搬运三件积木、搭桥并持续稳定的基础版",
+      "verified_at": "2026-09-06",
+      "limitations": ["顺序共用工作区，不包含双臂同时持物或手递手", "已知状态脚本控制；几何与稳定性支持支撑判定，没有测量接触力或完整原视频复刻"],
+      "report": "reports/demo004-dual-blocks.md",
+      "lessons": ["docs/knowhow/toolchain/dual-arm-support-evidence.md"],
+      "evidence": ["reports/demo004-audit.json"],
+      "implementation": {
+        "demos/dual_blocks.py": "65ead9a1a33f10b612e78c02ee6b1fd4638e48426e18373ed73850bd471b665c",
+        "demos/blocks_verify.py": "cfc333b93324a6a3512cf46c100b46889f2fffc81ca00d0069154d3f570de1bc",
+        "demos/sim_runtime.py": "56301255c2075a735c62119fa92e279b5e306b49e3480634a2a2de983b210fd3",
+        "scripts/run_task.py": "f6c6e9d6be941529e18991a606257806499420a2e014d0511ab7eb81d4259762"
+      }
+    },
     {"id": "demo005", "title": "灵巧手拧瓶盖", "status": "planned"},
     {"id": "demo006", "title": "餐厅服务", "status": "planned"},
     {"id": "demo007", "title": "双臂拼乐高", "status": "planned"},
