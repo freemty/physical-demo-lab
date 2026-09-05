@@ -34,7 +34,7 @@ def gear(run, name, position, dynamic=True, mass=.06, yaw=0., color=(.55, .60, .
     for i in range(20):
         angle = i*2*math.pi/20
         rotated_box(run, f'{path}/Tooth_{i}', [.040*math.cos(angle), .040*math.sin(angle), 0.],
-                    [.007, .005, .020], color, angle)
+                    [.007, .003, .020], color, angle)
     if dynamic:
         UsdPhysics.RigidBodyAPI.Apply(root.GetPrim())
         UsdPhysics.MassAPI.Apply(root.GetPrim()).CreateMassAttr(mass)

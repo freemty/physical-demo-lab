@@ -18,9 +18,9 @@ try:
             run.box(f'/World/Leg{i}{j}', [x, y, .32], [.05, .05, .64], [.25]*3)
     target = {'position': [.43, .25, .730], 'yaw': 0.}
     run.box('/World/AssemblyBase', [.47, .25, .710], [.25, .19, .020], [.24, .27, .29])
-    for i, x in enumerate([.43, .51]):
+    for i, x in enumerate([.43, .5115]):
         cylinder(run, f'/World/Axle_{i}', [x, .25, .7425], .005, .045, [.65]*3)
-    gear(run, 'MountedGear', [.51, .25, .730], dynamic=False, yaw=math.pi/20, color=(.57, .59, .61))
+    gear(run, 'MountedGear', [.5115, .25, .730], dynamic=False, yaw=math.pi/20, color=(.57, .59, .61))
     initial = [float(.36+run.rng.uniform(-.015, .015)), float(-.29+run.rng.uniform(-.015, .015)), .714]
     mass = float(run.rng.uniform(.05, .08))
     gear(run, 'MovingGear', initial, mass=mass, color=(.72, .49, .18))
@@ -31,7 +31,7 @@ try:
     robot = run.franka()
     run.camera(eye=(1.50, -1.75, 1.85), target=(.29, .0, .83))
     run.start({'target': target, 'control': 'privileged-pose IK with carried-part alignment feedback',
-        'geometry': {'teeth': 20, 'fixed_neighbor_center': [.51, .25, .73], 'fixed_neighbor_yaw': math.pi/20,
+        'geometry': {'teeth': 20, 'tooth_width': .003, 'fixed_neighbor_center': [.5115, .25, .73], 'fixed_neighbor_yaw': math.pi/20,
                      'axle_radius': .005, 'hole_radius': .009, 'base_top': .72},
         'limitations': ['Compound box teeth, not involute gears.', 'Fixed neighbor; no loaded transmission test.',
                        'No visual perception, grasp attachment or object pose edits.']})
