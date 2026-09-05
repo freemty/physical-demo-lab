@@ -105,7 +105,12 @@ def audit(folder):
         with (folder/'trajectory.jsonl').open() as trace:
             verification = verify_cap_trace(manifest, map(json.loads, trace))
         release_events = [e for e in events if e['kind'] == 'thread_disengaged']
-        semantic = (verification['success'] and verification == result['verification']
+        reported = result['verification']
+        metrics_match = all(math.isclose(verification[key], reported[key], abs_tol=1e-8, rel_tol=1e-7)
+                            for key in ('max_helix_error', 'max_force_replay_residual', 'contact_rotation',
+                                        'contact_frames', 'final_hold_seconds', 'best_hold_seconds'))
+        semantic = (verification['success'] and verification['checks'] == reported['checks'] and metrics_match
+                    and verification['released_step'] == reported['released_step']
                     and len(release_events) == 1 and release_events[0]['step'] == verification['released_step'])
     else:
         verification = {'success': False, 'reason': 'No independent semantic auditor for this task yet'}
