@@ -22,6 +22,7 @@
 
 当前优先级：用户确认先制作 [送餐视觉样板](specs/demo006-restaurant-showcase.md)，
 保留原六项物理验收，不把可运行原型自动等同于展示完成。
+样板已完成：[实际视频与验证报告](../reports/demo006-restaurant-showcase.md)。其他任务外观尚未统一。
 
 参考范围来自 2026-09-05 对用户指定的
 [小红书主页](https://www.xiaohongshu.com/user/profile/667d2c7d0000000007007c52)

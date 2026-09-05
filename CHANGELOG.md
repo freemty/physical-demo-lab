@@ -2,6 +2,9 @@
 
 ## Unreleased
 
+- Added a separate colorful cafe showcase with three camera views, guarded visual-only
+  assets and exact 2974-frame physical equivalence to the preserved restaurant baseline.
+  Retained all original media and paused the unexecuted Lego geometry draft.
 - Completed demo006 fixed-arm loading and wheel-driven delivery on three identical
   implementation seeds. Retained the parked-cart stability failure and two negative
   controls; filed carrier-local containment and residual-motion lessons.

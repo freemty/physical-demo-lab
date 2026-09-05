@@ -93,6 +93,8 @@
       "verified_at": "2026-09-06",
       "limitations": ["硬件不同于封面的移动双臂，不含桌面卸餐、视觉、液体或动态避人", "仅三个同版本随机初态；此前停车稳定失败保留，求解器组合修改未做单参数消融"],
       "report": "reports/demo006-restaurant.md",
+      "presentation_report": "reports/demo006-restaurant-showcase.md",
+      "presentation_audit": "reports/demo006-showcase-audit.json",
       "lessons": ["docs/knowhow/toolchain/mobile-carrier-evidence.md"],
       "evidence": ["reports/demo006-audit.json", "reports/demo006-negative-audit.json"],
       "implementation": {

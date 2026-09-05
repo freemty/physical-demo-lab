@@ -37,3 +37,8 @@ bounded solver findings and measured hold-based termination within the same budg
 
 Closed fixed-arm loading plus physical wheel-driven delivery with three seeds and
 negative controls; retained the first settling failure and carrier-local/net-travel lessons.
+
+## 2026-09-06 — v8
+
+Added visual-only cafe presentation, exact baseline-trajectory comparison and
+lighting/material-depth/camera-readback lessons; clarified paused Lego draft scope.

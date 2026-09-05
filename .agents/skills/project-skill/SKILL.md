@@ -38,11 +38,17 @@ description: Use when working on physical-demo-lab demos, Isaac Sim runtime inte
   in-tray wheel-driven transport and three-second parked delivery. One earlier
   settling failure and zero-drive/one-step negatives are retained. See
   `reports/demo006-restaurant.md`; this is not a mobile dual-arm reproduction.
-- The remaining Lego and humanoid categories are planned.
+- Restaurant has a separate colorful cafe presentation layer. Final seed 0 matches
+  all 2974 baseline physical frames exactly; visual assets are not new interaction
+  capabilities. See `reports/demo006-restaurant-showcase.md`.
+- Lego geometry/spec drafts are paused before execution; humanoid is planned.
   Read `docs/README.md` for source coverage and next-demo selection.
 
 ## Durable pitfalls
 
+- Keep visual polish separate from verified controllers. Inspect real lighting,
+  material depth and camera-readback latency, and compare physical trajectories.
+  See `docs/knowhow/toolchain/simulation-presentation-layer.md`.
 - Moving-carrier containment belongs in the carrier's local coordinates; verify
   the whole transport interval and net displacement, not only a final image or
   cumulative jitter path. See `docs/knowhow/toolchain/mobile-carrier-evidence.md`.
