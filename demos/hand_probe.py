@@ -15,6 +15,11 @@ try:
     add_reference_to_stage(usd_path=asset, path=path)
     hand = Articulation(path)
     hand.set_world_poses(positions=[0., 0., 1.15], orientations=[0., 1., 0., 0.])
+    # The reference already contains a world fixed joint; reuse it, do not add
+    # a second world constraint to this articulation.
+    fixed = UsdPhysics.FixedJoint(run.stage.GetPrimAtPath(path+'/root_joint'))
+    fixed.CreateLocalPos0Attr().Set(Gf.Vec3f(0, 0, 1.15))
+    fixed.CreateLocalRot0Attr().Set(Gf.Quatf(0, 1, 0, 0))
     run.write('asset-structure.json', {'asset': asset, 'dof_names': hand.dof_names,
         'link_paths': hand.link_paths, 'limits': [value.numpy().tolist() for value in hand.get_dof_limits()],
         'joints': [{'path': str(p.GetPath()), 'type': p.GetTypeName(),
@@ -22,10 +27,6 @@ try:
                     'body1': [str(t) for t in UsdPhysics.Joint(p).GetBody1Rel().GetTargets()]}
                    for p in run.stage.Traverse() if p.IsA(UsdPhysics.Joint)]})
     palm_path = hand.link_paths[0][0]
-    fixed = UsdPhysics.FixedJoint.Define(run.stage, '/World/ProbeMount')
-    fixed.CreateBody1Rel().SetTargets([palm_path])
-    fixed.CreateLocalPos0Attr().Set(Gf.Vec3f(0, 0, 1.15))
-    fixed.CreateLocalRot0Attr().Set(Gf.Quatf(0, 1, 0, 0))
     for prim in run.stage.Traverse():
         if prim.HasAPI(UsdPhysics.RigidBodyAPI):
             PhysxSchema.PhysxRigidBodyAPI.Apply(prim).CreateDisableGravityAttr(True)
