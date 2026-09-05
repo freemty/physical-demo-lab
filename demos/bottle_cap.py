@@ -8,7 +8,7 @@ import os
 import traceback
 from sim_runtime import Run
 
-run = Run('bottle_cap', max_steps=3600, dt=1/120)
+run = Run('bottle_cap', max_steps=7200, dt=1/240)
 try:
     import numpy as np
     from pxr import Gf, PhysxSchema, UsdGeom, UsdPhysics
@@ -100,6 +100,7 @@ try:
     hand.set_default_state(dof_positions=q_open)
     hand.set_dof_gains(stiffnesses=3., dampings=.3)
     hand.set_dof_max_efforts(.5)
+    hand.set_solver_iteration_counts(position_counts=64, velocity_counts=16)
     palm = RigidPrim(mount_path)
     contact_links = [p for p in hand.link_paths[0] if any(f+'_' in p for f in ('index', 'middle', 'ring', 'thumb'))]
     for link in contact_links+['/World/Cap']:
@@ -123,16 +124,16 @@ try:
                'thread': {'pitch': pitch, 'release_angle': release_angle, 'spring': stiffness,
                           'damping': damping, 'rotary_drag': rotary_drag, 'z0': z0},
                'negative_no_close': negative, 'dof_names': hand.dof_names, 'contact_links': contact_links,
-               'video_fps': 60})
+               'video_fps': 120})
     if run.writer:
-        # No frame has yet been written. Keep real-time playback at 120 Hz
+        # No frame has yet been written. Keep real-time playback at 240 Hz
         # physics / one image per two steps, without changing the shared Run.
         import imageio.v2 as imageio
         run.writer.close()
-        run.writer = imageio.get_writer(str(run.output/'video.mp4'), fps=60, codec='libx264', quality=8, macro_block_size=2)
+        run.writer = imageio.get_writer(str(run.output/'video.mp4'), fps=120, codec='libx264', quality=8, macro_block_size=2)
     angle, last_yaw, released_step, max_error = 0., 0., None, 0.
     for step in range(run.args.max_steps):
-        tick = step/2
+        tick = step*run.dt*60
         states = run.observe()
         s = states[0]
         w, x, y, z = s['orientation']
@@ -177,7 +178,7 @@ try:
                          'wrist_velocity_deg_s': target_velocity, 'finger_contact_forces': contact_forces,
                          'thread_force_z': force, 'thread_torque_z': torque, 'cap_angle': angle,
                          'helix_error': error, 'thread_engaged': released_step is None}], states)
-        if step % 240 == 0:
+        if step % 480 == 0:
             run.event('progress', cap_angle=angle, cap_position=s['position'], helix_error=error, phase=phase)
         if released_step is not None and (step-released_step)*run.dt > 10.:
             break
