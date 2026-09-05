@@ -3,11 +3,12 @@
 Development implementation: not complete until independent auditing passes.
 """
 import math
+import json
 import os
 import traceback
 from sim_runtime import Run
 
-run = Run('bottle_cap', max_steps=1800)
+run = Run('bottle_cap', max_steps=3600, dt=1/120)
 try:
     import numpy as np
     from pxr import Gf, PhysxSchema, UsdGeom, UsdPhysics
@@ -18,7 +19,7 @@ try:
 
     cx, cy, z0 = -.064, .068, 1.010
     pitch, release_angle, mass = .012, math.pi, float(run.rng.uniform(.038, .042))
-    stiffness, damping, rotary_drag = 400., .8, .002
+    stiffness, damping, rotary_drag = 1000., 2., .002
     negative = os.environ.get('BOTTLE_NO_CLOSE') == '1'
     run.box('/World/Floor', [0, 0, -.03], [3, 3, .06], [.3]*3)
     run.box('/World/Table', [0, 0, .76], [.8, .8, .08], [.4]*3)
@@ -115,13 +116,21 @@ try:
             return hand.get_dof_positions().numpy(), p.numpy(), q.numpy()
 
     run.robots.append(Adapter())
-    run.camera(eye=(.65, -.8, 1.48), target=(cx, cy, 1.00))
+    run.camera(eye=(-.65, .8, 1.5), target=(cx, cy, 1.10))
     run.start({'asset': asset, 'scope': 'contact-driven Allegro cap; equivalent passive spring helix, fixed bottle',
                'thread': {'pitch': pitch, 'release_angle': release_angle, 'spring': stiffness,
                           'damping': damping, 'rotary_drag': rotary_drag, 'z0': z0},
-               'negative_no_close': negative, 'dof_names': hand.dof_names, 'contact_links': contact_links})
+               'negative_no_close': negative, 'dof_names': hand.dof_names, 'contact_links': contact_links,
+               'video_fps': 60})
+    if run.writer:
+        # No frame has yet been written. Keep real-time playback at 120 Hz
+        # physics / one image per two steps, without changing the shared Run.
+        import imageio.v2 as imageio
+        run.writer.close()
+        run.writer = imageio.get_writer(str(run.output/'video.mp4'), fps=60, codec='libx264', quality=8, macro_block_size=2)
     angle, last_yaw, released_step, max_error = 0., 0., None, 0.
     for step in range(run.args.max_steps):
+        tick = step/2
         states = run.observe()
         s = states[0]
         w, x, y, z = s['orientation']
@@ -132,28 +141,29 @@ try:
         error = s['position'][2]-z0-coefficient*angle
         force, torque = 0., 0.
         if released_step is None:
-            rate = s['linear_velocity'][2]-coefficient*s['angular_velocity'][2]
-            force = -stiffness*error-damping*rate
-            torque = -coefficient*force-rotary_drag*s['angular_velocity'][2]
-            cap.apply_forces_and_torques_at_pos(forces=[0, 0, force], torques=[0, 0, torque])
             max_error = max(max_error, abs(error))
             if angle >= release_angle:
                 thread.CreateJointEnabledAttr().Set(False)
                 released_step = step
                 run.event('thread_disengaged', cap_angle=angle, position=s['position'], helix_error=error)
-        if step < 120:
+            else:
+                rate = s['linear_velocity'][2]-coefficient*s['angular_velocity'][2]
+                force = -stiffness*error-damping*rate
+                torque = -coefficient*force-rotary_drag*s['angular_velocity'][2]
+                cap.apply_forces_and_torques_at_pos(forces=[0, 0, force], torques=[0, 0, torque])
+        if tick < 120:
             phase, fraction = 'open', 0.
-        elif step < 360:
-            phase, fraction = 'grasp', min(1., (step-120)/180)
+        elif tick < 360:
+            phase, fraction = 'grasp', min(1., (tick-120)/180)
         elif released_step is None:
             phase, fraction = 'unscrew', 1.
         else:
             phase, fraction = 'lift', 1.
-        target_angle = min(240., max(0., (step-360)/60*35.))
-        target_velocity = 35. if 360 <= step < 772 and released_step is None else 0.
+        target_angle = min(240., max(0., (tick-360)/60*35.))
+        target_velocity = 35. if 360 <= tick < 772 and released_step is None else 0.
         target_height = max(0., angle)*coefficient
         if released_step is not None:
-            target_height = release_angle*coefficient+min(.16, (step-released_step)/60*.04)
+            target_height = release_angle*coefficient+min(.16, (step-released_step)*run.dt*.04)
         if negative:
             fraction = 0.
         fingers = q_open+(q_closed-q_open)*fraction
@@ -165,14 +175,18 @@ try:
                          'wrist_velocity_deg_s': target_velocity, 'finger_contact_forces': contact_forces,
                          'thread_force_z': force, 'thread_torque_z': torque, 'cap_angle': angle,
                          'helix_error': error, 'thread_engaged': released_step is None}], states)
-        if step % 120 == 0:
+        if step % 240 == 0:
             run.event('progress', cap_angle=angle, cap_position=s['position'], helix_error=error, phase=phase)
-        if released_step is not None and step-released_step > 360:
+        if released_step is not None and (step-released_step)*run.dt > 10.:
             break
     final = run.observe()[0]
-    # Provisional development result, deliberately fail closed until the
-    # task-specific verifier and independent replay have been implemented.
-    run.finish({'success': False, 'phase': 'development', 'abort_reason': 'independent verifier pending',
+    from cap_verify import verify_cap_trace
+    run.trajectory.flush()
+    with (run.output/'trajectory.jsonl').open() as trace:
+        verification = verify_cap_trace(run.manifest, map(json.loads, trace))
+    run.finish({'success': verification['success'], 'phase': 'done' if verification['success'] else 'failed',
+                'abort_reason': None if verification['success'] else 'physical verification failed or step budget exhausted',
+                'verification': verification,
                 'cap_angle': angle, 'released_step': released_step, 'final_cap': final,
                 'max_helix_error': max_error, 'negative_no_close': negative})
 except BaseException as error:

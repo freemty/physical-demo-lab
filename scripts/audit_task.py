@@ -10,6 +10,7 @@ sys.path.insert(0, str(Path(__file__).resolve().parents[1]/'demos'))
 from checkout_verify import verify_checkout
 from gear_verify import verify_gear
 from blocks_verify import verify_bridge
+from cap_verify import verify_cap_trace
 
 
 def audit(folder):
@@ -100,6 +101,12 @@ def audit(folder):
         semantic = (verification['success'] and verification['stable_three_seconds']
                     and verification['checks'] == result['verification']['checks']
                     and sorted(participants) == result['participating_robots'])
+    elif manifest['task'] == 'bottle_cap' and final_frame:
+        with (folder/'trajectory.jsonl').open() as trace:
+            verification = verify_cap_trace(manifest, map(json.loads, trace))
+        release_events = [e for e in events if e['kind'] == 'thread_disengaged']
+        semantic = (verification['success'] and verification == result['verification']
+                    and len(release_events) == 1 and release_events[0]['step'] == verification['released_step'])
     else:
         verification = {'success': False, 'reason': 'No independent semantic auditor for this task yet'}
     success = (source_valid and continuous and semantic and result['success']
