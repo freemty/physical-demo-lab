@@ -1,0 +1,45 @@
+{
+  "schema": "castle-export/1",
+  "source_run": "/data1/ybyang/physical-demo-lab-runtime/outputs/castle-quickstart/seed0-entry-v1",
+  "mode": "assemble",
+  "control_samples": 26411,
+  "phase_count": 242,
+  "event_count": 181,
+  "completed_parts": [
+    "left_foot",
+    "right_foot",
+    "left_wall",
+    "right_wall",
+    "left_gate_pier",
+    "right_gate_pier",
+    "gate_lintel",
+    "left_lower",
+    "right_lower",
+    "left_upper",
+    "right_upper",
+    "left_cornice",
+    "right_cornice",
+    "gate_merlon_0",
+    "gate_merlon_1",
+    "gate_merlon_2",
+    "left_crown_a",
+    "left_crown_b",
+    "right_crown_a",
+    "right_crown_b"
+  ],
+  "task_reported_success": true,
+  "source_hashes": {
+    "trajectory.jsonl": "12a5bc6f758655d6beb06861d12b84bc34cd1d4ab7430e3a5fe67683fd5be1b0",
+    "manifest.json": "ea9e57c3d70415d739f8d4531e16736f01f11172478a7f80c671bd99f704ef01",
+    "source-ir.json": "e44fa205d74db0cc9fad91c739100f69dfc4fcb56a8c72b89e2a61c83dfc1910",
+    "events.jsonl": "00af5c464053d116740b33486af4d9b520b7dd4e7d401229abb9be1e8144ce00",
+    "result.json": "8346f278ab2f15e07d63f4c4eda32557c28a80725f21f28969ebdb32bfeb26b9",
+    "robot-inspection.json": "a115cf2176623e5ca502380d2ffc0ee109759be1dd5182402de34e8b920b4548"
+  },
+  "derived_hashes": {
+    "keyframes.json": "d5730d818b1b7409001681490d0fb35785b2c6aceca9b2b71c510e5f4f514a24",
+    "waypoints.csv": "bc823cdf2b2497198503ecc4c3fbc2f0038574a1e55ffd72550799d771e0ff83",
+    "events.json": "492fbbb963a5c7fb9fc2e682379500918abafdc5e4c9ea2a02650442b16af7e6"
+  },
+  "scope": "Sparse measured/commanded stage endpoints from a real run. Not a replay controller, independent physics audit, lossless replacement or training-dataset format."
+}

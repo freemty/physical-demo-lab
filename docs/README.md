@@ -9,6 +9,8 @@
 
 [English Getting Started](../GETTING_STARTED.md)、[中文入门](guides/getting-started.zh-CN.md)、
 [完整轨迹与关键阶段格式](guides/castle-outputs.md)。最小流程为固定 20 件城堡，不要求读历史开发账本才能运行。
+新入口已完成 20/20 搭建、严格物理/视频审计和关键阶段导出，干净克隆场景与散放试跑通过；
+[验证范围与回执](../reports/castle-quickstart.md) 明确区分现有环境复现和未测试的冷安装。
 
 ## 当前任务
 

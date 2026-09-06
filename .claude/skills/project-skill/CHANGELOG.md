@@ -70,4 +70,6 @@ Added the completed-demo README gallery and repository-owned preview provenance.
 
 Added the portable castle20 quickstart, generated Blender bundle, measured
 key-stage sample and guide validation. Native eight-file acceptance is unchanged;
-new-entry assembly and clean-clone verification remain in progress.
+new-entry 20/20 assembly, strict physical/video audit, measured export and
+clean-clone Blender/loose checks passed. All 65 tests passed in the project runtime;
+cold installation and a second GPU host remain untested.

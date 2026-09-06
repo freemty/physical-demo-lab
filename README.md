@@ -119,6 +119,8 @@ bash scripts/run.sh --gpu 2 --seed 0 --objects 3 \
 
 成功必须同时满足：正确颜色箱、完整物体在箱内、低线速度和角速度、实际提起超过 8 cm、传送带搬运超过 5 cm、夹爪已打开并远离物体。
 
+测试前需激活包含 NumPy 的项目环境，见 [入门文档的仓库检查](GETTING_STARTED.md#repository-checks-optional)。
+
 ```bash
 python3 -m unittest discover -s tests -v
 ```

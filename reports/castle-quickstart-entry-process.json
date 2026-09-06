@@ -1,0 +1,44 @@
+{
+  "command": [
+    "/data1/ybyang/physical-demo-lab-runtime/venv/bin/python",
+    "/data1/ybyang/physical-demo-lab/demos/block_castle.py",
+    "--output",
+    "/data1/ybyang/physical-demo-lab-runtime/outputs/castle-quickstart/seed0-entry-v1",
+    "--gpu",
+    "1",
+    "--mode",
+    "assemble",
+    "--ir",
+    "/data1/ybyang/physical-demo-lab-runtime/outputs/castle-quickstart/design-v1/scene_spec.json",
+    "--seed",
+    "0",
+    "--solver",
+    "PGS",
+    "--velocity-iterations",
+    "4",
+    "--parts",
+    "20",
+    "--width",
+    "640",
+    "--height",
+    "480",
+    "--max-steps",
+    "50000"
+  ],
+  "returncode": 0,
+  "started_at": "2026-09-06T11:08:37.383271+00:00",
+  "ended_at": "2026-09-06T11:37:18.481226+00:00",
+  "wall_seconds": 1721.097977610305,
+  "console": "/data1/ybyang/physical-demo-lab-runtime/outputs/castle-quickstart/seed0-entry-v1.console.log",
+  "output": "/data1/ybyang/physical-demo-lab-runtime/outputs/castle-quickstart/seed0-entry-v1",
+  "gpu_uuid": "GPU-c96a2d9d-95fb-7e05-b502-012df1523603",
+  "resource_monitor": {
+    "termination_reason": null,
+    "samples": 2448,
+    "owned_pids": [
+      1696041,
+      1697285
+    ]
+  },
+  "scope": "Sampled own process group CUDA contexts; no universal escaped-descendant coverage."
+}

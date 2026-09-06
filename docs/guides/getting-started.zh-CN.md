@@ -114,3 +114,14 @@ python3 scripts/castle.py export --run outputs/castle20-seed0 \
 
 更多排错见 [英文 Getting Started](../../GETTING_STARTED.md#troubleshooting)。
 200/1000 块、任意蓝图、视觉策略、Lego 卡扣和真实机器人不在这个最小例子的验收范围内。
+
+## 可选：仓库检查
+
+完整测试需要项目环境中的 NumPy；系统自带 Python 不一定包含它。先激活前面安装的环境：
+
+```bash
+source "$PHYSICAL_DEMO_RUNTIME/venv/bin/activate"
+bash scripts/check_project.sh
+```
+
+这会检查文档、示例和单元测试，不启动仿真，也不能替代物理审计。

@@ -3,8 +3,10 @@
 ## Unreleased
 
 - Added a portable castle20 entry point, Blender design bundle, measured key-stage
-  export and bilingual Getting Started. Packaging validation is tracked separately
-  from the unchanged six-seed native assembly acceptance.
+  export and bilingual Getting Started. One new-entry 20/20 assembly passed strict
+  physical/video audit and export; clean-clone Blender/loose checks and 65 tests
+  passed. Cold installation remains untested. Packaging evidence is separate from
+  the unchanged six-seed native assembly acceptance.
 
 - 接入 20 件 Isaac 城堡并保留旧 2/20 失败。V5 的前三块完成抓取与释放审计；
   V6 首条完整 20 件通过原生轨迹回放、11.2333 秒连续稳定和完整视频检查。

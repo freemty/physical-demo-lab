@@ -96,8 +96,10 @@ description: Use when working on physical-demo-lab demos, Isaac Sim runtime inte
 - Keep target and measured poses separate. Native Panda positions contain seven
   arm angles in radians and two finger displacements in meters. Sparse exports
   are not replay controllers or lossless records.
-- Packaging validation is tracked in `reports/castle-quickstart.md`; new-entry
-  full assembly and clean-clone checks are still in progress.
+- Packaging validation in `reports/castle-quickstart.md` includes one new-entry
+  20/20 assembly with strict physical/video audit and measured export, plus a
+  clean-clone Blender build and loose smoke. All 65 tests passed in the existing
+  runtime; fresh-OS installation and second-host verification remain untested.
 - `scripts/check_quickstart.py` checks bundled hashes, local links and examples.
 
 ## Active interfaces

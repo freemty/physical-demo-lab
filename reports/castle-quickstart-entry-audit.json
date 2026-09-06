@@ -1,0 +1,12 @@
+{
+  "schema": "castle-quickstart-audit/1",
+  "success": true,
+  "run": "/data1/ybyang/physical-demo-lab-runtime/outputs/castle-quickstart/seed0-entry-v1",
+  "physics_receipt": "/data1/ybyang/physical-demo-lab-runtime/outputs/castle-quickstart/seed0-entry-v1-audit-physics.json",
+  "physics_receipt_sha256": "612964489028f5b9e852417a4510fc4eae9755c5bd847fa755d694043c404e1f",
+  "complete_robot_assembly": true,
+  "full_video_decode_returncode": 0,
+  "decode_stderr": "",
+  "video_sha256": "739cc0a1819eb48efb0b29282d1715a199155a14a8e0c81699451a64f04da6f0",
+  "scope": "Physical oracle replay plus full video decode; visual review remains separate."
+}

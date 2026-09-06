@@ -182,6 +182,19 @@ The export contains:
 executable replay controller, or a replacement for the full trajectory.
 See [field definitions and units](docs/guides/castle-outputs.md).
 
+## Repository Checks (Optional)
+
+The project tests need NumPy from the runtime environment. Activate that
+interpreter before running the full checks; the system Python may not include it.
+
+```bash
+source "$PHYSICAL_DEMO_RUNTIME/venv/bin/activate"
+bash scripts/check_project.sh
+```
+
+This checks documentation, bundled examples and unit tests. It does not start a
+simulation or replace the physical audit.
+
 ## Troubleshooting
 
 | Symptom | What to check |

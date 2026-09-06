@@ -189,7 +189,8 @@
         "reports/demo009-loose-audit.json"
       ],
       "lessons": [
-        "docs/knowhow/debug-solutions/castle-bounded-control-and-lift-evidence.md"
+        "docs/knowhow/debug-solutions/castle-bounded-control-and-lift-evidence.md",
+        "docs/knowhow/toolchain/castle-quickstart-boundaries.md"
       ],
       "verified_at": "2026-09-06",
       "implementation": {
@@ -201,6 +202,16 @@
         "demos/castle_verify.py": "bd0dc75127de4ee498bf4547bb7a68574fe2a1129409e2d1777bf261f4d9f9dd",
         "scripts/run_castle_task.py": "0f16617b0ecc8baf0c33ed5423ed9ecd76566a31889c8771bf96cb8278f4df06",
         "scripts/audit_castle.py": "281502f03c97426e71b79c95d34be0f758f4539857799de5292bdcd68dcae1c1"
+      },
+      "quickstart": {
+        "guide": "GETTING_STARTED.md",
+        "example": "examples/castle20/README.md",
+        "report": "reports/castle-quickstart.md",
+        "evidence": [
+          "reports/castle-quickstart-entry-audit.json",
+          "reports/castle-quickstart-entry-physics.json",
+          "reports/castle-quickstart-clean-clone-audit.json"
+        ]
       }
     }
   ]
