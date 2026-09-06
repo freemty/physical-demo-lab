@@ -37,6 +37,27 @@ class EntryTests(unittest.TestCase):
                     # A mocked Blender that returns zero but produces no audit must fail.
                     with self.assertRaises((FileNotFoundError, ValueError)):
                         castle.build(args)
+    def test_decode_failure_rejects_complete_physical_run(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            root = Path(tmp); run = root/"run"; run.mkdir()
+            (run/"video.mp4").write_bytes(b"test")
+            args = type("Args", (), {"run":str(run),"receipt":str(root/"audit.json")})()
+            def subprocess_result(command, **kwargs):
+                if "audit_castle.py" in " ".join(command):
+                    Path(command[-1]).write_text(json.dumps({"evidence_consistent":True,
+                                                           "complete_robot_assembly":True}))
+                    return type("Result", (), {"returncode":0})()
+                return type("Result", (), {"returncode":1,"stderr":"decode failure"})()
+            with patch.object(castle,"runtime_python",return_value=Path("/test/python")):
+                with patch("shutil.which",return_value="/test/tool"), patch("subprocess.run",side_effect=subprocess_result):
+                    self.assertEqual(castle.audit_run(args),1)
+            self.assertFalse(json.loads((root/"audit.json").read_text())["success"])
+    def test_audit_will_not_overwrite_receipt(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            receipt = Path(tmp)/"audit.json"; receipt.write_text("preserve")
+            args = type("Args", (), {"run":str(Path(tmp)/"run"),"receipt":str(receipt)})()
+            with self.assertRaises(ValueError): castle.audit_run(args)
+            self.assertEqual(receipt.read_text(),"preserve")
     def test_nonpositive_budget_rejected(self):
         with self.assertRaises(SystemExit):
             castle.main(["run","--design","unused","--output","unused","--max-steps","0"])
@@ -63,6 +84,7 @@ class ExportTests(unittest.TestCase):
             self.fixture(run)
             report = export_keyframes(run,out)
             self.assertEqual(report["phase_count"],2)
+            self.assertNotIn(b"\r\n", (out/"waypoints.csv").read_bytes())
             data = json.loads((out/"keyframes.json").read_text())["segments"]
             self.assertEqual((data[0]["first"]["step"],data[0]["last"]["step"]),(0,1))
             self.assertEqual(data[1]["last"]["robots"][0]["hand_position"],[0,0,1])

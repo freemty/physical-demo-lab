@@ -1,6 +1,7 @@
 {
   "schema": "castle-export/1",
   "source_run": "/data1/ybyang/physical-demo-lab-runtime/outputs/castle-isaac/final-v6-seed0",
+  "mode": "assemble",
   "control_samples": 26411,
   "phase_count": 242,
   "event_count": 181,
@@ -32,7 +33,8 @@
     "manifest.json": "c39c31662f6d7383de9c9b5c2e2f18f45288c347aea8642cda8845f82fd66d05",
     "source-ir.json": "e44fa205d74db0cc9fad91c739100f69dfc4fcb56a8c72b89e2a61c83dfc1910",
     "events.jsonl": "00af5c464053d116740b33486af4d9b520b7dd4e7d401229abb9be1e8144ce00",
-    "result.json": "4a132bfb838a936a915b728d8aea539f1ed583394cec97ad31de3a414e5e869c"
+    "result.json": "4a132bfb838a936a915b728d8aea539f1ed583394cec97ad31de3a414e5e869c",
+    "robot-inspection.json": "a115cf2176623e5ca502380d2ffc0ee109759be1dd5182402de34e8b920b4548"
   },
   "derived_hashes": {
     "keyframes.json": "57e84aa1162809f4525b847ceb47b60cf4b6a6e54b972215e1137fbc24535287",

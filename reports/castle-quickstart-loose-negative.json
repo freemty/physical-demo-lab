@@ -1,0 +1,12 @@
+{
+  "schema": "castle-quickstart-audit/1",
+  "success": false,
+  "run": "/data1/ybyang/physical-demo-lab-runtime/outputs/castle-isaac/final-v6-loose",
+  "physics_receipt": "/data1/ybyang/physical-demo-lab-runtime/outputs/castle-quickstart/loose-strict-negative-v1-physics.json",
+  "physics_receipt_sha256": "00310e67785f5d4844a9577d559e55eccb17fe11cf772b555789fdfecfae37f5",
+  "complete_robot_assembly": false,
+  "full_video_decode_returncode": 0,
+  "decode_stderr": "",
+  "video_sha256": "1c8fc206339e70da05ebfb4517246235175a76a570c847646092012f3819faae",
+  "scope": "Physical oracle replay plus full video decode; visual review remains separate."
+}

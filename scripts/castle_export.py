@@ -93,12 +93,13 @@ def export_keyframes(run, output):
                 json.dumps(command.get("hand_target")),json.dumps(command.get("orientation")),
                 command.get("gripper_closed"),json.dumps(robot["hand_position"]),
                 json.dumps(robot["hand_orientation"]),json.dumps(robot["joints"])])
-    summary = {"schema":"castle-export/1", "source_run":str(run), "control_samples":rows,
+    summary = {"schema":"castle-export/1", "source_run":str(run), "mode":result.get("mode", "unknown"), "control_samples":rows,
                "phase_count":len(segments), "event_count":len(events),
                "completed_parts":result.get("completed_parts",[]),
                "task_reported_success":result["success"],
                "source_hashes":{"trajectory.jsonl":trajectory_hash.hexdigest(),
-                   **{name:file_hash(run/name) for name in ["manifest.json","source-ir.json","events.jsonl","result.json"]}},
+                   **{name:file_hash(run/name) for name in ["manifest.json","source-ir.json","events.jsonl","result.json"]},
+                   **({"robot-inspection.json":file_hash(inspection_path)} if inspection_path.exists() else {})},
                "derived_hashes":{name:file_hash(output/name) for name in ["keyframes.json","waypoints.csv","events.json"]},
                "scope":"Sparse measured/commanded stage endpoints from a real run. Not a replay controller, independent physics audit, lossless replacement or training-dataset format."}
     (output/"export-manifest.json").write_text(json.dumps(summary, indent=2)+"\n")

@@ -36,23 +36,23 @@
     },
     {
       "path": "examples/castle20/trajectory/keyframes.json",
-      "source": "/data1/ybyang/physical-demo-lab-runtime/outputs/castle-quickstart/seed0-export-v3/keyframes.json",
+      "source": "/data1/ybyang/physical-demo-lab-runtime/outputs/castle-quickstart/seed0-export-v4/keyframes.json",
       "sha256": "57e84aa1162809f4525b847ceb47b60cf4b6a6e54b972215e1137fbc24535287"
     },
     {
       "path": "examples/castle20/trajectory/waypoints.csv",
-      "source": "/data1/ybyang/physical-demo-lab-runtime/outputs/castle-quickstart/seed0-export-v3/waypoints.csv",
+      "source": "/data1/ybyang/physical-demo-lab-runtime/outputs/castle-quickstart/seed0-export-v4/waypoints.csv",
       "sha256": "bc823cdf2b2497198503ecc4c3fbc2f0038574a1e55ffd72550799d771e0ff83"
     },
     {
       "path": "examples/castle20/trajectory/events.json",
-      "source": "/data1/ybyang/physical-demo-lab-runtime/outputs/castle-quickstart/seed0-export-v3/events.json",
+      "source": "/data1/ybyang/physical-demo-lab-runtime/outputs/castle-quickstart/seed0-export-v4/events.json",
       "sha256": "492fbbb963a5c7fb9fc2e682379500918abafdc5e4c9ea2a02650442b16af7e6"
     },
     {
       "path": "examples/castle20/trajectory/export-manifest.json",
-      "source": "/data1/ybyang/physical-demo-lab-runtime/outputs/castle-quickstart/seed0-export-v3/export-manifest.json",
-      "sha256": "9feaac8d811f8a33aba6cffeff4f1c4da93d97ff8815ea9cb47218b84f1a7db9"
+      "source": "/data1/ybyang/physical-demo-lab-runtime/outputs/castle-quickstart/seed0-export-v4/export-manifest.json",
+      "sha256": "1670cdf830c4b87573baa4b5cf2ab21244e956d22685545c49b24af835cc928e"
     }
   ]
 }
