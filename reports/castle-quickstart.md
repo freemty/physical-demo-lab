@@ -133,3 +133,13 @@ Blender-only portability is documented separately from actual Linux tests.
 The repository remains private unless the user explicitly requests a visibility
 change. A root source-code license has not been selected. NVIDIA software and
 robot assets retain their own terms and are not redistributed in the example.
+
+## README Cleanup
+
+2026-09-06, documentation-only revision from `65b8f39`. The README was shortened
+from 134 to 66 lines, keeping the runnable entry, seven-image gallery and guide
+links. Operational history and detailed acceptance remain in the existing docs
+and reports. Reused the quickstart boundaries above; no controller, asset,
+verification threshold or repository integration changed. The 65 tests, 113 local
+links, example hashes, closeout and whitespace checks passed. No simulation rerun
+was needed for this prose-only change.

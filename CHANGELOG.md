@@ -2,6 +2,9 @@
 
 ## Unreleased
 
+- Shortened the README to project usage, demo images and documentation links;
+  kept operational history and validation details in their existing reports.
+
 - Added a portable castle20 entry point, Blender design bundle, measured key-stage
   export and bilingual Getting Started. One new-entry 20/20 assembly passed strict
   physical/video audit and export; clean-clone Blender/loose checks and 65 tests
