@@ -42,3 +42,8 @@ negative controls; retained the first settling failure and carrier-local/net-tra
 
 Added visual-only cafe presentation, exact baseline-trajectory comparison and
 lighting/material-depth/camera-readback lessons; clarified paused Lego draft scope.
+
+## 2026-09-06 — v9
+
+Recorded server-side development/commit/push as the user-approved workflow,
+central TODO acceptance criteria, and the still-unfixed baseline audit aggregation gap.

@@ -2,6 +2,10 @@
 
 ## Unreleased
 
+- Documented server-side development, commit and push, centralized outstanding work
+  in docs/TODO.md, and recorded presentation acceptance checks and the audit aggregation
+  gap without changing simulation code or previously verified completion claims.
+
 - Added a separate colorful cafe showcase with three camera views, guarded visual-only
   assets and exact 2974-frame physical equivalence to the preserved restaurant baseline.
   Retained all original media and paused the unexecuted Lego geometry draft.

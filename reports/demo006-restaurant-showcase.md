@@ -20,6 +20,12 @@ seed 0，2974 物理步/49.5667 s，外部进程返回 0，原九项送餐谓词
 证据仍在 [原报告](demo006-restaurant.md)。开发短预算和早期画面另见
 [开发记录](demo006-showcase-development.md)。
 
+2026-09-06 文档复核补充：现有审计脚本的总通过标记尚未纳入基线比较结果；
+本报告的“一致”依据是审计文件中明确的 2974/2974 和
+`baseline_trajectory_comparison.all_physical_fields_exact: true`，
+不只是进程返回 0。详见 [已知缺口与复用检查](../docs/knowhow/toolchain/simulation-presentation-layer.md)。
+该缺口已进入 [待办](../docs/TODO.md)，本轮未修改代码或新增仿真结果。
+
 ## 展示变化与边界
 
 使用木色、青绿、暖白与珊瑚色包装，明确表面颜色、粗糙度和金属度；补充柜台木条、地砖、

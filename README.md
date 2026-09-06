@@ -11,6 +11,10 @@ Isaac Sim 机器人仿真 demo；每次运行保留源码版本、场景、控�
 
 送餐已有独立的彩色餐厅展示版本：[展示与物理一致性报告](reports/demo006-restaurant-showcase.md)。
 
+关键待办与验收条件统一维护在 [项目 TODO](docs/TODO.md)。按用户 2026-09-06 的约定，
+直接在 23 的 `/home/ybyang/code/projects/physical-demo-lab` 开发、测试、commit 和 push；
+Mac 用于连接与查看产物，不再从本地临时副本提交。
+
 ## 当前范围
 
 - 控制：已知物体位姿和颜色标签的脚本状态机 + differential IK。

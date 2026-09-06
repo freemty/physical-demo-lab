@@ -9,12 +9,14 @@ description: Use when working on physical-demo-lab demos, Isaac Sim runtime inte
 
 ## Architecture
 
-- The Mac edits and reviews; server 23 executes Isaac Sim. Large runtime data
-  lives outside Git under `/data1/ybyang/physical-demo-lab-runtime`.
+- Develop, test, commit and push from server 23's
+  `/home/ybyang/code/projects/physical-demo-lab`; the Mac connects and reviews.
+  Large runtime data stays under `/data1/ybyang/physical-demo-lab-runtime`.
 - Task code in `demos/` drives physics; simulator-independent verification judges
   outcomes. A finished state machine is not a successful physical execution.
 - Reports retain attempt history; `docs/knowhow/` holds reusable lessons.
-  `docs/demos.json` records scoped completion plus implementation fingerprints.
+  `docs/demos.json` records scoped completion plus implementation fingerprints;
+  `docs/TODO.md` holds actionable work, dependencies and acceptance criteria.
 
 ## Experiment findings
 
@@ -48,6 +50,8 @@ description: Use when working on physical-demo-lab demos, Isaac Sim runtime inte
 
 - Keep visual polish separate from verified controllers. Inspect real lighting,
   material depth and camera-readback latency, and compare physical trajectories.
+  The current showcase audit's overall success does not include its baseline
+  comparison field; check that field explicitly until the recorded TODO is fixed.
   See `docs/knowhow/toolchain/simulation-presentation-layer.md`.
 - Moving-carrier containment belongs in the carrier's local coordinates; verify
   the whole transport interval and net displacement, not only a final image or

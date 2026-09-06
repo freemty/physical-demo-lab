@@ -13,16 +13,19 @@
 | demo004 | 双臂搭积木 | 基础版已验证并归档；双臂轮流搭桥、持续支撑 |
 | demo005 | 灵巧手拧瓶盖 | 基础版已验证并归档；单手、等效螺纹、三质量初态 |
 | demo006 | 餐厅服务 | 基础版已验证并归档；固定臂装餐、独立轮式车送达 |
-| demo007 | 双臂拼乐高 | 几何/规格草稿保留；暂停，先打磨送餐展示样板 |
+| demo007 | 双臂拼乐高 | 几何/规格草稿保留，未执行；送餐样板已交付，待继续 |
 | demo008 | 人形机器人室内行走 | 未开始 |
 
 机器可检查的状态与已验证范围在 [demos.json](demos.json)。编号沿用本项目提出的
 先流水线、收银、齿轮、积木、瓶盖的实施顺序，其余三类列为后续候选；不是原作者的发帖顺序，
 也不意味着这些任务都已排好最终技术方案。一次只推进一个，方案或难度变化时明确调整顺序。
 
-当前优先级：用户确认先制作 [送餐视觉样板](specs/demo006-restaurant-showcase.md)，
-保留原六项物理验收，不把可运行原型自动等同于展示完成。
-样板已完成：[实际视频与验证报告](../reports/demo006-restaurant-showcase.md)。其他任务外观尚未统一。
+送餐样板已交付：[实际视频与验证报告](../reports/demo006-restaurant-showcase.md)。
+这不代表用户已验收外观方向，也不代表其他五项已完成外观升级；原六项物理范围保持不变。
+
+后续关键工作、优先级建议、依赖和完成条件统一见 [项目 TODO](TODO.md)。
+按用户 2026-09-06 的约定，在 23 的项目仓库直接开发、测试、commit 和 push；
+Mac 只作为连接与结果查看端。不得从另一份临时仓库静默覆盖远程开发进度。
 
 参考范围来自 2026-09-05 对用户指定的
 [小红书主页](https://www.xiaohongshu.com/user/profile/667d2c7d0000000007007c52)
@@ -48,6 +51,8 @@
   [Allegro 安装/接触/时钟经验](knowhow/debug-solutions/allegro-mount-contact-clock.md)。
 - 第六项实测：[送餐报告](../reports/demo006-restaurant.md)、[开发账本](../reports/demo006-restaurant-development.md) 与
   [移动载具证据](knowhow/toolchain/mobile-carrier-evidence.md)。
+- 展示层：[送餐样板开发记录](../reports/demo006-showcase-development.md) 与
+  [材质、灯光、镜头和复用验收清单](knowhow/toolchain/simulation-presentation-layer.md)。
 
 ## 写到哪里
 

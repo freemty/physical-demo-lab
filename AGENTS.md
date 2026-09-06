@@ -39,7 +39,11 @@ knowhow entry only when its topic is relevant.
 
 ## Compute boundary
 
-- Execute Isaac Sim on server 23; the Mac is for editing and viewing results.
+- Develop, test and commit in `/home/ybyang/code/projects/physical-demo-lab` on
+  server 23, then push this repository from server 23. The Mac is for access and
+  viewing results, not an independent development/commit source.
+- Keep actionable work and acceptance criteria in `docs/TODO.md`; maintain it
+  alongside the scoped completion ledger. A listed TODO is not a completed run.
 - Put bulky environments, caches, temporary data and outputs under
   `/data1/ybyang/physical-demo-lab-runtime`. Check GPU availability live;
   never stop unrelated jobs or modify other projects' environments.
