@@ -33,6 +33,22 @@ class NativeLiftTests(unittest.TestCase):
         evidence.update([self.state], [dict(c,normal_force=-3.5) for c in self.contacts])
         self.assertEqual(evidence.verified_names(), {"piece"})
 
+    def test_single_or_duplicated_finger_is_not_bilateral(self):
+        evidence = module.LiftEvidence(["piece"])
+        evidence.update([self.state], [])
+        self.state["position"][2] += .2
+        evidence.update([self.state], [self.contacts[0], self.contacts[0]])
+        self.assertEqual(evidence.verified_names(), set())
+
+    def test_nonfinite_force_is_not_load_evidence(self):
+        for bad in (float("nan"), float("inf"), -float("inf")):
+            evidence = module.LiftEvidence(["piece"])
+            self.state["position"][2] = .8
+            evidence.update([self.state], [])
+            self.state["position"][2] += .2
+            evidence.update([self.state], [dict(c,normal_force=bad) for c in self.contacts])
+            self.assertEqual(evidence.verified_names(), set())
+
     def test_duplicate_and_nonfinite_states_rejected(self):
         evidence = module.LiftEvidence(["piece"])
         with self.assertRaises(ValueError):
