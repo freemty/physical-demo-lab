@@ -20,7 +20,7 @@
 | demo006 | 餐厅服务 | 基础版已验证并归档；固定臂装餐、独立轮式车送达 |
 | demo007 | 双臂拼乐高 | 几何/规格草稿保留，未执行；送餐样板已交付，待继续 |
 | demo008 | 人形机器人室内行走 | 未开始 |
-| demo009 | 20 件 Isaac 城堡 | 进行中；旧版 2/20，先完整轨迹，再固定版本六种子验收 |
+| demo009 | 20 件 Isaac 城堡 | 首条 20/20 装配及独立审计通过；固定版本六种子验收中 |
 
 机器可检查的状态与已验证范围在 [demos.json](demos.json)。编号沿用本项目提出的
 先流水线、收银、齿轮、积木、瓶盖的实施顺序，其余三类列为后续候选；不是原作者的发帖顺序，
@@ -57,6 +57,8 @@ Mac 只作为连接与结果查看端。不得从另一份临时仓库静默覆�
   [Allegro 安装/接触/时钟经验](knowhow/debug-solutions/allegro-mount-contact-clock.md)。
 - 第六项实测：[送餐报告](../reports/demo006-restaurant.md)、[开发账本](../reports/demo006-restaurant-development.md) 与
   [移动载具证据](knowhow/toolchain/mobile-carrier-evidence.md)。
+- 第九项实测：[20 件城堡开发账本](../reports/demo009-castle20-development.md)，
+  [有界控制与原生接触审计](knowhow/debug-solutions/castle-bounded-control-and-lift-evidence.md)。
 - 展示层：[送餐样板开发记录](../reports/demo006-showcase-development.md) 与
   [材质、灯光、镜头和复用验收清单](knowhow/toolchain/simulation-presentation-layer.md)。
 

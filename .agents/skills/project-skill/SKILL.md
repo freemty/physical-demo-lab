@@ -45,6 +45,10 @@ description: Use when working on physical-demo-lab demos, Isaac Sim runtime inte
 - Restaurant has a separate colorful cafe presentation layer. Final seed 0 matches
   all 2974 baseline physical frames exactly; visual assets are not new interaction
   capabilities. See `reports/demo006-restaurant-showcase.md`.
+- `demo009` castle20: first full contact-driven 20-part assembly passes its retained
+  oracle replay and 11.2333 seconds of released stability. Fixed-version seeds 0–5
+  remain pending; 200/1000 are paused. See `reports/demo009-castle20-development.md`
+  and `docs/knowhow/debug-solutions/castle-bounded-control-and-lift-evidence.md`.
 - Lego geometry/spec drafts are paused before execution; humanoid is planned.
   Read `docs/README.md` for source coverage and next-demo selection.
 

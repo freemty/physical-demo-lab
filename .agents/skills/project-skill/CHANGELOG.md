@@ -55,3 +55,8 @@ Preserved Git history and the existing linked worktree, with an old-path symlink
 runtime data remains in its existing Data1 directory.
 
 Added the completed-demo README gallery and repository-owned preview provenance.
+
+## 2026-09-06 — v11
+
+记录城堡 20 件首条完整装配、有界关节驱动与带符号原生接触力审计；
+固定版本六种子验收尚未完成，200/1000 件暂停。

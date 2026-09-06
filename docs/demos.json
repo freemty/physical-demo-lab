@@ -174,8 +174,14 @@
       "report": "reports/demo009-castle20-development.md",
       "spec": "docs/specs/demo009-block-castle.md",
       "limitations": [
-        "旧版仅2/20，预摆稳定性通过不等于装配完成",
+        "V6首条20/20完整装配通过；固定版本六种子验收仍在执行，旧版2/20失败保留",
         "200/1000件扩展暂停，不能混同其证据"
+      ],
+      "evidence": [
+        "reports/demo009-first-full-audit.json"
+      ],
+      "lessons": [
+        "docs/knowhow/debug-solutions/castle-bounded-control-and-lift-evidence.md"
       ]
     }
   ]
