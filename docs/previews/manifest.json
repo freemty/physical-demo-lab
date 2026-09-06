@@ -1,0 +1,73 @@
+{
+  "schema_version": 1,
+  "created": "2026-09-06",
+  "scope": "actual simulator screenshots from the six scoped completed demos; not new simulation evidence",
+  "items": [
+    {
+      "demo_id": "demo001",
+      "preview": "docs/previews/demo001-conveyor.png",
+      "source": "/data1/ybyang/physical-demo-lab-runtime/outputs/three-001/preview.png",
+      "report": "reports/bootstrap-validation.md",
+      "sha256": "b7a5178298f392c6b5cf9ff88640867527c48c81e321f3244a37a75ea8afcd75",
+      "width": 960,
+      "height": 720,
+      "transformations": "none; byte-identical copy",
+      "coverage": "early-stage preview from verified run; not a terminal success image"
+    },
+    {
+      "demo_id": "demo002",
+      "preview": "docs/previews/demo002-checkout.png",
+      "source": "/data1/ybyang/physical-demo-lab-runtime/outputs/demo002/seed0-attempt1/preview.png",
+      "report": "reports/demo002-checkout.md",
+      "sha256": "786f63b6e29b9e4224bbc7c3d35c6680dade700edf72a36442708cb8cc2fd6c3",
+      "width": 960,
+      "height": 720,
+      "transformations": "none; byte-identical copy",
+      "coverage": "early-stage preview from verified run; not a terminal success image"
+    },
+    {
+      "demo_id": "demo003",
+      "preview": "docs/previews/demo003-gears.png",
+      "source": "/data1/ybyang/physical-demo-lab-runtime/outputs/demo003/seed0-attempt3/final.png",
+      "report": "reports/demo003-gears.md",
+      "sha256": "eee5545fa42b2c247db41339210c36e241748dc6c9126b0991ca21b130fe655e",
+      "width": 960,
+      "height": 720,
+      "transformations": "none; byte-identical copy",
+      "coverage": "final screenshot from verified run"
+    },
+    {
+      "demo_id": "demo004",
+      "preview": "docs/previews/demo004-dual-blocks.png",
+      "source": "/data1/ybyang/physical-demo-lab-runtime/outputs/demo004/seed0-attempt1/final.png",
+      "report": "reports/demo004-dual-blocks.md",
+      "sha256": "a4d5fabf0aca02d9acd49e08f324c32c07f4675dbd34e05231a6819692acbbd6",
+      "width": 960,
+      "height": 720,
+      "transformations": "none; byte-identical copy",
+      "coverage": "final screenshot from verified run"
+    },
+    {
+      "demo_id": "demo005",
+      "preview": "docs/previews/demo005-bottle-cap.png",
+      "source": "/data1/ybyang/physical-demo-lab-runtime/outputs/demo005/seed-0-goal-stop/final.png",
+      "report": "reports/demo005-bottle-cap.md",
+      "sha256": "366c2d792e1169544f69195e9962722781c140618d5bd08bb7e4779d9beb3238",
+      "width": 960,
+      "height": 720,
+      "transformations": "none; byte-identical copy",
+      "coverage": "final screenshot from verified run"
+    },
+    {
+      "demo_id": "demo006",
+      "preview": "docs/previews/demo006-restaurant.png",
+      "source": "/data1/ybyang/physical-demo-lab-runtime/outputs/demo006-showcase/final-1/loading.png",
+      "report": "reports/demo006-restaurant-showcase.md",
+      "sha256": "b8c4ac060da4a616c2cf2b19172cbbcabd1fe66446fcb652f2298652f2a1e31e",
+      "width": 1280,
+      "height": 720,
+      "transformations": "none; byte-identical copy",
+      "coverage": "loading-stage screenshot from verified final showcase run"
+    }
+  ]
+}

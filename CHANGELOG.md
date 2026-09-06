@@ -2,6 +2,13 @@
 
 ## Unreleased
 
+- Added a six-demo README gallery using unchanged simulator PNGs, report links and
+  source/hash metadata; unfinished demos are not presented as completed results.
+
+- Moved the full server repository and Git history to /data1/ybyang/physical-demo-lab,
+  retained the old path as a compatibility symlink, preserved the linked worktree's
+  uncommitted files, and updated current development paths after integrity/tests passed.
+
 - Documented server-side development, commit and push, centralized outstanding work
   in docs/TODO.md, and recorded presentation acceptance checks and the audit aggregation
   gap without changing simulation code or previously verified completion claims.

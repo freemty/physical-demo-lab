@@ -47,3 +47,11 @@ lighting/material-depth/camera-readback lessons; clarified paused Lego draft sco
 
 Recorded server-side development/commit/push as the user-approved workflow,
 central TODO acceptance criteria, and the still-unfixed baseline audit aggregation gap.
+
+## 2026-09-06 — v10
+
+Moved the canonical server repository to /data1/ybyang/physical-demo-lab.
+Preserved Git history and the existing linked worktree, with an old-path symlink;
+runtime data remains in its existing Data1 directory.
+
+Added the completed-demo README gallery and repository-owned preview provenance.

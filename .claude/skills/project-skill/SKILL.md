@@ -10,13 +10,15 @@ description: Use when working on physical-demo-lab demos, Isaac Sim runtime inte
 ## Architecture
 
 - Develop, test, commit and push from server 23's
-  `/home/ybyang/code/projects/physical-demo-lab`; the Mac connects and reviews.
+  `/data1/ybyang/physical-demo-lab`; the Mac connects and reviews.
   Large runtime data stays under `/data1/ybyang/physical-demo-lab-runtime`.
 - Task code in `demos/` drives physics; simulator-independent verification judges
   outcomes. A finished state machine is not a successful physical execution.
 - Reports retain attempt history; `docs/knowhow/` holds reusable lessons.
   `docs/demos.json` records scoped completion plus implementation fingerprints;
   `docs/TODO.md` holds actionable work, dependencies and acceptance criteria.
+- README's six-demo gallery uses unchanged simulation frames. Images and provenance
+  live in `docs/previews/`; add previews only for explicitly verified scopes.
 
 ## Experiment findings
 

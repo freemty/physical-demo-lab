@@ -5,7 +5,7 @@
 以及现有 [安装脚本](../../../scripts/setup_server.sh) 和 [运行入口](../../../scripts/run.sh)。
 版本是本次已验证组合，不表示未来最新版本。
 
-- 连接别名：`xdlab23_yang`；代码在 `/home/ybyang/code/projects/physical-demo-lab`。
+- 连接别名：`xdlab23_yang`；代码在 `/data1/ybyang/physical-demo-lab`。
 - 运行根目录：`/data1/ybyang/physical-demo-lab-runtime`。
   `venv/`、`cache/`、`tmp/`、`logs/`、`outputs/` 均在此目录下。
 - 已验证：Python 3.12.13、Isaac Sim 6.0.1.0、PyTorch 2.11.0+cu128、
@@ -56,7 +56,7 @@ Data1 的独立临时目录。服务器用 `git bundle verify <文件>` 检查�
 ## 当前开发与发布约定
 
 用户 2026-09-06 明确要求直接在 23 的项目仓库开发，把关键 TODO 留在仓库文档，
-并在 23 commit、push。工作树为 `/home/ybyang/code/projects/physical-demo-lab`；
+并在 23 commit、push。工作树为 `/data1/ybyang/physical-demo-lab`；
 [项目 TODO](../../TODO.md) 是行动入口，`docs/demos.json` 仍仅记录有证据的物理完成范围。
 
 每轮先检查远程工作树和当前提交；只改授权范围。报告、经验、待办和双端项目知识
@@ -68,3 +68,33 @@ Data1 的独立临时目录。服务器用 `git bundle verify <文件>` 检查�
 这是当次连通性证据，不证明 HTTPS 永久不可用。本轮可使用同一仓库的 SSH URL
 进行服务器端推送；不需要复制凭据或改全局 Git 配置。上节增量 bundle 是历史同步
 经验，不是当前“服务器开发、服务器推送”要求的默认替代方案。
+
+## 2026-09-06：主仓库整体迁至 Data1
+
+用户要求将整个 repo 放在 `/data1/ybyang/` 下。本次已将主工作树及完整 `.git`
+从 `/home/ybyang/code/projects/physical-demo-lab` 移到
+`/data1/ybyang/physical-demo-lab`；旧路径仅为指向新位置的兼容符号链接，
+不是保留在 home 分区的第二份仓库。当前文档和项目知识使用新路径；
+[首次验证报告](../../../reports/bootstrap-validation.md) 中的旧路径是历史执行记录，未重写。
+
+迁移前主仓库占 2744 KiB（约 2.7 MiB，含约 1.8 MiB 的 Git 元数据）；
+home 分区 98% 已用，Data1 约有 2.7 TiB 可用。因此本次仅将约 2.7 MiB 移出 home，
+不是释放几十 GB，也不会减少服务器总数据量。环境和产物早已在
+`/data1/ybyang/physical-demo-lab-runtime`：本次可读目录统计约 55 GiB，
+其中一个 SDK 截图目录无读取权限，故该数值不是完整精确总量；未更改其权限或内容。
+
+安全与验证记录：
+
+- 主仓库迁移前为干净的 `9988144`；只移动到此前不存在的目标，不合并或覆盖其他目录。
+- 已存在的关联工作树 `/data1/ybyang/physical-demo-lab-runtime/worktrees/isaac-ports-20260906`
+  留在原位，分支 `codex/isaac-ports`、提交 `e2bed49` 和其未提交改动均保留。
+  执行 `git worktree repair` 后，两份工作树仍可解析，未暂存或提交该工作树的开发内容。
+- 在更新本文档前，两份工作树的 tracked/nonignored 文件内容汇总校验均与迁移前相同；
+  主工作树为 `82a22d12508cd3d8528d5246301f12ee1c08edbd925f6c8de68f778b363dc41b`，
+  关联工作树为 `2dd211736593aaaa169b2dc4cd511226e715ebdccd579c45837744da9ff06502`。
+  校验方式为按 `git ls-files --cached --others --exclude-standard -z` 输出顺序，
+  汇总各文件 SHA-256 后再计算 SHA-256；Git 对象另经 `git fsck --full` 检查。
+- 新路径下 37 项测试、六项完成记录与双端项目知识一致性检查通过；
+  两个运行入口的 `--help` 正常。本次未重新执行物理仿真，也未改旧结果或原始运行路径。
+- 旧链接不应当被当作需再迁移的仓库副本。若将来移除兼容入口，应先核对关联工作树
+  和历史启动路径；如需回迁，先停止相关任务并核验两边状态，不直接覆盖现有目录。

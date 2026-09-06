@@ -2,6 +2,29 @@
 
 Isaac Sim 机器人仿真 demo；每次运行保留源码版本、场景、控制命令、逐帧物理状态、验证结果和视频。
 
+## Demo Gallery
+
+以下 6 项是已验证基础版的真实仿真截图，点击图片查看实现范围和验证报告。
+送餐使用彩色展示样板，其余保留当前原型外观；截图不是原作者视频复刻或新增能力证明。
+图片随仓库保存，不依赖服务器路径；[截图来源与校验](docs/previews/README.md)。
+
+| 001 · 流水线颜色分拣 | 002 · 超市收银 |
+| --- | --- |
+| <a href="reports/bootstrap-validation.md"><img src="docs/previews/demo001-conveyor.png" width="480" alt="Franka 流水线颜色分拣真实仿真预览"></a> | <a href="reports/demo002-checkout.md"><img src="docs/previews/demo002-checkout.png" width="480" alt="Franka 模拟扫描与装袋真实仿真预览"></a> |
+| 停带、接触抓取、按颜色放箱；已知位姿。 | 已知 SKU 的模拟扫描、计价与物理装袋。 |
+
+| 003 · 齿轮插装 | 004 · 双臂搭桥 |
+| --- | --- |
+| <a href="reports/demo003-gears.md"><img src="docs/previews/demo003-gears.png" width="480" alt="齿轮插轴落座后的真实仿真截图"></a> | <a href="reports/demo004-dual-blocks.md"><img src="docs/previews/demo004-dual-blocks.png" width="480" alt="双 Franka 顺序协作搭桥后的真实仿真截图"></a> |
+| 近似齿轮插轴、落座与释放；不验证精密传动。 | 双臂顺序搬运三件积木；释放后持续稳定。 |
+
+| 005 · 灵巧手开盖 | 006 · 餐厅送餐 |
+| --- | --- |
+| <a href="reports/demo005-bottle-cap.md"><img src="docs/previews/demo005-bottle-cap.png" width="480" alt="Allegro 手提离并持续持盖的真实仿真截图"></a> | <a href="reports/demo006-restaurant-showcase.md"><img src="docs/previews/demo006-restaurant.png" width="480" alt="彩色餐厅中 Franka 装餐的真实仿真截图"></a> |
+| Allegro 接触旋盖、脱扣与持盖；等效螺纹模型。 | 固定臂装餐、独立轮式车送达；不含桌面卸餐。 |
+
+未完成或仅有草稿的任务不计入 Gallery，见 [项目进度与 TODO](docs/TODO.md)。
+
 第一个任务是 Franka 流水线颜色分拣：传送带通过接触摩擦送件，暂停后由平行夹爪抓取，再放入对应颜色的箱子。物体不使用位置重写、附着约束或隐形吸附。
 
 项目已用 LabMate 初始化。后续逐项进度、经验入口与收尾流程见
@@ -12,10 +35,10 @@ Isaac Sim 机器人仿真 demo；每次运行保留源码版本、场景、控�
 送餐已有独立的彩色餐厅展示版本：[展示与物理一致性报告](reports/demo006-restaurant-showcase.md)。
 
 关键待办与验收条件统一维护在 [项目 TODO](docs/TODO.md)。按用户 2026-09-06 的约定，
-直接在 23 的 `/home/ybyang/code/projects/physical-demo-lab` 开发、测试、commit 和 push；
+直接在 23 的 `/data1/ybyang/physical-demo-lab` 开发、测试、commit 和 push；
 Mac 用于连接与查看产物，不再从本地临时副本提交。
 
-## 当前范围
+## 流水线基础版范围
 
 - 控制：已知物体位姿和颜色标签的脚本状态机 + differential IK。
 - 物理：PhysX 刚体、传送带表面速度、平行夹爪接触摩擦。

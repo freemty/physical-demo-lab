@@ -7,9 +7,11 @@
 ## 已有基线与工作约定
 
 - [x] demo001–006 已在各自明确范围完成物理验证和归档，不扩大为完整原视频复刻。
+- [x] [README Gallery](../README.md#demo-gallery) 已展示六项真实预览，配报告链接及截图来源；新增完成项应同步补图。
 - [x] 送餐视觉样板已交付；一次 seed 0 与原基线 2974 帧物理状态完全一致。
   详见 [样板报告](../reports/demo006-restaurant-showcase.md)。
-- [x] 已明确以 23 的 `/home/ybyang/code/projects/physical-demo-lab` 为开发源头。
+- [x] 主仓库（含 Git 历史）已整体迁至 `/data1/ybyang/physical-demo-lab`；旧路径仅保留兼容链接。
+- [x] 已明确以 23 的 `/data1/ybyang/physical-demo-lab` 为开发源头。
   在远程编辑、运行检查、按本轮文件范围 commit，再从 23 push；Mac 不独立开发/代提交。
 - [ ] 用户对当前样板外观的验收或修改意见尚未记录。交付、物理通过与外观获认可分开记录；
   这不阻止整理待办或先修独立的审计问题。

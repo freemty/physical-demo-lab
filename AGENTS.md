@@ -39,7 +39,7 @@ knowhow entry only when its topic is relevant.
 
 ## Compute boundary
 
-- Develop, test and commit in `/home/ybyang/code/projects/physical-demo-lab` on
+- Develop, test and commit in `/data1/ybyang/physical-demo-lab` on
   server 23, then push this repository from server 23. The Mac is for access and
   viewing results, not an independent development/commit source.
 - Keep actionable work and acceptance criteria in `docs/TODO.md`; maintain it
