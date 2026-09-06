@@ -1,0 +1,108 @@
+{
+  "evidence_consistent": true,
+  "errors": [],
+  "output": "/data1/ybyang/physical-demo-lab-runtime/outputs/castle-isaac/final-v6-seed5",
+  "mode": "assemble",
+  "task_success": true,
+  "complete_robot_assembly": true,
+  "native_lift_evidence": {
+    "left_foot": {
+      "peak_lift_m": 0.2656521201133728,
+      "bilateral_above_80mm_samples": 1805
+    },
+    "right_foot": {
+      "peak_lift_m": 0.26549631357192993,
+      "bilateral_above_80mm_samples": 1761
+    },
+    "left_wall": {
+      "peak_lift_m": 0.22965317964553833,
+      "bilateral_above_80mm_samples": 1664
+    },
+    "right_wall": {
+      "peak_lift_m": 0.2297230362892151,
+      "bilateral_above_80mm_samples": 1581
+    },
+    "left_gate_pier": {
+      "peak_lift_m": 0.21184968948364258,
+      "bilateral_above_80mm_samples": 1572
+    },
+    "right_gate_pier": {
+      "peak_lift_m": 0.21603918075561523,
+      "bilateral_above_80mm_samples": 1569
+    },
+    "gate_lintel": {
+      "peak_lift_m": 0.2653319239616394,
+      "bilateral_above_80mm_samples": 1774
+    },
+    "left_lower": {
+      "peak_lift_m": 0.2419993281364441,
+      "bilateral_above_80mm_samples": 1483
+    },
+    "right_lower": {
+      "peak_lift_m": 0.24076992273330688,
+      "bilateral_above_80mm_samples": 1577
+    },
+    "left_upper": {
+      "peak_lift_m": 0.24066263437271118,
+      "bilateral_above_80mm_samples": 1701
+    },
+    "right_upper": {
+      "peak_lift_m": 0.24088174104690552,
+      "bilateral_above_80mm_samples": 1597
+    },
+    "left_cornice": {
+      "peak_lift_m": 0.2654765844345093,
+      "bilateral_above_80mm_samples": 1912
+    },
+    "right_cornice": {
+      "peak_lift_m": 0.26581358909606934,
+      "bilateral_above_80mm_samples": 1777
+    },
+    "gate_merlon_0": {
+      "peak_lift_m": 0.2647867798805237,
+      "bilateral_above_80mm_samples": 1773
+    },
+    "gate_merlon_1": {
+      "peak_lift_m": 0.2649298310279846,
+      "bilateral_above_80mm_samples": 1773
+    },
+    "gate_merlon_2": {
+      "peak_lift_m": 0.26492398977279663,
+      "bilateral_above_80mm_samples": 1774
+    },
+    "left_crown_a": {
+      "peak_lift_m": 0.2571921944618225,
+      "bilateral_above_80mm_samples": 1771
+    },
+    "left_crown_b": {
+      "peak_lift_m": 0.2573543190956116,
+      "bilateral_above_80mm_samples": 1771
+    },
+    "right_crown_a": {
+      "peak_lift_m": 0.257768452167511,
+      "bilateral_above_80mm_samples": 1771
+    },
+    "right_crown_b": {
+      "peak_lift_m": 0.2584609389305115,
+      "bilateral_above_80mm_samples": 1770
+    }
+  },
+  "verified_lift_count": 20,
+  "verifier_snapshot_sha256": "bd0dc75127de4ee498bf4547bb7a68574fe2a1129409e2d1777bf261f4d9f9dd",
+  "auditor_sha256": "281502f03c97426e71b79c95d34be0f758f4539857799de5292bdcd68dcae1c1",
+  "physics_samples": 106020,
+  "control_samples": 26505,
+  "sim_seconds": 441.75,
+  "replayed_stable_seconds": 10.987500000000011,
+  "max_penetration_m": 0.0008524304139427841,
+  "arm_contact_samples": 0,
+  "process_returncode": 0,
+  "video": {
+    "width": 640,
+    "height": 480,
+    "r_frame_rate": "30/1",
+    "duration": "441.766667",
+    "nb_read_frames": "13253"
+  },
+  "replay_scope": "Recomputed oracle from logged physical states and contacts, not action re-execution."
+}

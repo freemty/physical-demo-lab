@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "created": "2026-09-06",
-  "scope": "actual simulator screenshots from the six scoped completed demos; not new simulation evidence",
+  "scope": "actual simulator screenshots from the seven scoped completed demos; not new simulation evidence",
   "items": [
     {
       "demo_id": "demo001",
@@ -68,6 +68,17 @@
       "height": 720,
       "transformations": "none; byte-identical copy",
       "coverage": "loading-stage screenshot from verified final showcase run"
+    },
+    {
+      "demo_id": "demo009",
+      "preview": "docs/previews/demo009-castle20.png",
+      "source": "/data1/ybyang/physical-demo-lab-runtime/outputs/castle-isaac/final-v6-seed0/final.png",
+      "report": "reports/demo009-castle20.md",
+      "sha256": "44af361cfad4cce01c39a34cc3ba0e72aed5cb73dbf4b17fdb32deb00eec52ae",
+      "width": 640,
+      "height": 480,
+      "transformations": "none; byte-identical copy",
+      "coverage": "native final screenshot from verified fixed-version seed0 assembly"
     }
   ]
 }

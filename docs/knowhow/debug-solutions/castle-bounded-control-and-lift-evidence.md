@@ -44,4 +44,7 @@ GPU UUID 屏蔽下逻辑 physics CUDA 0 与 renderer 物理卡编号不同；
 `/data1/ybyang/physical-demo-lab-runtime/venv/bin/python`。
 `scripts/run_castle_task.py` 要求新输出路径，保留控制日志、进程退出和资源监控；
 `scripts/audit_castle.py OUTPUT --receipt NEW_JSON` 产生独立只增回执。
-参数与全部失败路径见开发账本。多种子和视频验收未结束前，不标记整个 demo 完成。
+参数与全部失败路径见开发账本。最终冻结版本 seeds 0–5 首轮 6/6 通过，
+每件原生双指受力抬升、各次独立审计、进程和六条完整视频检查完成。
+完整 GPU 1/7 运行均保留逐次监控；不外推未采样的逃逸子进程。
+范围与复现见 [完成报告](../../../reports/demo009-castle20.md)，200/1000 件仍暂停。

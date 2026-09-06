@@ -4,7 +4,7 @@ Isaac Sim 机器人仿真 demo；每次运行保留源码版本、场景、控�
 
 ## Demo Gallery
 
-以下 6 项是已验证基础版的真实仿真截图，点击图片查看实现范围和验证报告。
+以下 7 项是已验证基础版的真实仿真截图，点击图片查看实现范围和验证报告。
 送餐使用彩色展示样板，其余保留当前原型外观；截图不是原作者视频复刻或新增能力证明。
 图片随仓库保存，不依赖服务器路径；[截图来源与校验](docs/previews/README.md)。
 
@@ -23,13 +23,18 @@ Isaac Sim 机器人仿真 demo；每次运行保留源码版本、场景、控�
 | <a href="reports/demo005-bottle-cap.md"><img src="docs/previews/demo005-bottle-cap.png" width="480" alt="Allegro 手提离并持续持盖的真实仿真截图"></a> | <a href="reports/demo006-restaurant-showcase.md"><img src="docs/previews/demo006-restaurant.png" width="480" alt="彩色餐厅中 Franka 装餐的真实仿真截图"></a> |
 | Allegro 接触旋盖、脱扣与持盖；等效螺纹模型。 | 固定臂装餐、独立轮式车送达；不含桌面卸餐。 |
 
+| 009 · 20 件城堡 |
+| --- |
+| <a href="reports/demo009-castle20.md"><img src="docs/previews/demo009-castle20.png" width="480" alt="Franka 逐件搭完20块城堡的真实最终截图"></a> |
+| 接触抓取、搬运与脱手稳定；固定蓝图六种子 6/6。 |
+
 未完成或仅有草稿的任务不计入 Gallery，见 [项目进度与 TODO](docs/TODO.md)。
 
 第一个任务是 Franka 流水线颜色分拣：传送带通过接触摩擦送件，暂停后由平行夹爪抓取，再放入对应颜色的箱子。物体不使用位置重写、附着约束或隐形吸附。
 
 项目已用 LabMate 初始化。后续逐项进度、经验入口与收尾流程见
 [项目文档](docs/README.md)。每个 demo 在交付前必须更新验证报告和相关 knowhow，
-通过完成检查；当前已完成流水线、收银、齿轮插装、双臂积木、灵巧手开盖与轮式送餐的基础版，
+通过完成检查；当前已完成流水线、收银、齿轮插装、双臂积木、灵巧手开盖、轮式送餐与 20 件城堡的基础版，
 其余进度以项目文档为准。
 
 送餐已有独立的彩色餐厅展示版本：[展示与物理一致性报告](reports/demo006-restaurant-showcase.md)。

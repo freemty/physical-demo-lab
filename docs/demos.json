@@ -169,20 +169,39 @@
     {
       "id": "demo009",
       "title": "20 件 Isaac 城堡",
-      "status": "in_progress",
-      "scope": "20件原尺寸接触驱动逐块装配；先完整轨迹，再固定版本seeds 0–5至少5/6",
-      "report": "reports/demo009-castle20-development.md",
+      "status": "complete",
+      "scope": "固定20件蓝图、已知状态脚本控制的接触驱动装配；冻结版本seeds 0–5首轮6/6通过",
+      "report": "reports/demo009-castle20.md",
       "spec": "docs/specs/demo009-block-castle.md",
       "limitations": [
-        "V6首条20/20完整装配通过；固定版本六种子验收仍在执行，旧版2/20失败保留",
-        "200/1000件扩展暂停，不能混同其证据"
+        "固定蓝图与小幅初态扰动；不是任务生成、视觉策略或学习泛化成绩",
+        "独立审计是记录状态上的oracle回放，不是动作重执行或跨引擎复现",
+        "200/1000件仍暂停；旧2/20失败与三块部分运行保留"
       ],
       "evidence": [
-        "reports/demo009-first-full-audit.json"
+        "reports/demo009-seed0-audit.json",
+        "reports/demo009-seed1-audit.json",
+        "reports/demo009-seed2-audit.json",
+        "reports/demo009-seed3-audit.json",
+        "reports/demo009-seed4-audit.json",
+        "reports/demo009-seed5-audit.json",
+        "reports/demo009-negative-audit.json",
+        "reports/demo009-loose-audit.json"
       ],
       "lessons": [
         "docs/knowhow/debug-solutions/castle-bounded-control-and-lift-evidence.md"
-      ]
+      ],
+      "verified_at": "2026-09-06",
+      "implementation": {
+        "assets/block_castle/scene_spec.json": "e44fa205d74db0cc9fad91c739100f69dfc4fcb56a8c72b89e2a61c83dfc1910",
+        "demos/block_castle.py": "413313ae437721f79974f4a53684959db22454cce9fdcae059482ec52186a7db",
+        "demos/castle_backend.py": "ca14cb728d1890887ab7ee05c2881796e56d8257e8f7076d84b5152047e79998",
+        "demos/castle_control.py": "dd4b9f8b78720858140c1563b47a9b2817abbf9ed04f6b67151e5cb6599d29b6",
+        "demos/castle_runtime.py": "4c3b4c771809e5183fc58786d4aedb42ee275b412867275bea99f2e71eaa32c7",
+        "demos/castle_verify.py": "bd0dc75127de4ee498bf4547bb7a68574fe2a1129409e2d1777bf261f4d9f9dd",
+        "scripts/run_castle_task.py": "0f16617b0ecc8baf0c33ed5423ed9ecd76566a31889c8771bf96cb8278f4df06",
+        "scripts/audit_castle.py": "281502f03c97426e71b79c95d34be0f758f4539857799de5292bdcd68dcae1c1"
+      }
     }
   ]
 }

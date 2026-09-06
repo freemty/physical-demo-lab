@@ -17,7 +17,7 @@ description: Use when working on physical-demo-lab demos, Isaac Sim runtime inte
 - Reports retain attempt history; `docs/knowhow/` holds reusable lessons.
   `docs/demos.json` records scoped completion plus implementation fingerprints;
   `docs/TODO.md` holds actionable work, dependencies and acceptance criteria.
-- README's six-demo gallery uses unchanged simulation frames. Images and provenance
+- README's completed-demo gallery uses unchanged simulation frames. Images and provenance
   live in `docs/previews/`; add previews only for explicitly verified scopes.
 
 ## Experiment findings
@@ -45,10 +45,12 @@ description: Use when working on physical-demo-lab demos, Isaac Sim runtime inte
 - Restaurant has a separate colorful cafe presentation layer. Final seed 0 matches
   all 2974 baseline physical frames exactly; visual assets are not new interaction
   capabilities. See `reports/demo006-restaurant-showcase.md`.
-- `demo009` castle20: first full contact-driven 20-part assembly passes its retained
-  oracle replay and 11.2333 seconds of released stability. Fixed-version seeds 0–5
-  remain pending; 200/1000 are paused. See `reports/demo009-castle20-development.md`
-  and `docs/knowhow/debug-solutions/castle-bounded-control-and-lift-evidence.md`.
+- `demo009` castle20: fixed-version seeds 0–5 pass 6/6 first attempts, each with
+  20 native bilateral-force lifts, released stability, independent oracle replay,
+  process checks and full video decode. Fixed blueprint / privileged-state baseline;
+  not task generation or learned generalization. 200/1000 remain paused.
+  See `reports/demo009-castle20.md` and
+  `docs/knowhow/debug-solutions/castle-bounded-control-and-lift-evidence.md`.
 - Lego geometry/spec drafts are paused before execution; humanoid is planned.
   Read `docs/README.md` for source coverage and next-demo selection.
 
