@@ -2,6 +2,9 @@
 
 ## Unreleased
 
+- 接入 20 件 Isaac 城堡并保留旧 2/20 失败。V5 的前三块完成抓取与释放审计；
+  完整 20 件和固定版本多 seed 验收仍在进行，200/1000 件暂停。
+
 - Added a six-demo README gallery using unchanged simulator PNGs, report links and
   source/hash metadata; unfinished demos are not presented as completed results.
 

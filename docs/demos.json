@@ -17,7 +17,9 @@
         "docs/knowhow/debug-solutions/conveyor-and-teardown.md",
         "docs/knowhow/toolchain/evidence-and-verification.md"
       ],
-      "evidence": ["reports/audit-final.json"],
+      "evidence": [
+        "reports/audit-final.json"
+      ],
       "implementation": {
         "demos/conveyor_sort.py": "ee7de9c25affd53634a8c0ac9b590fa1841b9aafaa8ec27a914caed7f4455e7d",
         "demos/verification.py": "30997a0e7323a91143f0c04f7b418077b3973841bc14a2b191dfc38bb137d369",
@@ -25,13 +27,22 @@
       }
     },
     {
-      "id": "demo002", "title": "超市收银", "status": "complete",
+      "id": "demo002",
+      "title": "超市收银",
+      "status": "complete",
       "scope": "已知 SKU 和位姿的接触抓取、模拟扫描、装袋脚本基础版",
       "verified_at": "2026-09-06",
-      "limitations": ["没有视觉条码识别或真实支付，没有完整原视频轨迹", "三种随机初态通过不代表学习策略或广泛泛化"],
+      "limitations": [
+        "没有视觉条码识别或真实支付，没有完整原视频轨迹",
+        "三种随机初态通过不代表学习策略或广泛泛化"
+      ],
       "report": "reports/demo002-checkout.md",
-      "lessons": ["docs/knowhow/toolchain/checkout-and-process-evidence.md"],
-      "evidence": ["reports/demo002-audit.json"],
+      "lessons": [
+        "docs/knowhow/toolchain/checkout-and-process-evidence.md"
+      ],
+      "evidence": [
+        "reports/demo002-audit.json"
+      ],
       "implementation": {
         "demos/checkout.py": "bbeccc5c5fba5d6ebe780dd00beeed63caddb954c79893816ec9c2ca587c126e",
         "demos/checkout_verify.py": "c2e7104c97d354ec1447fa592588b8bdc66d15c4b8c87124c2f4e51df295c07c",
@@ -41,13 +52,22 @@
       }
     },
     {
-      "id": "demo003", "title": "齿轮拼装", "status": "complete",
+      "id": "demo003",
+      "title": "齿轮拼装",
+      "status": "complete",
       "scope": "已知零件位姿的近似齿轮摩擦夹持、插轴与释放基础版",
       "verified_at": "2026-09-06",
-      "limitations": ["矩形近似齿与毫米级间隙，不验证渐开线精密装配或受载传动", "无视觉、学习策略或完整原视频复刻；最终三次通过前有物理失败和运行时异常"],
+      "limitations": [
+        "矩形近似齿与毫米级间隙，不验证渐开线精密装配或受载传动",
+        "无视觉、学习策略或完整原视频复刻；最终三次通过前有物理失败和运行时异常"
+      ],
       "report": "reports/demo003-gears.md",
-      "lessons": ["docs/knowhow/debug-solutions/gear-seating-and-pose.md"],
-      "evidence": ["reports/demo003-audit.json"],
+      "lessons": [
+        "docs/knowhow/debug-solutions/gear-seating-and-pose.md"
+      ],
+      "evidence": [
+        "reports/demo003-audit.json"
+      ],
       "implementation": {
         "demos/gear_assembly.py": "dac330ca8adfc79c45a4f491b820db1cab58e7ea8f4748dd2d91a936153581cb",
         "demos/assembly_parts.py": "da5b2788b36ff4fce4fa79e8aae085fe9aff3cc910fa43132f2d72d2ab019c73",
@@ -57,13 +77,22 @@
       }
     },
     {
-      "id": "demo004", "title": "双臂搭积木", "status": "complete",
+      "id": "demo004",
+      "title": "双臂搭积木",
+      "status": "complete",
       "scope": "两只 Franka 轮流摩擦搬运三件积木、搭桥并持续稳定的基础版",
       "verified_at": "2026-09-06",
-      "limitations": ["顺序共用工作区，不包含双臂同时持物或手递手", "已知状态脚本控制；几何与稳定性支持支撑判定，没有测量接触力或完整原视频复刻"],
+      "limitations": [
+        "顺序共用工作区，不包含双臂同时持物或手递手",
+        "已知状态脚本控制；几何与稳定性支持支撑判定，没有测量接触力或完整原视频复刻"
+      ],
       "report": "reports/demo004-dual-blocks.md",
-      "lessons": ["docs/knowhow/toolchain/dual-arm-support-evidence.md"],
-      "evidence": ["reports/demo004-audit.json"],
+      "lessons": [
+        "docs/knowhow/toolchain/dual-arm-support-evidence.md"
+      ],
+      "evidence": [
+        "reports/demo004-audit.json"
+      ],
       "implementation": {
         "demos/dual_blocks.py": "65ead9a1a33f10b612e78c02ee6b1fd4638e48426e18373ed73850bd471b665c",
         "demos/blocks_verify.py": "cfc333b93324a6a3512cf46c100b46889f2fffc81ca00d0069154d3f570de1bc",
@@ -72,13 +101,24 @@
       }
     },
     {
-      "id": "demo005", "title": "灵巧手拧瓶盖", "status": "complete",
+      "id": "demo005",
+      "title": "灵巧手拧瓶盖",
+      "status": "complete",
       "scope": "Allegro 单手接触驱动、固定瓶身、等效螺纹耦合的旋盖提离基础版",
       "verified_at": "2026-09-06",
-      "limitations": ["等效弹簧螺纹，不是微观螺旋齿面、双臂协作或原视频完整复刻", "仅三种质量初态；早期多次失败与求解器对照均保留，非首轮全通过", "张手负向使用同物理模型的前一终止逻辑版本，真实源码差异已记录"],
+      "limitations": [
+        "等效弹簧螺纹，不是微观螺旋齿面、双臂协作或原视频完整复刻",
+        "仅三种质量初态；早期多次失败与求解器对照均保留，非首轮全通过",
+        "张手负向使用同物理模型的前一终止逻辑版本，真实源码差异已记录"
+      ],
       "report": "reports/demo005-bottle-cap.md",
-      "lessons": ["docs/knowhow/debug-solutions/allegro-mount-contact-clock.md"],
-      "evidence": ["reports/demo005-audit.json", "reports/demo005-negative-audit.json"],
+      "lessons": [
+        "docs/knowhow/debug-solutions/allegro-mount-contact-clock.md"
+      ],
+      "evidence": [
+        "reports/demo005-audit.json",
+        "reports/demo005-negative-audit.json"
+      ],
       "implementation": {
         "demos/bottle_cap.py": "4e2eed10fd744089d733a43663deaee4aa7779cf1ad57d4732403289cbdaba69",
         "demos/cap_verify.py": "d6478ec086e13901f2e7b8444def23201e22a8ad8383610c9dc5acf289d1137d",
@@ -88,15 +128,25 @@
       }
     },
     {
-      "id": "demo006", "title": "餐厅服务", "status": "complete",
+      "id": "demo006",
+      "title": "餐厅服务",
+      "status": "complete",
       "scope": "固定 Franka 摩擦装餐、独立差速车接触搬运并在餐桌旁持续稳定的基础版",
       "verified_at": "2026-09-06",
-      "limitations": ["硬件不同于封面的移动双臂，不含桌面卸餐、视觉、液体或动态避人", "仅三个同版本随机初态；此前停车稳定失败保留，求解器组合修改未做单参数消融"],
+      "limitations": [
+        "硬件不同于封面的移动双臂，不含桌面卸餐、视觉、液体或动态避人",
+        "仅三个同版本随机初态；此前停车稳定失败保留，求解器组合修改未做单参数消融"
+      ],
       "report": "reports/demo006-restaurant.md",
       "presentation_report": "reports/demo006-restaurant-showcase.md",
       "presentation_audit": "reports/demo006-showcase-audit.json",
-      "lessons": ["docs/knowhow/toolchain/mobile-carrier-evidence.md"],
-      "evidence": ["reports/demo006-audit.json", "reports/demo006-negative-audit.json"],
+      "lessons": [
+        "docs/knowhow/toolchain/mobile-carrier-evidence.md"
+      ],
+      "evidence": [
+        "reports/demo006-audit.json",
+        "reports/demo006-negative-audit.json"
+      ],
       "implementation": {
         "demos/restaurant.py": "9937365dcefab46176c3fb5624514c204fe91f39060b2e2e585876f5a0aacea8",
         "demos/service_cart.py": "6da3206080deeaebfe95304209b7802df86ce3b182338a69fde0e6378e4fb479",
@@ -106,7 +156,27 @@
         "scripts/run_task.py": "f6c6e9d6be941529e18991a606257806499420a2e014d0511ab7eb81d4259762"
       }
     },
-    {"id": "demo007", "title": "双臂拼乐高", "status": "in_progress"},
-    {"id": "demo008", "title": "人形机器人室内行走", "status": "planned"}
+    {
+      "id": "demo007",
+      "title": "双臂拼乐高",
+      "status": "in_progress"
+    },
+    {
+      "id": "demo008",
+      "title": "人形机器人室内行走",
+      "status": "planned"
+    },
+    {
+      "id": "demo009",
+      "title": "20 件 Isaac 城堡",
+      "status": "in_progress",
+      "scope": "20件原尺寸接触驱动逐块装配；先完整轨迹，再固定版本seeds 0–5至少5/6",
+      "report": "reports/demo009-castle20-development.md",
+      "spec": "docs/specs/demo009-block-castle.md",
+      "limitations": [
+        "旧版仅2/20，预摆稳定性通过不等于装配完成",
+        "200/1000件扩展暂停，不能混同其证据"
+      ]
+    }
   ]
 }
