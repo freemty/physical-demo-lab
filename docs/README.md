@@ -5,6 +5,11 @@
 
 [查看 README 图片 Gallery](../README.md#demo-gallery)：七项已验证基础版的真实截图与报告入口。
 
+## 新用户入口
+
+[English Getting Started](../GETTING_STARTED.md)、[中文入门](guides/getting-started.zh-CN.md)、
+[完整轨迹与关键阶段格式](guides/castle-outputs.md)。最小流程为固定 20 件城堡，不要求读历史开发账本才能运行。
+
 ## 当前任务
 
 本轮已完成：[20 件 Isaac 城堡](../reports/demo009-castle20.md)，固定版本六种子 6/6；

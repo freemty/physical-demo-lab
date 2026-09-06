@@ -65,3 +65,9 @@ Added the completed-demo README gallery and repository-owned preview provenance.
 
 完成城堡冻结版本六种子首轮 6/6 验收，逐件原生抬升、独立回放及六条视频通过；
 51 项测试通过。新增真实最终截图及来源。保持固定蓝图/已知状态范围，200/1000 仍暂停。
+
+## 2026-09-06 — v13
+
+Added the portable castle20 quickstart, generated Blender bundle, measured
+key-stage sample and guide validation. Native eight-file acceptance is unchanged;
+new-entry assembly and clean-clone verification remain in progress.

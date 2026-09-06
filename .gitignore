@@ -9,3 +9,7 @@ outputs/
 .labmate-hook-state.json
 .labmate-hook-state.lock
 .labmate-state-*
+
+# Portable quickstart runtime and Blender backups
+.runtime/
+*.blend1

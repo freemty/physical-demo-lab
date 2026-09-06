@@ -1,0 +1,43 @@
+{
+  "schema": "castle-export/1",
+  "source_run": "/data1/ybyang/physical-demo-lab-runtime/outputs/castle-isaac/final-v6-seed0",
+  "control_samples": 26411,
+  "phase_count": 242,
+  "event_count": 181,
+  "completed_parts": [
+    "left_foot",
+    "right_foot",
+    "left_wall",
+    "right_wall",
+    "left_gate_pier",
+    "right_gate_pier",
+    "gate_lintel",
+    "left_lower",
+    "right_lower",
+    "left_upper",
+    "right_upper",
+    "left_cornice",
+    "right_cornice",
+    "gate_merlon_0",
+    "gate_merlon_1",
+    "gate_merlon_2",
+    "left_crown_a",
+    "left_crown_b",
+    "right_crown_a",
+    "right_crown_b"
+  ],
+  "task_reported_success": true,
+  "source_hashes": {
+    "trajectory.jsonl": "12a5bc6f758655d6beb06861d12b84bc34cd1d4ab7430e3a5fe67683fd5be1b0",
+    "manifest.json": "c39c31662f6d7383de9c9b5c2e2f18f45288c347aea8642cda8845f82fd66d05",
+    "source-ir.json": "e44fa205d74db0cc9fad91c739100f69dfc4fcb56a8c72b89e2a61c83dfc1910",
+    "events.jsonl": "00af5c464053d116740b33486af4d9b520b7dd4e7d401229abb9be1e8144ce00",
+    "result.json": "4a132bfb838a936a915b728d8aea539f1ed583394cec97ad31de3a414e5e869c"
+  },
+  "derived_hashes": {
+    "keyframes.json": "57e84aa1162809f4525b847ceb47b60cf4b6a6e54b972215e1137fbc24535287",
+    "waypoints.csv": "bc823cdf2b2497198503ecc4c3fbc2f0038574a1e55ffd72550799d771e0ff83",
+    "events.json": "492fbbb963a5c7fb9fc2e682379500918abafdc5e4c9ea2a02650442b16af7e6"
+  },
+  "scope": "Sparse measured/commanded stage endpoints from a real run. Not a replay controller, independent physics audit, lossless replacement or training-dataset format."
+}

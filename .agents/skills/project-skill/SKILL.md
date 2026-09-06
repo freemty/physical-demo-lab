@@ -86,6 +86,20 @@ description: Use when working on physical-demo-lab demos, Isaac Sim runtime inte
   fast-forward-only sync without replacing `.git`. The same infrastructure
   note records the successful procedure and its conflict boundary.
 
+## Castle quickstart
+
+- New users start at `GETTING_STARTED.md` or its Chinese guide, not the historical
+  server runbook. `scripts/castle.py` provides doctor/build/run/audit/export.
+- `examples/castle20` includes a ready-to-open Blender file and real sparse
+  stage endpoints. The same fixed JSON blueprint feeds Blender and Isaac;
+  this is not an arbitrary .blend importer or general task generator.
+- Keep target and measured poses separate. Native Panda positions contain seven
+  arm angles in radians and two finger displacements in meters. Sparse exports
+  are not replay controllers or lossless records.
+- Packaging validation is tracked in `reports/castle-quickstart.md`; new-entry
+  full assembly and clean-clone checks are still in progress.
+- `scripts/check_quickstart.py` checks bundled hashes, local links and examples.
+
 ## Active interfaces
 
 - Verified runtime: Python 3.12.13 / Isaac Sim 6.0.1.0 / Torch 2.11.0+cu128.

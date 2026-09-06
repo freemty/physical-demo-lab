@@ -1,0 +1,58 @@
+{
+  "schema": "castle-bundled-example/1",
+  "created": "2026-09-06",
+  "scope": "Byte-identical generated design and sparse endpoints from the accepted seed0 run; not bundled full rollout or new task acceptance.",
+  "builder_sha256": "c7b63b9b496753fb571d039cfaf5b88b6c38c7b70832d5ecc985cf9c5c4ba147",
+  "files": [
+    {
+      "path": "examples/castle20/castle.blend",
+      "source": "/data1/ybyang/physical-demo-lab-runtime/outputs/castle-quickstart/design-v1/castle.blend",
+      "sha256": "cf1c76f7ab7dc62265a3486ad6f06c1e3f66066eb740d4b92c89e3223660e111"
+    },
+    {
+      "path": "examples/castle20/scene_spec.json",
+      "source": "/data1/ybyang/physical-demo-lab-runtime/outputs/castle-quickstart/design-v1/scene_spec.json",
+      "sha256": "e44fa205d74db0cc9fad91c739100f69dfc4fcb56a8c72b89e2a61c83dfc1910"
+    },
+    {
+      "path": "examples/castle20/blender-audit.json",
+      "source": "/data1/ybyang/physical-demo-lab-runtime/outputs/castle-quickstart/design-v1/blender-audit.json",
+      "sha256": "4a89a0a2600443bf24c58017677f7b28ca92dc718352906458adf4c0a2032ca6"
+    },
+    {
+      "path": "examples/castle20/castle-goal.png",
+      "source": "/data1/ybyang/physical-demo-lab-runtime/outputs/castle-quickstart/design-v1/castle-goal.png",
+      "sha256": "87756333af4992ab13238baa3fac25b8afe48876b2f7f7cd85b8efc53e0fd91e"
+    },
+    {
+      "path": "examples/castle20/castle-loose.png",
+      "source": "/data1/ybyang/physical-demo-lab-runtime/outputs/castle-quickstart/design-v1/castle-loose.png",
+      "sha256": "23e78bc96769594b36bea095620559cccd3ef95555d38b6536028889c0974b09"
+    },
+    {
+      "path": "examples/castle20/castle-exploded.png",
+      "source": "/data1/ybyang/physical-demo-lab-runtime/outputs/castle-quickstart/design-v1/castle-exploded.png",
+      "sha256": "a3ce5877aa8ad994dfe651496b2f1dd287c33a7bb2952d9dcecb9ccd84b947ac"
+    },
+    {
+      "path": "examples/castle20/trajectory/keyframes.json",
+      "source": "/data1/ybyang/physical-demo-lab-runtime/outputs/castle-quickstart/seed0-export-v3/keyframes.json",
+      "sha256": "57e84aa1162809f4525b847ceb47b60cf4b6a6e54b972215e1137fbc24535287"
+    },
+    {
+      "path": "examples/castle20/trajectory/waypoints.csv",
+      "source": "/data1/ybyang/physical-demo-lab-runtime/outputs/castle-quickstart/seed0-export-v3/waypoints.csv",
+      "sha256": "bc823cdf2b2497198503ecc4c3fbc2f0038574a1e55ffd72550799d771e0ff83"
+    },
+    {
+      "path": "examples/castle20/trajectory/events.json",
+      "source": "/data1/ybyang/physical-demo-lab-runtime/outputs/castle-quickstart/seed0-export-v3/events.json",
+      "sha256": "492fbbb963a5c7fb9fc2e682379500918abafdc5e4c9ea2a02650442b16af7e6"
+    },
+    {
+      "path": "examples/castle20/trajectory/export-manifest.json",
+      "source": "/data1/ybyang/physical-demo-lab-runtime/outputs/castle-quickstart/seed0-export-v3/export-manifest.json",
+      "sha256": "9feaac8d811f8a33aba6cffeff4f1c4da93d97ff8815ea9cb47218b84f1a7db9"
+    }
+  ]
+}

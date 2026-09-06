@@ -1,0 +1,24 @@
+{
+  "success": true,
+  "blender_version": "4.5.0",
+  "layouts": [
+    {
+      "layout": "Goal",
+      "independent_parts": 20,
+      "geometry_checked": true
+    },
+    {
+      "layout": "Loose",
+      "independent_parts": 20,
+      "geometry_checked": true
+    },
+    {
+      "layout": "Exploded",
+      "independent_parts": 20,
+      "geometry_checked": true
+    }
+  ],
+  "ir_sha256": "e44fa205d74db0cc9fad91c739100f69dfc4fcb56a8c72b89e2a61c83dfc1910",
+  "blend_sha256": "cf1c76f7ab7dc62265a3486ad6f06c1e3f66066eb740d4b92c89e3223660e111",
+  "scope": "Re-opened saved Blender file: source identities, layouts, raw mesh dimensions, local geometry poses, masses and collision labels. Not a physics or robot acceptance."
+}

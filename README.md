@@ -1,6 +1,38 @@
 # physical-demo-lab
 
-Isaac Sim 机器人仿真 demo；每次运行保留源码版本、场景、控制命令、逐帧物理状态、验证结果和视频。
+Generate block scenes in Blender, run contact-driven robot assembly in Isaac Sim,
+and retain the executed trajectories, physical checks and videos.
+
+从一个可复现的 20 块城堡开始：**Blender 场景 → 共享物理蓝图 → 机器人搭建 → 完整轨迹与关键阶段**。
+
+**[Getting Started](GETTING_STARTED.md)** ·
+[中文入门](docs/guides/getting-started.zh-CN.md) ·
+[直接打开 Blender 示例](examples/castle20/README.md) ·
+[查看真实关键轨迹样本](examples/castle20/trajectory/README.md)
+
+## Start Here
+
+The smallest supported workflow is the fixed twenty-piece castle. It includes
+a ready-to-open `.blend`, the builder, an Isaac launcher, a strict auditor,
+and a key-stage exporter. The accepted native controller passed all six fixed
+seeds; it uses privileged state and is not a learned or visual policy.
+
+- **Inspect:** open `examples/castle20/castle.blend` and choose Goal, Loose or Exploded.
+- **Generate a scene:** install Blender 4.5, then run the command below.
+- **Generate robot trajectories:** follow [Getting Started](GETTING_STARTED.md)
+  for Linux/RTX requirements, installation, smoke testing, assembly and auditing.
+
+```bash
+python3 scripts/castle.py build --output outputs/castle20-design --render
+```
+
+This emits a Blender file and the shared JSON blueprint. Isaac imports the JSON,
+not arbitrary Blender meshes. No model API key is required. Full trajectories
+come from executed physics, not the Blender layout previews.
+
+The other demos remain available below, each with its own evidence and limits.
+[Repository progress and TODO](docs/TODO.md) ·
+[Quickstart validation](reports/castle-quickstart.md)
 
 ## Demo Gallery
 
